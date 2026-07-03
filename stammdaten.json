@@ -11,11 +11,6 @@
     "Steven Kilian",
     "Tschechen 1",
     "Tschechen 2",
-    "Anakin Schäfner",
-    "Andreas Krieg",
-    "Christian Berthold",
-    "Holger Krieg",
-    "Stephan Übensee",
     "Michael Zöllner",
     "Schäfer 1",
     "Schäfer 2",
@@ -25,7 +20,13 @@
     "Mario Schäufele",
     "Ralf Schäufele"
   ],
-  "maSchwach": [],
+  "maSchwach": [
+    "Anakin Schäfner",
+    "Andreas Krieg",
+    "Christian Berthold",
+    "Holger Krieg",
+    "Stephan Übensee"
+  ],
   "projekte": [
     {
       "nr": "Wartung",
