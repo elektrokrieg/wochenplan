@@ -1,0 +1,235 @@
+{
+  "maStark": [
+    "Ferhad Mohammadi",
+    "Heiko Tittel",
+    "Jens Wellach",
+    "Jo Hannes Bohnwagner",
+    "Martin Ruta",
+    "Paul Braungart",
+    "Qudrat Hamidi",
+    "Ronald Zöller",
+    "Steven Kilian",
+    "Tschechen 1",
+    "Tschechen 2",
+    "Anakin Schäfner",
+    "Andreas Krieg",
+    "Christian Berthold",
+    "Holger Krieg",
+    "Stephan Übensee",
+    "Michael Zöllner",
+    "Schäfer 1",
+    "Schäfer 2",
+    "Lenny Edmondson",
+    "SV Tech 1",
+    "SV Tech 2",
+    "Mario Schäufele",
+    "Ralf Schäufele"
+  ],
+  "maSchwach": [],
+  "projekte": [
+    {
+      "nr": "Wartung",
+      "bez": "Wartung"
+    },
+    {
+      "nr": "Schulung",
+      "bez": "Schulung"
+    },
+    {
+      "nr": "Intern",
+      "bez": "Intern"
+    },
+    {
+      "nr": "Urlaub",
+      "bez": "Urlaub"
+    },
+    {
+      "nr": "Krank",
+      "bez": "Krank"
+    },
+    {
+      "nr": "AZA",
+      "bez": "Arbeitszeitausgleich"
+    },
+    {
+      "nr": "P2023-0790",
+      "bez": "Kühndorf Kita Bau BMA"
+    },
+    {
+      "nr": "P2025-103",
+      "bez": "SM Gym Tausch Beleuchtung"
+    },
+    {
+      "nr": "441",
+      "bez": "Dreißigacker Winkhaus Instands BMA"
+    },
+    {
+      "nr": "455",
+      "bez": "Lengfurt BGHM TÜV Mängel"
+    },
+    {
+      "nr": "505",
+      "bez": "Barchfeld TH Instans RWA"
+    },
+    {
+      "nr": "1",
+      "bez": "Stadion Meiningen"
+    },
+    {
+      "nr": "2",
+      "bez": "Walldorf Turnhalle"
+    },
+    {
+      "nr": "612",
+      "bez": "Dreißigacker Weiskopf Rückbau BMA"
+    },
+    {
+      "nr": "3",
+      "bez": "Walldorf Stadtservice"
+    },
+    {
+      "nr": "642",
+      "bez": "MGN Altes Stadtbad Notlicht"
+    },
+    {
+      "nr": "651",
+      "bez": "ZM Feuerwehr Erweiterung BMA"
+    },
+    {
+      "nr": "668",
+      "bez": "Schweinfurt WEG Vogelw Akkus RWA"
+    },
+    {
+      "nr": "669",
+      "bez": "Schweinfurt WEG Vogelw Akkus Sibel"
+    },
+    {
+      "nr": "670",
+      "bez": "Schweinfurt Studiwohn Akkus Sibel"
+    },
+    {
+      "nr": "671",
+      "bez": "Niederwerrn Tiefgarage Akkus Sibel"
+    },
+    {
+      "nr": "673",
+      "bez": "Schweinfurt PH Akkus BMA"
+    },
+    {
+      "nr": "674",
+      "bez": "Schweinfurt PH Tausch Beleuchtung"
+    },
+    {
+      "nr": "679",
+      "bez": "Steinbach Hallenberg Mängel BMA"
+    },
+    {
+      "nr": "681",
+      "bez": "Römhild PH Elektroarbeiten"
+    },
+    {
+      "nr": "687",
+      "bez": "Bauerbach Schiller Mängel UV 1"
+    },
+    {
+      "nr": "700",
+      "bez": "Brotterode GS SD Karte Sibel"
+    },
+    {
+      "nr": "706",
+      "bez": "Nürnberg BGHM Tausch Netzteil BMA"
+    },
+    {
+      "nr": "710",
+      "bez": "Obermaßfeld Kita Akkus Sibel"
+    },
+    {
+      "nr": "721",
+      "bez": "Schmalkalden PH Tausch ELA Verst"
+    },
+    {
+      "nr": "725",
+      "bez": "Hammelburg PH RZB liefern"
+    },
+    {
+      "nr": "729",
+      "bez": "Henneberg TH Instands Sibel"
+    },
+    {
+      "nr": "4",
+      "bez": "Henneberg Beleuchtung"
+    },
+    {
+      "nr": "735",
+      "bez": "MGN AWO Datenleitung WLAN"
+    },
+    {
+      "nr": "737",
+      "bez": "MGN Kita im Park GEZE Rauchschalt"
+    },
+    {
+      "nr": "5",
+      "bez": "BG Lengfurt"
+    },
+    {
+      "nr": "6",
+      "bez": "Walldorf Technikgebäude"
+    },
+    {
+      "nr": "7",
+      "bez": "Münnerstadt"
+    },
+    {
+      "nr": "8",
+      "bez": "Nüdlingen"
+    },
+    {
+      "nr": "9",
+      "bez": "G&S Meiningen"
+    },
+    {
+      "nr": "10",
+      "bez": "Landratsamt Haus 3 SI Bel."
+    },
+    {
+      "nr": "11",
+      "bez": "Meiningen Henfling WC + UV"
+    },
+    {
+      "nr": "12",
+      "bez": "Allianzwohnung"
+    },
+    {
+      "nr": "13",
+      "bez": "Volkshaus"
+    },
+    {
+      "nr": "14",
+      "bez": "BBZ Meiningen"
+    },
+    {
+      "nr": "15",
+      "bez": "Schleusingen AWO"
+    },
+    {
+      "nr": "16",
+      "bez": "Unsleben KITA"
+    },
+    {
+      "nr": "17",
+      "bez": "Zella Mehlis GYM"
+    },
+    {
+      "nr": "18",
+      "bez": "SBBZ Zella Mehlis"
+    },
+    {
+      "nr": "19",
+      "bez": "SWSZ Zella Mehlis"
+    },
+    {
+      "nr": "20",
+      "bez": "BMA Kläranlage MGN"
+    }
+  ]
+}
