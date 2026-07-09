@@ -231,6 +231,10 @@
     {
       "nr": "20",
       "bez": "BMA Kläranlage MGN"
+    },
+    {
+      "nr": "Eingliederung",
+      "bez": "Eingliederung 4-6 Std"
     }
   ]
 }
