@@ -245,6 +245,10 @@
     {
       "nr": "23",
       "bez": "Blutlabor"
+    },
+    {
+      "nr": "24",
+      "bez": "TH Obermaßfeld BMA SI"
     }
   ]
 }
