@@ -41,8 +41,8 @@
   "Heiko Tittel-0-0": "SWSZ HV",
   "Heiko Tittel-1-0": "SWSZ HV",
   "Heiko Tittel-2-0": "SWSZ HV",
-  "Heiko Tittel-3-0": "SWSZ HV",
-  "Heiko Tittel-4-0": "SWSZ HV",
+  "Heiko Tittel-3-0": "Klinikum",
+  "Heiko Tittel-4-0": "Klinikum",
   "Mario Schäufele-0-0": "Nüdlingen",
   "Mario Schäufele-0-1": "Henneberg Beleuchtung",
   "Ralf Schäufele-0-0": "Nüdlingen",
@@ -85,5 +85,9 @@
   "Jens Wellach-3-0": "Blutlabor",
   "Jens Wellach-4-0": "Blutlabor",
   "Lenny Edmondson-3-0": "Blutlabor",
-  "Lenny Edmondson-4-0": "Blutlabor"
+  "Lenny Edmondson-4-0": "Blutlabor",
+  "Mario Schäufele-3-0": "Klinikum",
+  "Ralf Schäufele-3-0": "Klinikum",
+  "Mario Schäufele-4-0": "Klinikum",
+  "Ralf Schäufele-4-0": "Klinikum"
 }
