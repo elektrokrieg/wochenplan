@@ -175,10 +175,6 @@
       "bez": "Walldorf Technikgebäude"
     },
     {
-      "nr": "7",
-      "bez": "Münnerstadt"
-    },
-    {
       "nr": "8",
       "bez": "Nüdlingen"
     },
@@ -261,6 +257,10 @@
     {
       "nr": "Elkom 1",
       "bez": "Sparkasse"
+    },
+    {
+      "nr": "Lengfurt",
+      "bez": "Lengfurt"
     }
   ]
 }
