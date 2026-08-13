@@ -191,10 +191,6 @@
       "bez": "Meiningen Henfling WC + UV"
     },
     {
-      "nr": "12",
-      "bez": "Allianzwohnung"
-    },
-    {
       "nr": "14",
       "bez": "BBZ Meiningen"
     },
@@ -269,6 +265,10 @@
     {
       "nr": "SWSZ HV",
       "bez": "SWSZ HV"
+    },
+    {
+      "nr": "12",
+      "bez": "Meiningen AWO"
     }
   ]
 }
