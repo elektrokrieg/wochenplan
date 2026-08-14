@@ -177,6 +177,8 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
 }
 .proj-select-small:focus { outline: 1px solid var(--blue-mid); }
 .proj-select-small option { background: white; color: var(--gray-900); }
+.proj-row:hover { background: var(--blue-light) !important; }
+.proj-row:hover td { background: var(--blue-light); }
 
 /* Zeilen passen sich automatisch an */
 .tr-ma { height: auto; min-height: 28px; }
@@ -463,10 +465,10 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
       </div>
     </div>
     <div class="stamm-section">
-      <div class="stamm-header">🏗️ Projekte / Baustellen</div>
+      <div class="stamm-header">🏗️ Projekte / Baustellen <span style="font-weight:400;font-size:11px;opacity:.8">(automatisch nach Nummer sortiert)</span></div>
       <div class="stamm-body">
-        <ul class="stamm-list" id="listProjekte"></ul>
-        <div class="add-row">
+        <table style="width:100%;border-collapse:collapse;font-size:12px;" id="listProjekte"></table>
+        <div class="add-row" style="margin-top:10px">
           <input id="newProjNr" placeholder="Nr. (z.B. 750)" style="max-width:90px" onkeydown="if(event.key==='Enter')addProjekt()">
           <input id="newProjBez" placeholder="Bezeichnung…" onkeydown="if(event.key==='Enter')addProjekt()">
           <button class="add-btn" onclick="addProjekt()">+ Hinzufügen</button>
@@ -916,7 +918,9 @@ function buildProjSelect(ma, d, s, key, val, disabled) {
     return `<div class="proj-cell">`
       + `<div class="proj-text">${escHtml(val)}</div>`
       + `<select class="proj-select-small" data-key="${escHtml(key)}" data-ma="${maEnc}" data-d="${d}" data-s="${s}" onchange="onProjChange(this)">`
-      + `<option value="">── ändern ──</option>${opts}</select>`
+      + `<option value="">── ändern ──</option>`
+      + `<option value="__DELETE__" style="color:#C62828;font-weight:700">✕ Löschen</option>`
+      + `${opts}</select>`
       + `</div>`;
   }
   const opts = STAMM.projekte.map(p =>
@@ -938,8 +942,8 @@ async function onProjChange(sel) {
   const ma   = decodeURIComponent(sel.dataset.ma);
   const d    = parseInt(sel.dataset.d);
   const s    = parseInt(sel.dataset.s);
-  const val  = sel.value;
-  if (!val) return;
+  const val  = sel.value === '__DELETE__' ? '' : sel.value;
+  if (sel.value === '') return;  // "── ändern ──" ignorieren
 
   if (!WP_DATA[key]) WP_DATA[key] = {};
   WP_DATA[key][`${ma}-${d}-${s}`] = val;
@@ -1098,9 +1102,26 @@ function renderStammdaten() {
   renderList('listMAStark', STAMM.maStark, 'removeMAStark');
   renderList('listMASchwach', STAMM.maSchwach, 'removeMASchwach');
 
-  const ulP = document.getElementById('listProjekte');
-  ulP.innerHTML = STAMM.projekte.map((p,i) =>
-    `<li class="stamm-item"><span><strong>${p.nr}</strong> – ${p.bez}</span><button class="del-btn" onclick="removeProjekt(${i})" title="Entfernen">✕</button></li>`
+  // Projekte sortiert nach Nummer (numerisch wenn möglich, sonst alphabetisch)
+  const sortierteProjekte = STAMM.projekte
+    .map((p, origIdx) => ({ ...p, origIdx }))
+    .sort((a, b) => {
+      const nA = parseFloat(a.nr), nB = parseFloat(b.nr);
+      if (!isNaN(nA) && !isNaN(nB)) return nA - nB;
+      return String(a.nr).localeCompare(String(b.nr), 'de');
+    });
+
+  const tblP = document.getElementById('listProjekte');
+  tblP.innerHTML = `<tr style="background:#F1F3F4;font-weight:700;font-size:11px;">
+    <td style="padding:4px 8px;width:90px;border-bottom:2px solid #DADCE0;">Nummer</td>
+    <td style="padding:4px 8px;border-bottom:2px solid #DADCE0;">Bezeichnung</td>
+    <td style="padding:4px 8px;width:32px;border-bottom:2px solid #DADCE0;"></td>
+  </tr>` + sortierteProjekte.map((p) =>
+    `<tr class="proj-row" style="border-bottom:1px solid #F1F3F4;">
+      <td style="padding:3px 8px;font-weight:700;color:#1F4E79;white-space:nowrap;">${p.nr}</td>
+      <td style="padding:3px 8px;">${p.bez}</td>
+      <td style="padding:3px 4px;text-align:center;"><button class="del-btn" onclick="removeProjekt(${p.origIdx})" title="Entfernen">✕</button></td>
+    </tr>`
   ).join('');
 }
 
@@ -1125,6 +1146,12 @@ function addProjekt() {
   const bez = document.getElementById('newProjBez').value.trim();
   if (!bez) return;
   STAMM.projekte.push({nr: nr||bez, bez});
+  // Sofort sortieren nach Nummer
+  STAMM.projekte.sort((a, b) => {
+    const nA = parseFloat(a.nr), nB = parseFloat(b.nr);
+    if (!isNaN(nA) && !isNaN(nB)) return nA - nB;
+    return String(a.nr).localeCompare(String(b.nr), 'de');
+  });
   document.getElementById('newProjNr').value='';
   document.getElementById('newProjBez').value='';
   STAMM_DIRTY=true; DIRTY.add('stamm'); updateDirtyIndicator();
