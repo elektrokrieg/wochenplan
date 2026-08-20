@@ -27,36 +27,100 @@
   ],
   "projekte": [
     {
-      "nr": "Wartung",
-      "bez": "Wartung"
+      "nr": "1",
+      "bez": "Stadion Meiningen"
     },
     {
-      "nr": "Schulung",
-      "bez": "Schulung"
+      "nr": "2",
+      "bez": "Walldorf Turnhalle"
     },
     {
-      "nr": "Intern",
-      "bez": "Intern"
+      "nr": "3",
+      "bez": "Walldorf Stadtservice"
     },
     {
-      "nr": "Urlaub",
-      "bez": "Urlaub"
+      "nr": "4",
+      "bez": "Henneberg Beleuchtung"
     },
     {
-      "nr": "Krank",
-      "bez": "Krank"
+      "nr": "5",
+      "bez": "BG Lengfurt"
     },
     {
-      "nr": "AZA",
-      "bez": "Arbeitszeitausgleich"
+      "nr": "6",
+      "bez": "Walldorf Technikgebäude"
     },
     {
-      "nr": "P2023-0790",
-      "bez": "Kühndorf Kita Bau BMA"
+      "nr": "8",
+      "bez": "Nüdlingen"
     },
     {
-      "nr": "P2025-103",
-      "bez": "SM Gym Tausch Beleuchtung"
+      "nr": "9",
+      "bez": "G&S Meiningen"
+    },
+    {
+      "nr": "10",
+      "bez": "Landratsamt Haus 3 SI Bel."
+    },
+    {
+      "nr": "11",
+      "bez": "Meiningen Henfling WC + UV"
+    },
+    {
+      "nr": "13",
+      "bez": "BBZ Mgn Schranke"
+    },
+    {
+      "nr": "14",
+      "bez": "BBZ Meiningen"
+    },
+    {
+      "nr": "15",
+      "bez": "Schleusingen AWO"
+    },
+    {
+      "nr": "16",
+      "bez": "Unsleben KITA"
+    },
+    {
+      "nr": "17",
+      "bez": "Zella Mehlis GYM"
+    },
+    {
+      "nr": "18",
+      "bez": "SBBZ Zella Mehlis"
+    },
+    {
+      "nr": "19",
+      "bez": "SWSZ Zella Mehlis"
+    },
+    {
+      "nr": "20",
+      "bez": "BMA Kläranlage MGN"
+    },
+    {
+      "nr": "21",
+      "bez": "Volkshaus"
+    },
+    {
+      "nr": "22",
+      "bez": "AWO Meiningen"
+    },
+    {
+      "nr": "23",
+      "bez": "Blutlabor"
+    },
+    {
+      "nr": "24",
+      "bez": "TH Obermaßfeld BMA SI"
+    },
+    {
+      "nr": "25",
+      "bez": "RPH"
+    },
+    {
+      "nr": "163",
+      "bez": "Unsleben"
     },
     {
       "nr": "441",
@@ -71,20 +135,8 @@
       "bez": "Barchfeld TH Instans RWA"
     },
     {
-      "nr": "1",
-      "bez": "Stadion Meiningen"
-    },
-    {
-      "nr": "2",
-      "bez": "Walldorf Turnhalle"
-    },
-    {
       "nr": "612",
       "bez": "Dreißigacker Weiskopf Rückbau BMA"
-    },
-    {
-      "nr": "3",
-      "bez": "Walldorf Stadtservice"
     },
     {
       "nr": "642",
@@ -155,10 +207,6 @@
       "bez": "Henneberg TH Instands Sibel"
     },
     {
-      "nr": "4",
-      "bez": "Henneberg Beleuchtung"
-    },
-    {
       "nr": "735",
       "bez": "MGN AWO Datenleitung WLAN"
     },
@@ -167,104 +215,60 @@
       "bez": "MGN Kita im Park GEZE Rauchschalt"
     },
     {
-      "nr": "5",
-      "bez": "BG Lengfurt"
+      "nr": "AZA",
+      "bez": "Arbeitszeitausgleich"
     },
     {
-      "nr": "6",
-      "bez": "Walldorf Technikgebäude"
-    },
-    {
-      "nr": "8",
-      "bez": "Nüdlingen"
-    },
-    {
-      "nr": "9",
-      "bez": "G&S Meiningen"
-    },
-    {
-      "nr": "10",
-      "bez": "Landratsamt Haus 3 SI Bel."
-    },
-    {
-      "nr": "11",
-      "bez": "Meiningen Henfling WC + UV"
-    },
-    {
-      "nr": "14",
-      "bez": "BBZ Meiningen"
-    },
-    {
-      "nr": "15",
-      "bez": "Schleusingen AWO"
-    },
-    {
-      "nr": "16",
-      "bez": "Unsleben KITA"
-    },
-    {
-      "nr": "17",
-      "bez": "Zella Mehlis GYM"
-    },
-    {
-      "nr": "18",
-      "bez": "SBBZ Zella Mehlis"
-    },
-    {
-      "nr": "19",
-      "bez": "SWSZ Zella Mehlis"
-    },
-    {
-      "nr": "20",
-      "bez": "BMA Kläranlage MGN"
-    },
-    {
-      "nr": "Eingliederung",
-      "bez": "Eingliederung 4-6 Std"
-    },
-    {
-      "nr": "21",
-      "bez": "Volkshaus"
-    },
-    {
-      "nr": "13",
-      "bez": "BBZ Mgn Schranke"
-    },
-    {
-      "nr": "22",
-      "bez": "AWO Meiningen"
-    },
-    {
-      "nr": "23",
-      "bez": "Blutlabor"
-    },
-    {
-      "nr": "24",
-      "bez": "TH Obermaßfeld BMA SI"
-    },
-    {
-      "nr": "25",
-      "bez": "RPH"
-    },
-    {
-      "nr": "163",
-      "bez": "Unsleben"
+      "nr": "E-Check",
+      "bez": "E-Check"
     },
     {
       "nr": "Elkom 1",
       "bez": "Sparkasse"
     },
     {
+      "nr": "Intern",
+      "bez": "Intern"
+    },
+    {
+      "nr": "Klinikum",
+      "bez": "Klinikum"
+    },
+    {
+      "nr": "Krank",
+      "bez": "Krank"
+    },
+    {
       "nr": "Lengfurt",
       "bez": "Lengfurt"
+    },
+    {
+      "nr": "P2023-0790",
+      "bez": "Kühndorf Kita Bau BMA"
+    },
+    {
+      "nr": "P2025-103",
+      "bez": "SM Gym Tausch Beleuchtung"
+    },
+    {
+      "nr": "Raum Landwehr",
+      "bez": "Landwehrstraße 1"
+    },
+    {
+      "nr": "Schulung",
+      "bez": "Schulung"
     },
     {
       "nr": "SWSZ HV",
       "bez": "SWSZ HV"
     },
     {
-      "nr": "Klinikum",
-      "bez": "Klinikum"
+      "nr": "Urlaub",
+      "bez": "Urlaub"
+    },
+    {
+      "nr": "Wartung",
+      "bez": "Wartung"
     }
   ]
 }
