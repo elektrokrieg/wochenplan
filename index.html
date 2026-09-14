@@ -933,19 +933,14 @@ function buildProjSelect(ma, d, s, key, val, disabled) {
     const opts = STAMM.projekte.map(p =>
       `<option value="${escHtml(p.bez)}" ${p.bez===val?'selected':''}>${escHtml(p.nr)}</option>`
     ).join('');
-    // Wartungs-Unterdropdown
+    // Wartungs-Button statt eingebettetem Dropdown
     const isWartung = val === 'Wartung' || val.startsWith('Wartung – ');
-    let wartungSub = '';
-    if (isWartung && (STAMM.wartungskunden||[]).length > 0) {
-      const wkOpts = sortWK(STAMM.wartungskunden)
-        .map(k=>`<option value="${escHtml('Wartung – '+(k.ort?k.ort+' – ':'')+k.name)}">${escHtml(k.nr+' – '+(k.ort?k.ort+' – ':'')+k.name)}</option>`)
-        .join('');
-      wartungSub = `<select class="wartung-sub" data-key="${escHtml(key)}" data-ma="${maEnc}" data-d="${d}" data-s="${s}" onchange="onWartungKunde(this)">`
-        + `<option value="">── Wartungskunde wählen ──</option>${wkOpts}</select>`;
-    }
+    const wartungBtn = (isWartung && (STAMM.wartungskunden||[]).length > 0)
+      ? `<button class="wartung-sub" onclick="openWartungsPopup('${escHtml(key)}','${maEnc}',${d},${s})" style="cursor:pointer;text-align:left;border:none;width:100%;margin-top:2px;background:rgba(255,200,0,0.2);border-radius:3px;padding:2px 4px;font-size:10px;color:#5A3E00;font-weight:600;">🔍 Wartungskunde ändern</button>`
+      : '';
     return `<div class="proj-cell">`
       + `<div class="proj-text">${escHtml(val)}</div>`
-      + wartungSub
+      + wartungBtn
       + `<select class="proj-select-small" data-key="${escHtml(key)}" data-ma="${maEnc}" data-d="${d}" data-s="${s}" onchange="onProjChange(this)">`
       + `<option value="">── ändern ──</option>`
       + `<option value="__DELETE__" style="color:#C62828;font-weight:700">✕ Löschen</option>`
@@ -1579,11 +1574,107 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+
+// ── Wartungskunden Popup ─────────────────────────────────────
+var _wpopKey, _wpopMa, _wpopD, _wpopS;
+
+function openWartungsPopup(key, ma, d, s) {
+  _wpopKey = key; _wpopMa = ma; _wpopD = d; _wpopS = s;
+  document.getElementById('wartungsSuche').value = '';
+  filterWartungskunden('');
+  document.getElementById('wartungsPopupBack').style.display = 'flex';
+  document.getElementById('wartungsSuche').focus();
+}
+
+function closeWartungsPopup() {
+  document.getElementById('wartungsPopupBack').style.display = 'none';
+}
+
+function filterWartungskunden(q) {
+  const tbl = document.getElementById('wartungsPopupListe');
+  const kunden = sortWK(STAMM.wartungskunden || []);
+  const ql = q.toLowerCase();
+  const filtered = q ? kunden.filter(k =>
+    k.name.toLowerCase().includes(ql) ||
+    String(k.nr).toLowerCase().includes(ql) ||
+    (k.ort||'').toLowerCase().includes(ql)
+  ) : kunden;
+
+  tbl.innerHTML = `<tr style="background:#F1F3F4;font-weight:700;font-size:11px;position:sticky;top:0">
+    <td style="padding:4px 8px;width:55px;border-bottom:2px solid #DADCE0">Nr.</td>
+    <td style="padding:4px 8px;border-bottom:2px solid #DADCE0">Kundenname</td>
+    <td style="padding:4px 8px;width:100px;border-bottom:2px solid #DADCE0">Ort</td>
+  </tr>` + filtered.map(k =>
+    `<tr style="border-bottom:1px solid #F1F3F4;cursor:pointer" onclick="waehleWartungskunde('${escHtml(k.name)}','${escHtml(k.ort||'')}')"
+      onmouseover="this.style.background='#FFF9C4'" onmouseout="this.style.background=''">
+      <td style="padding:5px 8px;color:#7B4F00;font-weight:700">${escHtml(k.nr)}</td>
+      <td style="padding:5px 8px;font-weight:600">${escHtml(k.name)}</td>
+      <td style="padding:5px 8px;color:#666;font-size:11px">${escHtml(k.ort||'')}</td>
+    </tr>`
+  ).join('') + (filtered.length === 0 ? '<tr><td colspan="3" style="padding:16px;text-align:center;color:#999">Keine Treffer</td></tr>' : '');
+}
+
+function waehleWartungskunde(name, ort) {
+  const val = 'Wartung – ' + (ort ? ort + ' – ' : '') + name;
+  if (!WP_DATA[_wpopKey]) WP_DATA[_wpopKey] = {};
+  WP_DATA[_wpopKey][`${_wpopMa}-${_wpopD}-${_wpopS}`] = val;
+
+  // Zelle aktualisieren
+  const cellId = `wp-cell-${CSS.escape(_wpopKey)}-${CSS.escape(_wpopMa)}-${_wpopD}-${_wpopS}`;
+  // Find via data attributes
+  const allTd = document.querySelectorAll('td.td-proj');
+  for (const td of allTd) {
+    const sel = td.querySelector('[data-key]');
+    if (sel && sel.dataset.key === _wpopKey &&
+        decodeURIComponent(sel.dataset.ma) === _wpopMa &&
+        parseInt(sel.dataset.d) === _wpopD &&
+        parseInt(sel.dataset.s) === _wpopS) {
+      td.innerHTML = buildProjSelect(_wpopMa, _wpopD, _wpopS, _wpopKey, val, false);
+      td.closest('tr').style.height = 'auto';
+      break;
+    }
+  }
+
+  localStorage.setItem('wpCache_'+_wpopKey, JSON.stringify(WP_DATA[_wpopKey]));
+  DIRTY.add('wp:'+_wpopKey); updateDirtyIndicator();
+  showToast('Lokal gespeichert – Upload-Button zum Hochladen', '');
+  closeWartungsPopup();
+}
+
+// ESC schliesst Popup
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeWartungsPopup();
+});
+document.getElementById('wartungsPopupBack').addEventListener('click', function(ev) {
+  if (ev.target === this) closeWartungsPopup();
+});
+
 window.addEventListener('online', ()=>updateOnlineStatus(true));
 window.addEventListener('offline', ()=>updateOnlineStatus(false));
 
 initConfigListeners();
 init();
 </script>
+
+<!-- Wartungskunden Popup -->
+<div id="wartungsPopupBack" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:2000;align-items:center;justify-content:center;padding:16px;">
+  <div style="background:white;border-radius:8px;width:100%;max-width:480px;max-height:85vh;display:flex;flex-direction:column;box-shadow:0 4px 24px rgba(0,0,0,0.25);">
+    <div style="background:#7B4F00;color:white;padding:12px 16px;border-radius:8px 8px 0 0;display:flex;align-items:center;gap:8px;">
+      <span style="font-weight:700;font-size:14px;flex:1">🔧 Wartungskunde auswählen</span>
+      <button onclick="closeWartungsPopup()" style="background:rgba(255,255,255,0.2);border:none;color:white;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;">✕</button>
+    </div>
+    <div style="padding:10px 12px;border-bottom:1px solid #DADCE0;">
+      <input id="wartungsSuche" type="text" placeholder="🔍 Suchen nach Name, Nr. oder Ort…"
+        style="width:100%;border:1px solid #DADCE0;border-radius:6px;padding:7px 10px;font-size:13px;box-sizing:border-box;"
+        oninput="filterWartungskunden(this.value)">
+    </div>
+    <div style="overflow-y:auto;flex:1;">
+      <table style="width:100%;border-collapse:collapse;font-size:12px;" id="wartungsPopupListe"></table>
+    </div>
+    <div style="padding:8px 12px;border-top:1px solid #DADCE0;display:flex;justify-content:flex-end;">
+      <button onclick="closeWartungsPopup()" style="background:#F1F3F4;color:#5F6368;border:none;border-radius:6px;padding:7px 16px;cursor:pointer;font-size:13px;font-weight:600;">Abbrechen</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
