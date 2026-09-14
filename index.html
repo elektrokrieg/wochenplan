@@ -177,8 +177,6 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
 }
 .proj-select-small:focus { outline: 1px solid var(--blue-mid); }
 .proj-select-small option { background: white; color: var(--gray-900); }
-.proj-row:hover { background: var(--blue-light) !important; }
-.proj-row:hover td { background: var(--blue-light); }
 
 /* Zeilen passen sich automatisch an */
 .tr-ma { height: auto; min-height: 28px; }
@@ -465,13 +463,32 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
       </div>
     </div>
     <div class="stamm-section">
-      <div class="stamm-header">🏗️ Projekte / Baustellen <span style="font-weight:400;font-size:11px;opacity:.8">(automatisch nach Nummer sortiert)</span></div>
+      <div class="stamm-header">🏗️ Projekte / Baustellen</div>
       <div class="stamm-body">
-        <table style="width:100%;border-collapse:collapse;font-size:12px;" id="listProjekte"></table>
-        <div class="add-row" style="margin-top:10px">
+        <ul class="stamm-list" id="listProjekte"></ul>
+        <div class="add-row">
           <input id="newProjNr" placeholder="Nr. (z.B. 750)" style="max-width:90px" onkeydown="if(event.key==='Enter')addProjekt()">
           <input id="newProjBez" placeholder="Bezeichnung…" onkeydown="if(event.key==='Enter')addProjekt()">
           <button class="add-btn" onclick="addProjekt()">+ Hinzufügen</button>
+        </div>
+      </div>
+    </div>
+    <div class="stamm-section">
+      <div class="stamm-header" style="background:#7B4F00">🔧 Wartungskunden <span style="font-weight:400;font-size:11px;opacity:.8">(Unterdropdown bei Auswahl "Wartung")</span></div>
+      <div class="stamm-body">
+        <div class="add-row" style="margin-bottom:8px">
+          <input type="file" id="xlsxFileInput" accept=".xlsx,.xls,.csv" onchange="importWartungskunden(this)">
+          <button class="import-btn" onclick="document.getElementById('xlsxFileInput').click()">📂 Excel / CSV importieren</button>
+          <span style="font-size:11px;color:#666;margin-left:6px">Spalte A = Nr, Spalte B = Name</span>
+        </div>
+        <div id="wartungskundenInfo" style="font-size:12px;color:#666;margin-bottom:6px"></div>
+        <div style="max-height:280px;overflow-y:auto;border:1px solid #DADCE0;border-radius:4px">
+          <table style="width:100%;border-collapse:collapse;font-size:12px" id="listWartungskunden"></table>
+        </div>
+        <div class="add-row" style="margin-top:8px">
+          <input id="newWKNr" placeholder="Nr." style="max-width:70px" onkeydown="if(event.key==='Enter')addWartungskunde()">
+          <input id="newWKName" placeholder="Kundenname…" onkeydown="if(event.key==='Enter')addWartungskunde()">
+          <button class="add-btn" onclick="addWartungskunde()">+ Hinzufügen</button>
         </div>
       </div>
     </div>
@@ -484,7 +501,7 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
 //  STATE
 // ═══════════════════════════════════════════════════════════════
 let CFG = { user:'', repo:'', token:'' };
-let STAMM = { maStark:[], maSchwach:[], projekte:[] };
+let STAMM = { maStark:[], maSchwach:[], projekte:[], wartungskunden:[] };
 let WP_DATA  = {};  // { "stark-2026-KW01": { "MA-tag-sub": "wert" } }
 let URL_DATA = {};  // { "2026-07": { "MA-tag": "U" } }
 let DIRTY = new Set(); // Keys mit ungespeicherten Änderungen
@@ -915,8 +932,19 @@ function buildProjSelect(ma, d, s, key, val, disabled) {
     const opts = STAMM.projekte.map(p =>
       `<option value="${escHtml(p.bez)}" ${p.bez===val?'selected':''}>${escHtml(p.nr)}</option>`
     ).join('');
+    // Wartungs-Unterdropdown
+    const isWartung = val === 'Wartung' || val.startsWith('Wartung – ');
+    let wartungSub = '';
+    if (isWartung && (STAMM.wartungskunden||[]).length > 0) {
+      const wkOpts = sortWK(STAMM.wartungskunden)
+        .map(k=>`<option value="${escHtml('Wartung – '+k.name)}">${escHtml(k.nr+' – '+k.name)}</option>`)
+        .join('');
+      wartungSub = `<select class="wartung-sub" data-key="${escHtml(key)}" data-ma="${maEnc}" data-d="${d}" data-s="${s}" onchange="onWartungKunde(this)">`
+        + `<option value="">── Wartungskunde wählen ──</option>${wkOpts}</select>`;
+    }
     return `<div class="proj-cell">`
       + `<div class="proj-text">${escHtml(val)}</div>`
+      + wartungSub
       + `<select class="proj-select-small" data-key="${escHtml(key)}" data-ma="${maEnc}" data-d="${d}" data-s="${s}" onchange="onProjChange(this)">`
       + `<option value="">── ändern ──</option>`
       + `<option value="__DELETE__" style="color:#C62828;font-weight:700">✕ Löschen</option>`
@@ -942,8 +970,8 @@ async function onProjChange(sel) {
   const ma   = decodeURIComponent(sel.dataset.ma);
   const d    = parseInt(sel.dataset.d);
   const s    = parseInt(sel.dataset.s);
-  const val  = sel.value === '__DELETE__' ? '' : sel.value;
-  if (sel.value === '') return;  // "── ändern ──" ignorieren
+  const val  = sel.value;
+  if (!val) return;
 
   if (!WP_DATA[key]) WP_DATA[key] = {};
   WP_DATA[key][`${ma}-${d}-${s}`] = val;
@@ -1102,27 +1130,110 @@ function renderStammdaten() {
   renderList('listMAStark', STAMM.maStark, 'removeMAStark');
   renderList('listMASchwach', STAMM.maSchwach, 'removeMASchwach');
 
-  // Projekte sortiert nach Nummer (numerisch wenn möglich, sonst alphabetisch)
-  const sortierteProjekte = STAMM.projekte
-    .map((p, origIdx) => ({ ...p, origIdx }))
-    .sort((a, b) => {
-      const nA = parseFloat(a.nr), nB = parseFloat(b.nr);
-      if (!isNaN(nA) && !isNaN(nB)) return nA - nB;
-      return String(a.nr).localeCompare(String(b.nr), 'de');
-    });
-
-  const tblP = document.getElementById('listProjekte');
-  tblP.innerHTML = `<tr style="background:#F1F3F4;font-weight:700;font-size:11px;">
-    <td style="padding:4px 8px;width:90px;border-bottom:2px solid #DADCE0;">Nummer</td>
-    <td style="padding:4px 8px;border-bottom:2px solid #DADCE0;">Bezeichnung</td>
-    <td style="padding:4px 8px;width:32px;border-bottom:2px solid #DADCE0;"></td>
-  </tr>` + sortierteProjekte.map((p) =>
-    `<tr class="proj-row" style="border-bottom:1px solid #F1F3F4;">
-      <td style="padding:3px 8px;font-weight:700;color:#1F4E79;white-space:nowrap;">${p.nr}</td>
-      <td style="padding:3px 8px;">${p.bez}</td>
-      <td style="padding:3px 4px;text-align:center;"><button class="del-btn" onclick="removeProjekt(${p.origIdx})" title="Entfernen">✕</button></td>
-    </tr>`
+  const ulP = document.getElementById('listProjekte');
+  ulP.innerHTML = STAMM.projekte.map((p,i) =>
+    `<li class="stamm-item"><span><strong>${p.nr}</strong> – ${p.bez}</span><button class="del-btn" onclick="removeProjekt(${i})" title="Entfernen">✕</button></li>`
   ).join('');
+}
+
+// ── Wartungskunden ──────────────────────────────────
+function sortWK(arr) {
+  return [...(arr||[])].sort((a,b)=>{
+    const nA=parseFloat(a.nr),nB=parseFloat(b.nr);
+    if (!isNaN(nA)&&!isNaN(nB)) return nA-nB;
+    return String(a.nr).localeCompare(String(b.nr),'de');
+  });
+}
+function addWartungskunde() {
+  const nr   = document.getElementById('newWKNr').value.trim();
+  const name = document.getElementById('newWKName').value.trim();
+  if (!name) return;
+  if (!STAMM.wartungskunden) STAMM.wartungskunden = [];
+  STAMM.wartungskunden.push({nr:nr||'-', name});
+  document.getElementById('newWKNr').value='';
+  document.getElementById('newWKName').value='';
+  STAMM_DIRTY=true; DIRTY.add('stamm'); updateDirtyIndicator();
+  renderStammdaten();
+}
+function removeWartungskunde(sortedIdx) {
+  const sorted = sortWK(STAMM.wartungskunden).map((k,i)=>({...k,i}));
+  const origName = sorted[sortedIdx]?.name;
+  const origIdx  = (STAMM.wartungskunden||[]).findIndex(k=>k.name===origName);
+  if (origIdx>=0) STAMM.wartungskunden.splice(origIdx,1);
+  STAMM_DIRTY=true; DIRTY.add('stamm'); updateDirtyIndicator();
+  renderStammdaten();
+}
+async function importWartungskunden(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const nm = file.name.toLowerCase();
+  if (!STAMM.wartungskunden) STAMM.wartungskunden = [];
+
+  if (nm.endsWith('.csv')) {
+    const text = await file.text();
+    const lines = text.split(/\r?\n/).filter(l=>l.trim());
+    let count = 0;
+    for (const line of lines) {
+      const parts = line.split(/[;,\t]/);
+      const nr   = (parts[0]||'').trim().replace(/^["']|["']$/g,'');
+      const name = (parts[1]||'').trim().replace(/^["']|["']$/g,'');
+      if (name && name.toLowerCase()!=='name' && name.toLowerCase()!=='kundenname') {
+        STAMM.wartungskunden.push({nr:nr||'-', name}); count++;
+      }
+    }
+    STAMM_DIRTY=true; DIRTY.add('stamm'); updateDirtyIndicator();
+    renderStammdaten();
+    showToast('✅ '+count+' Kunden importiert (CSV)', 'success');
+    input.value=''; return;
+  }
+
+  if (nm.endsWith('.xlsx')||nm.endsWith('.xls')) {
+    if (!window.XLSX) {
+      showLoading('SheetJS wird geladen…');
+      await new Promise((res,rej)=>{
+        const s=document.createElement('script');
+        s.src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
+        s.onload=res; s.onerror=rej; document.head.appendChild(s);
+      });
+      hideLoading();
+    }
+    const buf = await file.arrayBuffer();
+    const wb  = XLSX.read(buf,{type:'array'});
+    const ws  = wb.Sheets[wb.SheetNames[0]];
+    const rows= XLSX.utils.sheet_to_json(ws,{header:1,defval:''});
+    let count = 0;
+    for (const row of rows) {
+      const nr  = String(row[0]||'').trim();
+      const name= String(row[1]||'').trim();
+      if (name && name.toLowerCase()!=='name' && name.toLowerCase()!=='kundenname') {
+        STAMM.wartungskunden.push({nr:nr||'-', name}); count++;
+      }
+    }
+    STAMM_DIRTY=true; DIRTY.add('stamm'); updateDirtyIndicator();
+    renderStammdaten();
+    showToast('✅ '+count+' Kunden importiert (Excel)', 'success');
+    input.value=''; return;
+  }
+  showToast('Bitte .xlsx, .xls oder .csv wählen', 'error');
+}
+
+async function onWartungKunde(sel) {
+  if (!sel.value) return;
+  const key = sel.dataset.key;
+  const ma  = decodeURIComponent(sel.dataset.ma);
+  const d   = parseInt(sel.dataset.d);
+  const s   = parseInt(sel.dataset.s);
+  const val = sel.value;
+  if (!WP_DATA[key]) WP_DATA[key]={};
+  WP_DATA[key][`${ma}-${d}-${s}`] = val;
+  const td = sel.closest('td');
+  td.className = 'td-proj';
+  td.innerHTML = buildProjSelect(ma,d,s,key,val,false);
+  const tr = td.closest('tr');
+  if (tr) tr.style.height='auto';
+  localStorage.setItem('wpCache_'+key, JSON.stringify(WP_DATA[key]));
+  DIRTY.add('wp:'+key); updateDirtyIndicator();
+  showToast('Lokal gespeichert – Upload-Button zum Hochladen','');
 }
 
 function addMA(typ) {
@@ -1146,12 +1257,6 @@ function addProjekt() {
   const bez = document.getElementById('newProjBez').value.trim();
   if (!bez) return;
   STAMM.projekte.push({nr: nr||bez, bez});
-  // Sofort sortieren nach Nummer
-  STAMM.projekte.sort((a, b) => {
-    const nA = parseFloat(a.nr), nB = parseFloat(b.nr);
-    if (!isNaN(nA) && !isNaN(nB)) return nA - nB;
-    return String(a.nr).localeCompare(String(b.nr), 'de');
-  });
   document.getElementById('newProjNr').value='';
   document.getElementById('newProjBez').value='';
   STAMM_DIRTY=true; DIRTY.add('stamm'); updateDirtyIndicator();
