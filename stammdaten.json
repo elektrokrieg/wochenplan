@@ -277,6 +277,14 @@
     {
       "nr": "Wartung",
       "bez": "Wartung"
+    },
+    {
+      "nr": "TÜV",
+      "bez": "TÜV"
+    },
+    {
+      "nr": "GSM",
+      "bez": "Umrüstung Wählgerät"
     }
   ],
   "wartungskunden": [
