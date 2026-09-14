@@ -278,5 +278,972 @@
       "nr": "Wartung",
       "bez": "Wartung"
     }
+  ],
+  "wartungskunden": [
+    {
+      "nr": "W1",
+      "name": "AWO Seniorenresidenz \"Drei Gleichen\"",
+      "ort": "Apfelstädt"
+    },
+    {
+      "nr": "W2",
+      "name": "Kita / Grundschule Weidenschule",
+      "ort": "Asbach"
+    },
+    {
+      "nr": "W3",
+      "name": "Seniorenzentrum Waldenfels",
+      "ort": "Bad Brückenau"
+    },
+    {
+      "nr": "W4",
+      "name": "AWO Pflegeheim \"Haus an der Salza\"",
+      "ort": "Bad Langensalza"
+    },
+    {
+      "nr": "W5",
+      "name": "BVA Wohnblock",
+      "ort": "Bad Salzungen"
+    },
+    {
+      "nr": "W6",
+      "name": "PflegeheiDRK Seniorenpflegeheim",
+      "ort": "Bad Sulza"
+    },
+    {
+      "nr": "W7",
+      "name": "AWO Wohnzentrum \"Alexandrinenhof\"",
+      "ort": "Bad Tabarz"
+    },
+    {
+      "nr": "W8",
+      "name": "Sport- und Mehrzweckhalle",
+      "ort": "Barchfeld"
+    },
+    {
+      "nr": "W9",
+      "name": "Schillermuseum",
+      "ort": "Bauerbach"
+    },
+    {
+      "nr": "W10",
+      "name": "Grundschule",
+      "ort": "Benshausen"
+    },
+    {
+      "nr": "W11",
+      "name": "Regelschule",
+      "ort": "Bettenhausen"
+    },
+    {
+      "nr": "W12",
+      "name": "Sporthalle",
+      "ort": "Bettenhausen"
+    },
+    {
+      "nr": "W13",
+      "name": "Gemeinschaftsschule",
+      "ort": "Bibra"
+    },
+    {
+      "nr": "W14",
+      "name": "Regelschule",
+      "ort": "Breitungen"
+    },
+    {
+      "nr": "W15",
+      "name": "Grundschule",
+      "ort": "Brotterode"
+    },
+    {
+      "nr": "W16",
+      "name": "Aifotec",
+      "ort": "Dreißigacker"
+    },
+    {
+      "nr": "W17",
+      "name": "Sozialverbund Südthüringen Teilhabe GmbH",
+      "ort": "Dreißigacker"
+    },
+    {
+      "nr": "W18",
+      "name": "DRK Seniorenpflegeheim \"Am Hölzlein\"",
+      "ort": "Dreißigacker"
+    },
+    {
+      "nr": "W19",
+      "name": "MAPAL Dr. Kress SE & Co. KG",
+      "ort": "Dreißigacker"
+    },
+    {
+      "nr": "W20",
+      "name": "August Winkhaus GmbH & Co. KG",
+      "ort": "Dreißigacker"
+    },
+    {
+      "nr": "W21",
+      "name": "Regelschule",
+      "ort": "Eisfeld"
+    },
+    {
+      "nr": "W22",
+      "name": "Multifunktionsgebäude (Kulturhaus)",
+      "ort": "Exdorf"
+    },
+    {
+      "nr": "W23",
+      "name": "Grundschule",
+      "ort": "Fambach"
+    },
+    {
+      "nr": "W24",
+      "name": "Grundschule",
+      "ort": "Floh"
+    },
+    {
+      "nr": "W25",
+      "name": "Senioren WG  \"An den Mühlwiesen\"",
+      "ort": "Mengersgereuth-Hämmern"
+    },
+    {
+      "nr": "W26",
+      "name": "Grundschule",
+      "ort": "Frankenheim"
+    },
+    {
+      "nr": "W27",
+      "name": "AWO Pflegeheim \"Am Körnberg\"",
+      "ort": "Friedrichroda"
+    },
+    {
+      "nr": "W28",
+      "name": "Schlossresidenz",
+      "ort": "Geisa"
+    },
+    {
+      "nr": "W29",
+      "name": "AWO Seniorenheim \"Am Wolfsberg\"",
+      "ort": "Gräfenau Angstedt"
+    },
+    {
+      "nr": "W30",
+      "name": "Dr. Maria-Probst-Pflegeheim",
+      "ort": "Hammelburg"
+    },
+    {
+      "nr": "W31",
+      "name": "Rhön-Park-Hotel",
+      "ort": "Hausen-Roth"
+    },
+    {
+      "nr": "W32",
+      "name": "Feuerwehr",
+      "ort": "Helba"
+    },
+    {
+      "nr": "W33",
+      "name": "Regelschule",
+      "ort": "Heldburg"
+    },
+    {
+      "nr": "W34",
+      "name": "Landhaus",
+      "ort": "Helmershausen"
+    },
+    {
+      "nr": "W35",
+      "name": "Grundschule",
+      "ort": "Henneberg"
+    },
+    {
+      "nr": "W36",
+      "name": "Sporthalle",
+      "ort": "Henneberg"
+    },
+    {
+      "nr": "W37",
+      "name": "Grundschule",
+      "ort": "Herpf"
+    },
+    {
+      "nr": "W38",
+      "name": "Gesundheitszentrum",
+      "ort": "Hildburghausen"
+    },
+    {
+      "nr": "W39",
+      "name": "Kreisarchiv",
+      "ort": "Hildburghausen"
+    },
+    {
+      "nr": "W40",
+      "name": "AWO Wohn- und Betreuungszentrum",
+      "ort": "Hildburghausen"
+    },
+    {
+      "nr": "W41",
+      "name": "Irena Sendler Schule",
+      "ort": "Hohenroth"
+    },
+    {
+      "nr": "W42",
+      "name": "Seniorenzentrum",
+      "ort": "Hungen"
+    },
+    {
+      "nr": "W43",
+      "name": "AWO Seniorenpflegeheim \"Birkenhof\"",
+      "ort": "Ilmenau"
+    },
+    {
+      "nr": "W44",
+      "name": "AWO Senioren WG \"Am Hüttenholz\"",
+      "ort": "Ilmenau"
+    },
+    {
+      "nr": "W45",
+      "name": "Haus der Generationen",
+      "ort": "Ilmenau"
+    },
+    {
+      "nr": "W46",
+      "name": "Wohnhaus Prof.-Dr.-Stamm-Straße 3",
+      "ort": "Ilmenau"
+    },
+    {
+      "nr": "W47",
+      "name": "Wohnhaus Prof.-Dr.-Stamm-Straße 5",
+      "ort": "Ilmenau"
+    },
+    {
+      "nr": "W48",
+      "name": "Wohnhaus Obertorstraße 11",
+      "ort": "Ilmenau"
+    },
+    {
+      "nr": "W49",
+      "name": "Wohnhaus Straße des Friedens 36",
+      "ort": "Ilmenau"
+    },
+    {
+      "nr": "W50",
+      "name": "Kulturhaus",
+      "ort": "Jüchsen"
+    },
+    {
+      "nr": "W51",
+      "name": "Germatrix",
+      "ort": "Kaltennordheim"
+    },
+    {
+      "nr": "W52",
+      "name": "Thüringisches Rhön Gymnasium",
+      "ort": "Kaltensundheim"
+    },
+    {
+      "nr": "W53",
+      "name": "Standesamt",
+      "ort": "Kaltensundheim"
+    },
+    {
+      "nr": "W54",
+      "name": "Sporthalle Kaltensundheim",
+      "ort": "Kaltensundheim"
+    },
+    {
+      "nr": "W55",
+      "name": "DRK Senioren WG \"an der Felda\"",
+      "ort": "Kaltensundheim"
+    },
+    {
+      "nr": "W56",
+      "name": "Mehrzweckhalle Kaltenwestheim",
+      "ort": "Kaltenwestheim"
+    },
+    {
+      "nr": "W57",
+      "name": "Service-Wohnen \"Alte Schule\"",
+      "ort": "Kleinschmalkalden"
+    },
+    {
+      "nr": "W58",
+      "name": "Kita \"Dollmarhasen\"",
+      "ort": "Kühndorf"
+    },
+    {
+      "nr": "W59",
+      "name": "BGHM",
+      "ort": "Lengfurt"
+    },
+    {
+      "nr": "W60",
+      "name": "Sozialwerk Alte Handwerkskammer",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W61",
+      "name": "Altes Stadtbad",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W62",
+      "name": "Altstadt-Hotel an der Werra",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W63",
+      "name": "Anwaltskanzlei Heller - Rotter - Schenk",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W64",
+      "name": "AWG",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W65",
+      "name": "Berufsbildungszentrum",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W66",
+      "name": "Kaufmännische Berufschule",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W67",
+      "name": "Berufsschule für Gesundheit und Soziales",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W68",
+      "name": "Dampflok Erlebniswerk",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W69",
+      "name": "Dampflokwerk",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W70",
+      "name": "Elvira Immobilien",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W71",
+      "name": "Einwohnermeldeamt",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W72",
+      "name": "Ev. Gymnasium",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W73",
+      "name": "Förderschule f. Sprachbehinderte Anne Frank",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W74",
+      "name": "Galerie ADA",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W75",
+      "name": "Ausweichschule",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W76",
+      "name": "Großes Palais",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W77",
+      "name": "Grundschule Ludwig Chronegk",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W78",
+      "name": "Freizeitzentrum \"Rohrer Stirn\"",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W79",
+      "name": "Sarterstift",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W80",
+      "name": "Henfling-Gymnasium",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W81",
+      "name": "Staatliches regionales Förderzentrum Jean Paul",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W82",
+      "name": "Kammerspiele",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W83",
+      "name": "KfZ-Zulassungsstelle",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W84",
+      "name": "AWO Kindergarten Max und Moritz",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W85",
+      "name": "Integrative Kindertagesstätte",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W86",
+      "name": "Kita im Park",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W87",
+      "name": "Landratsamt Haus 3",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W88",
+      "name": "Landratsamt Haus 4",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W89",
+      "name": "Landwirtschaftsamt",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W90",
+      "name": "Sozialverbund Südthüringen Teilhabe GmbH",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W91",
+      "name": "Multihalle",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W92",
+      "name": "AWO Seniorenzentrum \"Heinrich Albertz\"",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W93",
+      "name": "Haus Lebenswert",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W94",
+      "name": "Bildungszentrum der Thüringer Polizei",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W95",
+      "name": "Staatliche Grund- und Regelschule \"Pulverrasen\"",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W96",
+      "name": "Staatliche Grund- und Regelschule \"am Kiliansberg\"",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W97",
+      "name": "DRK Pflegeheim",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W98",
+      "name": "Seniorenzentrum Residenz Georg II",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W99",
+      "name": "Stadtarchiv",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W100",
+      "name": "Bürogebäude Stadtwerke Meiningen",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W101",
+      "name": "Süd-Thüringen-Bahn Service Center",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W102",
+      "name": "Tiefgarage",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W103",
+      "name": "Berufsbildungszentrum Sporthalle",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W104",
+      "name": "Grundschule Ludwig Chronegk Sporthalle",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W105",
+      "name": "Sporthalle \"am Kiliansberg\"",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W106",
+      "name": "Verkehrserziehungsgarten",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W107",
+      "name": "Villa Strupp",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W108",
+      "name": "Volkshaus",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W109",
+      "name": "Wohnungsbaugesellschaft mbH Meiningen",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W110",
+      "name": "Wohnhaus Freitagsgasse 9-15",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W111",
+      "name": "Wohnhaus Am Drachenberg 5+5a",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W112",
+      "name": "Wohnheim Berufsbildungszentrum",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W113",
+      "name": "Wohnhaus",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W114",
+      "name": "Wohnpark Steinw./ Bechsteinstr.",
+      "ort": "Meiningen"
+    },
+    {
+      "nr": "W115",
+      "name": "Tiefgarage",
+      "ort": "Niederwerrn"
+    },
+    {
+      "nr": "W116",
+      "name": "BG Holz und Metall",
+      "ort": "Nürnberg"
+    },
+    {
+      "nr": "W117",
+      "name": "Funktionsgebäude am Fallbachhang",
+      "ort": "Oberhof"
+    },
+    {
+      "nr": "W118",
+      "name": "Staatliche Grundschule",
+      "ort": "Oberhof"
+    },
+    {
+      "nr": "W119",
+      "name": "Kita Regenbogen",
+      "ort": "Obermaßfeld"
+    },
+    {
+      "nr": "W120",
+      "name": "Wohngemeinschaft",
+      "ort": "Obermaßfeld"
+    },
+    {
+      "nr": "W121",
+      "name": "Regelschule \"Im Werratal\"",
+      "ort": "Obermaßfeld"
+    },
+    {
+      "nr": "W122",
+      "name": "AWO Seniorenpark \"an den drei Teichen\" APH",
+      "ort": "Ohrdruf"
+    },
+    {
+      "nr": "W123",
+      "name": "AWO Seniorenpark \"an den drei Teichen\" HWG",
+      "ort": "Ohrdruf"
+    },
+    {
+      "nr": "W124",
+      "name": "AWO Betreutes Wohnen",
+      "ort": "Oldisleben"
+    },
+    {
+      "nr": "W125",
+      "name": "Deko Messezentrum",
+      "ort": "Queinfeld"
+    },
+    {
+      "nr": "W126",
+      "name": "St.Martin Schule im Kinderdorf",
+      "ort": "Riedenberg"
+    },
+    {
+      "nr": "W127",
+      "name": "Agrargesellschaft Herpf mbh",
+      "ort": "Rippershausen"
+    },
+    {
+      "nr": "W128",
+      "name": "AWO Seniorenpflegeheim \" Gleichbergblick \"",
+      "ort": "Römhild"
+    },
+    {
+      "nr": "W129",
+      "name": "Kita \"Brunnenstörche\"",
+      "ort": "Schmalkalden"
+    },
+    {
+      "nr": "W130",
+      "name": "Philipp - Melanchthon - Gymnasium",
+      "ort": "Schmalkalden"
+    },
+    {
+      "nr": "W131",
+      "name": "Evangelische Seniorenpflege \" Am Schloß \"",
+      "ort": "Schmalkalden"
+    },
+    {
+      "nr": "W132",
+      "name": "AWO Seniorenzentrum \"Hoffnung\"",
+      "ort": "Schmalkalden"
+    },
+    {
+      "nr": "W133",
+      "name": "Staatliche Grundschule",
+      "ort": "Schmalkalden"
+    },
+    {
+      "nr": "W134",
+      "name": "Rhön-Rennsteig-Sparkasse",
+      "ort": "Schmalkalden"
+    },
+    {
+      "nr": "W135",
+      "name": "Sporthalle am Walperloh",
+      "ort": "Schmalkalden"
+    },
+    {
+      "nr": "W136",
+      "name": "Haus am Tor",
+      "ort": "Schmalkalden"
+    },
+    {
+      "nr": "W137",
+      "name": "AWO Seniorenpflegeheim \"Herbstsonne\"",
+      "ort": "Schönbrunn"
+    },
+    {
+      "nr": "W138",
+      "name": "Berufsschule für Gesundheit und Soziales",
+      "ort": "Schwallungen"
+    },
+    {
+      "nr": "W139",
+      "name": "Sporthalle",
+      "ort": "Schwallungen"
+    },
+    {
+      "nr": "W140",
+      "name": "Tiefgarage",
+      "ort": "Schwebheim"
+    },
+    {
+      "nr": "W141",
+      "name": "Seniorenpflegezentrum \"Am Wasserturm\"",
+      "ort": "Schweinfurt"
+    },
+    {
+      "nr": "W142",
+      "name": "Tiefgarage",
+      "ort": "Schweinfurt"
+    },
+    {
+      "nr": "W143",
+      "name": "Wohnanlage",
+      "ort": "Schweinfurt"
+    },
+    {
+      "nr": "W144",
+      "name": "Wohnhaus",
+      "ort": "Schweinfurt"
+    },
+    {
+      "nr": "W145",
+      "name": "WEG",
+      "ort": "Schweinfurt"
+    },
+    {
+      "nr": "W146",
+      "name": "Studentenwohnheim",
+      "ort": "Schweinfurt"
+    },
+    {
+      "nr": "W147",
+      "name": "Tiefgarage",
+      "ort": "Schweinfurt"
+    },
+    {
+      "nr": "W148",
+      "name": "Seniorenzentrum",
+      "ort": "Steinach"
+    },
+    {
+      "nr": "W149",
+      "name": "Staatliche Regelschule",
+      "ort": "Steinbach Hallenberg"
+    },
+    {
+      "nr": "W150",
+      "name": "Haseltalhalle",
+      "ort": "Steinbach Hallenberg"
+    },
+    {
+      "nr": "W151",
+      "name": "TLRZ Behördenhaus",
+      "ort": "Suhl"
+    },
+    {
+      "nr": "W152",
+      "name": "Behördenzentrum Haus 2",
+      "ort": "Suhl"
+    },
+    {
+      "nr": "W153",
+      "name": "Behördenzentrum Haus 3",
+      "ort": "Suhl"
+    },
+    {
+      "nr": "W154",
+      "name": "Staatliche Grundschule \"Am Himmelreich\"",
+      "ort": "Suhl"
+    },
+    {
+      "nr": "W155",
+      "name": "Staatliche Grundschule \"Ringbergschule\"",
+      "ort": "Suhl"
+    },
+    {
+      "nr": "W156",
+      "name": "Hauptzollamt",
+      "ort": "Suhl"
+    },
+    {
+      "nr": "W157",
+      "name": "Kita \"Albrechtser Waldstrolche\"",
+      "ort": "Suhl"
+    },
+    {
+      "nr": "W158",
+      "name": "AWO Kindertagesstätte \" Döllbergzwerge \"",
+      "ort": "Suhl"
+    },
+    {
+      "nr": "W159",
+      "name": "Kindertagesstätte \" Kinderland \"",
+      "ort": "Suhl"
+    },
+    {
+      "nr": "W160",
+      "name": "AWO Pflegeheim \" Christopf Wilhelm Hufeland \"",
+      "ort": "Suhl"
+    },
+    {
+      "nr": "W161",
+      "name": "Waffenmuseum",
+      "ort": "Suhl"
+    },
+    {
+      "nr": "W162",
+      "name": "AWO Service Wohnanlage 55 WE Döllbergschule",
+      "ort": "Suhl"
+    },
+    {
+      "nr": "W163",
+      "name": "Sporthalle \"an der Stadtmauer\"",
+      "ort": "Themar"
+    },
+    {
+      "nr": "W164",
+      "name": "Evangelischer Kindergarten",
+      "ort": "Trusetal"
+    },
+    {
+      "nr": "W165",
+      "name": "AWO Seniorenpflegeheim \" Haus für ältere Bürger \"",
+      "ort": "Trusetal"
+    },
+    {
+      "nr": "W166",
+      "name": "Sozialverbund Südthüringen Teilhabe GmbH",
+      "ort": "Untermaßfeld"
+    },
+    {
+      "nr": "W167",
+      "name": "Staatliche Grundschule",
+      "ort": "Vachdorf"
+    },
+    {
+      "nr": "W168",
+      "name": "Staatliche Grundschule Sporthalle",
+      "ort": "Vachdorf"
+    },
+    {
+      "nr": "W169",
+      "name": "Sport- und Kulturzentrum",
+      "ort": "Vachdorf"
+    },
+    {
+      "nr": "W170",
+      "name": "Alloheim Senioren-Residenzen \"An der Schillerhöhe\"",
+      "ort": "Waldheim"
+    },
+    {
+      "nr": "W171",
+      "name": "Altenpflegezentrum \"Werra Aue\"",
+      "ort": "Walldorf"
+    },
+    {
+      "nr": "W172",
+      "name": "Staatliche Grundschule \"Landsbergblick\"",
+      "ort": "Walldorf"
+    },
+    {
+      "nr": "W173",
+      "name": "Staatliche Grundschule \"Landsbergblick\" Sporthalle",
+      "ort": "Walldorf"
+    },
+    {
+      "nr": "W174",
+      "name": "Gemeindezentrum Kressehof",
+      "ort": "Walldorf"
+    },
+    {
+      "nr": "W175",
+      "name": "AWO Pflegeheim \"Inselsbergblick\"",
+      "ort": "Waltershausen"
+    },
+    {
+      "nr": "W176",
+      "name": "Staatliche Regelschule",
+      "ort": "Wasungen"
+    },
+    {
+      "nr": "W177",
+      "name": "Staatliche Regelschule Sporthalle",
+      "ort": "Wasungen"
+    },
+    {
+      "nr": "W178",
+      "name": "Kita Glückskäfer",
+      "ort": "Wasungen"
+    },
+    {
+      "nr": "W179",
+      "name": "Kindertagesstätte Regenbogen",
+      "ort": "Wernshausen"
+    },
+    {
+      "nr": "W180",
+      "name": "Sport- und Freizeitzentrum",
+      "ort": "Wernshausen"
+    },
+    {
+      "nr": "W181",
+      "name": "H+I Würzburg",
+      "ort": "Würzburg"
+    },
+    {
+      "nr": "W182",
+      "name": "Elisabeth Weber-Schule",
+      "ort": "Würzburg"
+    },
+    {
+      "nr": "W183",
+      "name": "Gewerblich-Technisches Berufsbildungszentrum",
+      "ort": "Zella-Mehlis"
+    },
+    {
+      "nr": "W184",
+      "name": "Gewerblich-Technisches BBZ Sporthalle",
+      "ort": "Zella-Mehlis"
+    },
+    {
+      "nr": "W185",
+      "name": "Feuerwehr",
+      "ort": "Zella-Mehlis"
+    },
+    {
+      "nr": "W186",
+      "name": "Staatliche Grundschule Martin Luther",
+      "ort": "Zella-Mehlis"
+    },
+    {
+      "nr": "W187",
+      "name": "Heinrich-Ehrhardt-Gymnasium",
+      "ort": "Zella-Mehlis"
+    },
+    {
+      "nr": "W188",
+      "name": "Mehrzweckhalle an der Schillerschule",
+      "ort": "Zella-Mehlis"
+    },
+    {
+      "nr": "W189",
+      "name": "AWO Seniorenwohnen Bergblick",
+      "ort": "Zella-Mehlis"
+    },
+    {
+      "nr": "W190",
+      "name": "Rhön-Rennsteig-Sparkasse",
+      "ort": "Zella-Mehlis"
+    },
+    {
+      "nr": "W191",
+      "name": "Stadtmuseum Beschußanstalt",
+      "ort": "Zella-Mehlis"
+    },
+    {
+      "nr": "W192",
+      "name": "Heinrich-Ehrhardt-Gymnasium Sporthalle",
+      "ort": "Zella-Mehlis"
+    },
+    {
+      "nr": "W193",
+      "name": "Alloheim Senioren-Residenz \"Zwenkau\"",
+      "ort": "Zwenkau"
+    }
   ]
 }
