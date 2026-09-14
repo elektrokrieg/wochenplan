@@ -966,33 +966,35 @@ async function onProjChange(sel) {
   const ma   = decodeURIComponent(sel.dataset.ma);
   const d    = parseInt(sel.dataset.d);
   const s    = parseInt(sel.dataset.s);
-  const val  = sel.value;
-  if (!val) return;
+  const val  = sel.value === '__DELETE__' ? '' : sel.value;
+  if (sel.value === '') return; // "── ändern ──" ignorieren
+
+  // Wartung + Kundenliste vorhanden → Popup öffnen
+  if (val === 'Wartung' && (STAMM.wartungskunden||[]).length > 0) {
+    if (!WP_DATA[key]) WP_DATA[key] = {};
+    WP_DATA[key][`${ma}-${d}-${s}`] = val;
+    const td = sel.closest('td');
+    td.className = 'td-proj';
+    td.innerHTML = buildProjSelect(ma, d, s, key, val, false);
+    const tr = td.closest('tr');
+    if (tr) tr.style.height = 'auto';
+    localStorage.setItem('wpCache_'+key, JSON.stringify(WP_DATA[key]));
+    DIRTY.add('wp:'+key); updateDirtyIndicator();
+    openWartungsPopup(key, ma, d, s);
+    return;
+  }
 
   if (!WP_DATA[key]) WP_DATA[key] = {};
   WP_DATA[key][`${ma}-${d}-${s}`] = val;
 
-  // Zelle neu rendern: Langtext + kleines Ändern-Dropdown
   const td = sel.closest('td');
   td.className = 'td-proj';
-  const maEnc = encodeURIComponent(ma);
-  const opts = STAMM.projekte.map(p =>
-    `<option value="${escHtml(p.bez)}" ${p.bez===val?'selected':''}}>${escHtml(p.nr)}</option>`
-  ).join('');
-  td.innerHTML = `<div class="proj-cell" data-key="${escHtml(key)}" data-ma="${maEnc}" data-d="${d}" data-s="${s}">`
-    + `<div class="proj-text">${escHtml(val)}</div>`
-    + `<select class="proj-select-small" data-key="${escHtml(key)}" data-ma="${maEnc}" data-d="${d}" data-s="${s}" onchange="onProjChange(this)">`
-    + `<option value="">── ändern ──</option>${opts}</select>`
-    + `</div>`;
-
-  // Zeilenhöhe anpassen
+  td.innerHTML = buildProjSelect(ma, d, s, key, val, false);
   const tr = td.closest('tr');
   if (tr) tr.style.height = 'auto';
 
-  // Nur lokal speichern — Upload manuell per Button
   localStorage.setItem('wpCache_'+key, JSON.stringify(WP_DATA[key]));
-  DIRTY.add('wp:'+key);
-  updateDirtyIndicator();
+  DIRTY.add('wp:'+key); updateDirtyIndicator();
   showToast('Lokal gespeichert – Upload-Button zum Hochladen', '');
 }
 
@@ -1651,12 +1653,10 @@ window.addEventListener('offline', ()=>updateOnlineStatus(false));
 document.addEventListener('DOMContentLoaded', function() {
   initConfigListeners();
   // wartungsPopupBack listener (element is after script tag, so needs DOMContentLoaded)
-  var wpBack = document.getElementById('wartungsPopupBack');
-  if (wpBack) {
-    wpBack.addEventListener('click', function(ev) {
-      if (ev.target === this) closeWartungsPopup();
-    });
-  }
+  // Use event delegation for popup backdrop
+  document.addEventListener('click', function(ev) {
+    if (ev.target && ev.target.id === 'wartungsPopupBack') closeWartungsPopup();
+  });
   init();
 });
 </script>
