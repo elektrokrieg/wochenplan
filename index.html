@@ -1652,8 +1652,10 @@ document.getElementById('wartungsPopupBack').addEventListener('click', function(
 window.addEventListener('online', ()=>updateOnlineStatus(true));
 window.addEventListener('offline', ()=>updateOnlineStatus(false));
 
-initConfigListeners();
-init();
+document.addEventListener('DOMContentLoaded', function() {
+  initConfigListeners();
+  init();
+});
 </script>
 
 <!-- Wartungskunden Popup -->
