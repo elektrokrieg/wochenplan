@@ -1184,10 +1184,18 @@ function renderStammdaten() {
 
 // ── Wartungskunden ──────────────────────────────────
 function sortWK(arr) {
-  return [...(arr||[])].sort((a,b)=>{
-    const nA=parseFloat(a.nr),nB=parseFloat(b.nr);
-    if (!isNaN(nA)&&!isNaN(nB)) return nA-nB;
-    return String(a.nr).localeCompare(String(b.nr),'de');
+  // Alphanumerisch sortieren: W1, W2 ... W9, W10, W11 ... W100, W101
+  return [...(arr||[])].sort((a,b) => {
+    const splitNr = s => {
+      const m = String(s).match(/^([A-Za-z]*)(\d+)(.*)$/);
+      if (m) return [m[1], parseInt(m[2]), m[3]];
+      return [String(s), 0, ''];
+    };
+    const [pA, nA, sA] = splitNr(a.nr);
+    const [pB, nB, sB] = splitNr(b.nr);
+    if (pA !== pB) return pA.localeCompare(pB, 'de');
+    if (nA !== nB) return nA - nB;
+    return sA.localeCompare(sB, 'de');
   });
 }
 function addWartungskunde() {
