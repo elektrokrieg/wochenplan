@@ -488,6 +488,7 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
         <div class="add-row" style="margin-top:8px">
           <input id="newWKNr" placeholder="Nr." style="max-width:70px" onkeydown="if(event.key==='Enter')addWartungskunde()">
           <input id="newWKName" placeholder="Kundenname…" onkeydown="if(event.key==='Enter')addWartungskunde()">
+          <input id="newWKOrt" placeholder="Ort…" style="max-width:120px" onkeydown="if(event.key==='Enter')addWartungskunde()">
           <button class="add-btn" onclick="addWartungskunde()">+ Hinzufügen</button>
         </div>
       </div>
@@ -937,7 +938,7 @@ function buildProjSelect(ma, d, s, key, val, disabled) {
     let wartungSub = '';
     if (isWartung && (STAMM.wartungskunden||[]).length > 0) {
       const wkOpts = sortWK(STAMM.wartungskunden)
-        .map(k=>`<option value="${escHtml('Wartung – '+k.name)}">${escHtml(k.nr+' – '+k.name)}</option>`)
+        .map(k=>`<option value="${escHtml('Wartung – '+(k.ort?k.ort+' – ':'')+k.name)}">${escHtml(k.nr+' – '+(k.ort?k.ort+' – ':'')+k.name)}</option>`)
         .join('');
       wartungSub = `<select class="wartung-sub" data-key="${escHtml(key)}" data-ma="${maEnc}" data-d="${d}" data-s="${s}" onchange="onWartungKunde(this)">`
         + `<option value="">── Wartungskunde wählen ──</option>${wkOpts}</select>`;
@@ -1120,20 +1121,65 @@ async function cycleCode(td) {
 function renderStammdaten() {
   localStorage.setItem('wpStamm', JSON.stringify(STAMM));
 
+  // MA Listen
   const renderList = (id, arr, removeFn) => {
     const ul = document.getElementById(id);
+    if (!ul) return;
     ul.innerHTML = arr.map((item,i) =>
       `<li class="stamm-item"><span>${item}</span><button class="del-btn" onclick="${removeFn}(${i})" title="Entfernen">✕</button></li>`
     ).join('');
   };
-
   renderList('listMAStark', STAMM.maStark, 'removeMAStark');
   renderList('listMASchwach', STAMM.maSchwach, 'removeMASchwach');
 
-  const ulP = document.getElementById('listProjekte');
-  ulP.innerHTML = STAMM.projekte.map((p,i) =>
-    `<li class="stamm-item"><span><strong>${p.nr}</strong> – ${p.bez}</span><button class="del-btn" onclick="removeProjekt(${i})" title="Entfernen">✕</button></li>`
-  ).join('');
+  // Projektliste als Tabelle, sortiert
+  const tblP = document.getElementById('listProjekte');
+  if (tblP) {
+    const sortierteProjekte = STAMM.projekte
+      .map((p,origIdx) => ({...p, origIdx}))
+      .sort((a,b) => {
+        const nA=parseFloat(a.nr), nB=parseFloat(b.nr);
+        if (!isNaN(nA)&&!isNaN(nB)) return nA-nB;
+        return String(a.nr).localeCompare(String(b.nr),'de');
+      });
+    tblP.innerHTML = `<tr style="background:#F1F3F4;font-weight:700;font-size:11px">
+      <td style="padding:4px 8px;width:90px;border-bottom:2px solid #DADCE0">Nummer</td>
+      <td style="padding:4px 8px;border-bottom:2px solid #DADCE0">Bezeichnung</td>
+      <td style="padding:4px 8px;width:32px;border-bottom:2px solid #DADCE0"></td>
+    </tr>` + sortierteProjekte.map(p =>
+      `<tr style="border-bottom:1px solid #F1F3F4">
+        <td style="padding:3px 8px;font-weight:700;color:#1F4E79">${p.nr}</td>
+        <td style="padding:3px 8px">${p.bez}</td>
+        <td style="text-align:center;padding:2px 4px"><button class="del-btn" onclick="removeProjekt(${p.origIdx})" title="Entfernen">✕</button></td>
+      </tr>`
+    ).join('');
+  }
+
+  // Wartungskunden
+  const infoEl = document.getElementById('wartungskundenInfo');
+  const tblWK  = document.getElementById('listWartungskunden');
+  const wkList = STAMM.wartungskunden || [];
+  if (infoEl) infoEl.textContent = wkList.length + ' Wartungskunden';
+  if (tblWK) {
+    const wkS = [...wkList].sort((a,b) => {
+      const nA=parseFloat(a.nr), nB=parseFloat(b.nr);
+      if (!isNaN(nA)&&!isNaN(nB)) return nA-nB;
+      return String(a.nr).localeCompare(String(b.nr),'de');
+    });
+    tblWK.innerHTML = `<tr style="background:#F1F3F4;font-weight:700;font-size:11px;position:sticky;top:0">
+      <td style="padding:3px 8px;width:60px;border-bottom:2px solid #DADCE0">Nr.</td>
+      <td style="padding:3px 8px;border-bottom:2px solid #DADCE0">Kundenname</td>
+      <td style="padding:3px 8px;width:110px;border-bottom:2px solid #DADCE0">Ort</td>
+      <td style="padding:3px 4px;width:28px;border-bottom:2px solid #DADCE0"></td>
+    </tr>` + wkS.map((k,i) =>
+      `<tr style="border-bottom:1px solid #F1F3F4">
+        <td style="padding:2px 8px;color:#7B4F00;font-weight:700">${k.nr}</td>
+        <td style="padding:2px 8px">${k.name}</td>
+        <td style="padding:2px 8px;color:#555;font-size:11px">${k.ort||''}</td>
+        <td style="text-align:center;padding:1px 4px"><button class="del-btn" onclick="removeWartungskunde(${i})" title="Entfernen">✕</button></td>
+      </tr>`
+    ).join('');
+  }
 }
 
 // ── Wartungskunden ──────────────────────────────────
@@ -1147,11 +1193,13 @@ function sortWK(arr) {
 function addWartungskunde() {
   const nr   = document.getElementById('newWKNr').value.trim();
   const name = document.getElementById('newWKName').value.trim();
+  const ort  = (document.getElementById('newWKOrt')||{value:''}).value.trim();
   if (!name) return;
   if (!STAMM.wartungskunden) STAMM.wartungskunden = [];
-  STAMM.wartungskunden.push({nr:nr||'-', name});
+  STAMM.wartungskunden.push({nr:nr||'-', name, ort});
   document.getElementById('newWKNr').value='';
   document.getElementById('newWKName').value='';
+  try{document.getElementById('newWKOrt').value='';}catch(e){}
   STAMM_DIRTY=true; DIRTY.add('stamm'); updateDirtyIndicator();
   renderStammdaten();
 }
@@ -1177,8 +1225,9 @@ async function importWartungskunden(input) {
       const parts = line.split(/[;,\t]/);
       const nr   = (parts[0]||'').trim().replace(/^["']|["']$/g,'');
       const name = (parts[1]||'').trim().replace(/^["']|["']$/g,'');
+      const ort  = (parts[2]||'').trim().replace(/^["']|["']$/g,'');
       if (name && name.toLowerCase()!=='name' && name.toLowerCase()!=='kundenname') {
-        STAMM.wartungskunden.push({nr:nr||'-', name}); count++;
+        STAMM.wartungskunden.push({nr:nr||'-', name, ort}); count++;
       }
     }
     STAMM_DIRTY=true; DIRTY.add('stamm'); updateDirtyIndicator();
@@ -1205,8 +1254,9 @@ async function importWartungskunden(input) {
     for (const row of rows) {
       const nr  = String(row[0]||'').trim();
       const name= String(row[1]||'').trim();
+      const ort = String(row[2]||'').trim();
       if (name && name.toLowerCase()!=='name' && name.toLowerCase()!=='kundenname') {
-        STAMM.wartungskunden.push({nr:nr||'-', name}); count++;
+        STAMM.wartungskunden.push({nr:nr||'-', name, ort}); count++;
       }
     }
     STAMM_DIRTY=true; DIRTY.add('stamm'); updateDirtyIndicator();
