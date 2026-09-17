@@ -124,96 +124,12 @@
       "bez": "Unsleben"
     },
     {
-      "nr": "441",
-      "bez": "Dreißigacker Winkhaus Instands BMA"
-    },
-    {
       "nr": "455",
       "bez": "Lengfurt BGHM TÜV Mängel"
     },
     {
-      "nr": "505",
-      "bez": "Barchfeld TH Instans RWA"
-    },
-    {
-      "nr": "612",
-      "bez": "Dreißigacker Weiskopf Rückbau BMA"
-    },
-    {
-      "nr": "642",
-      "bez": "MGN Altes Stadtbad Notlicht"
-    },
-    {
-      "nr": "651",
-      "bez": "ZM Feuerwehr Erweiterung BMA"
-    },
-    {
-      "nr": "668",
-      "bez": "Schweinfurt WEG Vogelw Akkus RWA"
-    },
-    {
-      "nr": "669",
-      "bez": "Schweinfurt WEG Vogelw Akkus Sibel"
-    },
-    {
-      "nr": "670",
-      "bez": "Schweinfurt Studiwohn Akkus Sibel"
-    },
-    {
-      "nr": "671",
-      "bez": "Niederwerrn Tiefgarage Akkus Sibel"
-    },
-    {
-      "nr": "673",
-      "bez": "Schweinfurt PH Akkus BMA"
-    },
-    {
       "nr": "674",
       "bez": "Schweinfurt PH Tausch Beleuchtung"
-    },
-    {
-      "nr": "679",
-      "bez": "Steinbach Hallenberg Mängel BMA"
-    },
-    {
-      "nr": "681",
-      "bez": "Römhild PH Elektroarbeiten"
-    },
-    {
-      "nr": "687",
-      "bez": "Bauerbach Schiller Mängel UV 1"
-    },
-    {
-      "nr": "700",
-      "bez": "Brotterode GS SD Karte Sibel"
-    },
-    {
-      "nr": "706",
-      "bez": "Nürnberg BGHM Tausch Netzteil BMA"
-    },
-    {
-      "nr": "710",
-      "bez": "Obermaßfeld Kita Akkus Sibel"
-    },
-    {
-      "nr": "721",
-      "bez": "Schmalkalden PH Tausch ELA Verst"
-    },
-    {
-      "nr": "725",
-      "bez": "Hammelburg PH RZB liefern"
-    },
-    {
-      "nr": "729",
-      "bez": "Henneberg TH Instands Sibel"
-    },
-    {
-      "nr": "735",
-      "bez": "MGN AWO Datenleitung WLAN"
-    },
-    {
-      "nr": "737",
-      "bez": "MGN Kita im Park GEZE Rauchschalt"
     },
     {
       "nr": "AZA",
@@ -286,6 +202,142 @@
     {
       "nr": "GSM",
       "bez": "Umrüstung Wählgerät"
+    },
+    {
+      "nr": "555",
+      "bez": "Jean Paul Schule Austausch Türsprechstelle"
+    },
+    {
+      "nr": "747",
+      "bez": "Polizei H3 USV Verschattung"
+    },
+    {
+      "nr": "752",
+      "bez": "Themar Sporthalle Instandsetzung Notlicht"
+    },
+    {
+      "nr": "757",
+      "bez": "Jüchsen Kulturhaus Meldertausch"
+    },
+    {
+      "nr": "796",
+      "bez": "MGN Lebenshilfe Barbarastraße RM nachrüsten"
+    },
+    {
+      "nr": "800",
+      "bez": "MGN Jerusalemer Straße 22 RWA Motor"
+    },
+    {
+      "nr": "801",
+      "bez": "Hausen RPH TH21/22 RM RWA"
+    },
+    {
+      "nr": "809",
+      "bez": "Obermaßfeld Sporthalle Sibel und BMA"
+    },
+    {
+      "nr": "817",
+      "bez": "Heldburg Regelschule Akkus Notlicht"
+    },
+    {
+      "nr": "836",
+      "bez": "Zwenkau Alloheim Meldertausch BMA"
+    },
+    {
+      "nr": "837",
+      "bez": "Zwenkau Alloheim KNX-Tableau"
+    },
+    {
+      "nr": "838",
+      "bez": "Zwenkau Alloheim Umstellung LED-Beleuchtung"
+    },
+    {
+      "nr": "841",
+      "bez": "Polizei H3 KNX-Steuerung + BMA"
+    },
+    {
+      "nr": "846",
+      "bez": "Kaltensundheim Gymnasium Signalgeber BMA"
+    },
+    {
+      "nr": "849",
+      "bez": "Apfelstädt AWO Meldertausch"
+    },
+    {
+      "nr": "851",
+      "bez": "MGN Hallenbad Meldertausch"
+    },
+    {
+      "nr": "831",
+      "bez": "Metzels Pension Austausch BMA"
+    },
+    {
+      "nr": "855",
+      "bez": "Brotterode Grundschule Akku ELA"
+    },
+    {
+      "nr": "857",
+      "bez": "Queinfeld Deko Lichtschranke"
+    },
+    {
+      "nr": "858",
+      "bez": "Frankenheim Schule Akku ELA"
+    },
+    {
+      "nr": "859",
+      "bez": "Frankenheim Schule Zeitschaltuhr"
+    },
+    {
+      "nr": "860",
+      "bez": "Suhl Kita Waldstörche Meldertausch"
+    },
+    {
+      "nr": "861",
+      "bez": "Kaltensundheim Standesamt Sabotageschalter"
+    },
+    {
+      "nr": "862",
+      "bez": "Wernshausen Sporthalle Mängelbeseitigung BMA"
+    },
+    {
+      "nr": "865",
+      "bez": "MGN Polizei H1 Akkus Sibel"
+    },
+    {
+      "nr": "874",
+      "bez": "MGN Ev. Gymnasium Relaiskarte"
+    },
+    {
+      "nr": "880",
+      "bez": "MGN Ev Gymnasium Sonnenschutz"
+    },
+    {
+      "nr": "883",
+      "bez": "MGN Haus Lebenswert Akkutausch RWA"
+    },
+    {
+      "nr": "884",
+      "bez": "MGN BBZ Internat Lüfter"
+    },
+    {
+      "nr": "886",
+      "bez": "Breitungen Geschwister Scholl Ring 12 SAT Anlage"
+    },
+    {
+      "nr": "887",
+      "bez": "Suhl Behördenzentrum Haus 2 Melder in Störung"
+    },
+    {
+      "nr": "890",
+      "bez": "MGN BBZ Gartenstraße Einbau Adapter"
+    },
+    {
+      "nr": "891",
+      "bez": "MGN RS Kiliansberg Außenuhr"
+    },
+    {
+      "nr": "894",
+      "bez": "Dreißigacker MAPAL Meldertausch"
     }
   ],
   "wartungskunden": [
