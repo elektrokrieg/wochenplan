@@ -326,10 +326,13 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
     <input id="cfgToken" type="password" placeholder="github_pat_... oder ghp_..." style="width:100%;border:1px solid #DADCE0;border-radius:6px;padding:7px 10px;font-size:13px;margin-bottom:8px;box-sizing:border-box;" />
     <p style="font-size:11px;color:#9AA0A6;margin-bottom:14px;">Fine-grained Token mit <strong>Contents: Read & Write</strong> auf dieses Repo empfohlen.</p>
     <div id="cfgError" style="display:none;background:#FFEBEE;color:#B71C1C;padding:8px 12px;border-radius:6px;font-size:12px;margin-bottom:12px;border-left:3px solid #C62828;"></div>
-    <div style="display:flex;gap:8px;justify-content:flex-end;">
+    <div style="display:flex;gap:8px;justify-content:space-between;align-items:center;">
+      <button onclick="openProtokollPopup()" style="background:none;border:1px solid #DADCE0;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:11px;color:#888;">&#128203; Protokoll</button>
+      <div style="display:flex;gap:8px;">
       <button id="cfgDisconnect" style="border:none;border-radius:6px;padding:7px 16px;cursor:pointer;font-size:13px;font-weight:600;background:#F1F3F4;color:#5F6368;">Trennen</button>
       <button id="cfgCancel" style="border:none;border-radius:6px;padding:7px 16px;cursor:pointer;font-size:13px;font-weight:600;background:#F1F3F4;color:#5F6368;">Abbrechen</button>
       <button id="cfgSave" style="border:none;border-radius:6px;padding:7px 16px;cursor:pointer;font-size:13px;font-weight:600;background:#1F4E79;color:white;">Speichern</button>
+      </div>
     </div>
   </div>
 </div>
@@ -372,7 +375,6 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
   <button class="tab-btn" onclick="showTab('schwachstrom')" id="tab-schwachstrom">Wochenplan Schwachstrom</button>
   <button class="tab-btn" onclick="showTab('urlaub')" id="tab-urlaub">Urlaubsplan</button>
   <button class="tab-btn" onclick="showTab('stammdaten')" id="tab-stammdaten">Stammdaten</button>
-  <button class="tab-btn" onclick="showTab('protokoll')" id="tab-protokoll">&#128203; Protokoll</button>
 </div>
 
 <!-- Toast -->
@@ -450,18 +452,6 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
     <div class="legend-item"><div class="legend-dot" style="background:#F3E5F5"></div>E = Elternzeit</div>
     <div class="legend-item"><div class="legend-dot" style="background:#FFEBEE"></div>K = Krank</div>
     <div class="legend-item"><div class="legend-dot" style="background:#FFF3E0"></div>A = AZA</div>
-  </div>
-</div>
-
-<!-- ═══ PROTOKOLL ═══ -->
-<div id="view-protokoll" style="display:none">
-  <div style="background:white;padding:10px 14px;border-bottom:1px solid #DADCE0;display:flex;gap:8px;align-items:center;flex-wrap:wrap;position:sticky;top:44px;z-index:90;box-shadow:0 1px 4px rgba(0,0,0,0.1)">
-    <span style="font-size:13px;font-weight:700;color:#1F4E79">&#128203; Ereignisprotokoll</span>
-    <span style="font-size:11px;color:#888;flex:1">Letzte 2 Wochen &bull; wird lokal gespeichert</span>
-    <button onclick="protokollLeeren()" style="background:#FFEBEE;color:#C62828;border:none;border-radius:6px;padding:4px 12px;cursor:pointer;font-size:12px;font-weight:600;">Protokoll leeren</button>
-  </div>
-  <div style="padding:8px 12px;max-width:900px;">
-    <div id="protokollListe" style="font-size:12px;"></div>
   </div>
 </div>
 
@@ -1576,14 +1566,13 @@ async function downloadData() {
 // ═══════════════════════════════════════════════════════════════
 function showTab(tab) {
   currentTab = tab;
-  ['wochenplan','schwachstrom','urlaub','stammdaten','protokoll'].forEach(t => {
+  ['wochenplan','schwachstrom','urlaub','stammdaten'].forEach(t => {
     document.getElementById('view-'+t).style.display = t===tab ? '' : 'none';
     document.getElementById('tab-'+t).classList.toggle('active', t===tab);
   });
   if (tab==='schwachstrom') loadWochenplan('schwach');
   if (tab==='urlaub') loadUrlaub();
   if (tab==='stammdaten') renderStammdaten();
-  if (tab==='protokoll') renderProtokoll();
 }
 
 function showLoading(text) {
@@ -1748,7 +1737,10 @@ function waehleWartungskunde(name, ort) {
 
 // ESC schliesst Popup
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeWartungsPopup();
+  if (e.key === 'Escape') {
+    closeWartungsPopup();
+    closeProtokollPopup();
+  }
 });
 
 // ══════════════════════════════════════════════════════════════
@@ -1930,6 +1922,18 @@ function protokollLeeren() {
   localStorage.removeItem(PROTOKOLL_KEY);
   renderProtokoll();
   showToast('Protokoll geleert', '');
+  // Popup bleibt offen und zeigt "keine Eintraege"
+}
+
+function openProtokollPopup() {
+  // Config-Popup schliessen falls offen
+  closeConfig();
+  renderProtokoll();
+  document.getElementById('protokollPopupBack').style.display = 'flex';
+}
+
+function closeProtokollPopup() {
+  document.getElementById('protokollPopupBack').style.display = 'none';
 }
 
 function renderProtokoll() {
@@ -1979,6 +1983,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Use event delegation for popup backdrop
   document.addEventListener('click', function(ev) {
     if (ev.target && ev.target.id === 'wartungsPopupBack') closeWartungsPopup();
+    if (ev.target && ev.target.id === 'protokollPopupBack') closeProtokollPopup();
   });
   init();
 });
@@ -2001,6 +2006,23 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
     <div style="padding:8px 12px;border-top:1px solid #DADCE0;text-align:right;">
       <button onclick="closeWartungsPopup()" style="background:#F1F3F4;color:#5F6368;border:none;border-radius:6px;padding:7px 16px;cursor:pointer;font-size:13px;font-weight:600;">Abbrechen</button>
+    </div>
+  </div>
+</div>
+
+<!-- Protokoll Popup -->
+<div id="protokollPopupBack" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:3000;align-items:center;justify-content:center;padding:16px;">
+  <div style="background:white;border-radius:8px;width:100%;max-width:700px;max-height:85vh;display:flex;flex-direction:column;box-shadow:0 4px 24px rgba(0,0,0,0.3);">
+    <div style="background:#1F4E79;color:white;padding:12px 16px;border-radius:8px 8px 0 0;display:flex;align-items:center;gap:8px;">
+      <span style="font-weight:700;font-size:14px;flex:1">&#128203; Ereignisprotokoll (letzte 14 Tage)</span>
+      <button onclick="closeProtokollPopup()" style="background:rgba(255,255,255,0.15);border:none;color:white;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:16px;line-height:1;">&#x2715;</button>
+    </div>
+    <div style="overflow-y:auto;flex:1;padding:12px 16px;">
+      <div id="protokollListe" style="font-size:12px;"></div>
+    </div>
+    <div style="padding:8px 12px;border-top:1px solid #DADCE0;display:flex;gap:8px;justify-content:flex-end;align-items:center;">
+      <button onclick="protokollLeeren()" style="background:#FFEBEE;color:#C62828;border:none;border-radius:6px;padding:6px 14px;cursor:pointer;font-size:12px;font-weight:600;">Protokoll leeren</button>
+      <button onclick="closeProtokollPopup()" style="background:#F1F3F4;color:#5F6368;border:none;border-radius:6px;padding:6px 14px;cursor:pointer;font-size:13px;font-weight:600;">Schliessen</button>
     </div>
   </div>
 </div>
