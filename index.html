@@ -350,6 +350,19 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
     </svg>
     Download
   </button>
+  <input type="file" id="backupFileInput" accept=".json" style="display:none" onchange="backupLaden(this)">
+  <button class="sync-btn" onclick="backupErstellen()" title="Backup als Datei speichern" style="background:rgba(46,125,50,0.35)">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/>
+    </svg>
+    Backup
+  </button>
+  <button class="sync-btn" onclick="document.getElementById('backupFileInput').click()" title="Backup laden" style="background:rgba(198,40,40,0.35)">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>
+    </svg>
+    Wiederherstellen
+  </button>
   <button class="sync-btn" onclick="openConfig()">⚙️</button>
 </div>
 
@@ -1647,6 +1660,148 @@ function waehleWartungskunde(name, ort) {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeWartungsPopup();
 });
+
+// ══════════════════════════════════════════════════════════════
+//  BACKUP / WIEDERHERSTELLEN
+// ══════════════════════════════════════════════════════════════
+
+function backupErstellen() {
+  // Alle aktuell gecachten Daten sammeln
+  var backup = {
+    version: 1,
+    erstellt: new Date().toISOString(),
+    beschreibung: 'Wochenplan Backup ' + new Date().toLocaleDateString('de-DE'),
+    stammdaten: STAMM,
+    wochenplan: {},
+    urlaub: {}
+  };
+
+  // Alle WP-Daten aus localStorage
+  for (var i = 0; i < localStorage.length; i++) {
+    var k = localStorage.key(i);
+    if (k && k.startsWith('wpCache_')) {
+      try { backup.wochenplan[k] = JSON.parse(localStorage.getItem(k)); } catch(e) {}
+    }
+    if (k && k.startsWith('urlCache_')) {
+      try { backup.urlaub[k] = JSON.parse(localStorage.getItem(k)); } catch(e) {}
+    }
+  }
+
+  // Auch WP_DATA und URL_DATA die noch nicht im Cache sind
+  for (var key in WP_DATA) {
+    if (WP_DATA[key] && Object.keys(WP_DATA[key]).length > 0) {
+      backup.wochenplan['wpCache_'+key] = WP_DATA[key];
+    }
+  }
+  for (var key in URL_DATA) {
+    if (URL_DATA[key] && Object.keys(URL_DATA[key]).length > 0) {
+      backup.urlaub['urlCache_'+key] = URL_DATA[key];
+    }
+  }
+
+  // Als Datei herunterladen
+  var datum = new Date().toISOString().slice(0, 10);
+  var dateiname = 'Wochenplan_Backup_' + datum + '.json';
+  var blob = new Blob([JSON.stringify(backup, null, 2)], {type: 'application/json'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = dateiname;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  showToast('Backup gespeichert: ' + dateiname, 'success');
+}
+
+function backupLaden(input) {
+  var file = input.files[0];
+  if (!file) return;
+
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      var backup = JSON.parse(e.target.result);
+
+      if (!backup.version || !backup.stammdaten) {
+        showToast('Ungueltige Backup-Datei', 'error');
+        return;
+      }
+
+      var datum = backup.erstellt ? new Date(backup.erstellt).toLocaleDateString('de-DE') : 'unbekannt';
+      var anzahlWP  = Object.keys(backup.wochenplan || {}).length;
+      var anzahlURL = Object.keys(backup.urlaub || {}).length;
+
+      var bestaetigt = confirm(
+        'Backup vom ' + datum + ' wiederherstellen?
+
+' +
+        'Enthaelt:
+' +
+        '- Stammdaten (Mitarbeiter, Projekte, Wartungskunden)
+' +
+        '- ' + anzahlWP + ' Wochenplan-Eintraege
+' +
+        '- ' + anzahlURL + ' Urlaubsplan-Monate
+
+' +
+        'ACHTUNG: Aktuelle lokale Daten werden ueberschrieben!
+' +
+        'Danach "Upload" klicken um den Backup auf GitHub hochzuladen.'
+      );
+
+      if (!bestaetigt) { input.value = ''; return; }
+
+      // Stammdaten wiederherstellen
+      STAMM = backup.stammdaten;
+      localStorage.setItem('wpStamm', JSON.stringify(STAMM));
+
+      // Wochenplan-Daten wiederherstellen
+      WP_DATA = {};
+      var wpData = backup.wochenplan || {};
+      for (var k in wpData) {
+        localStorage.setItem(k, JSON.stringify(wpData[k]));
+        // Key ohne "wpCache_" Prefix
+        var dataKey = k.replace('wpCache_', '');
+        WP_DATA[dataKey] = wpData[k];
+      }
+
+      // Urlaubsdaten wiederherstellen
+      URL_DATA = {};
+      var urlData = backup.urlaub || {};
+      for (var k in urlData) {
+        localStorage.setItem(k, JSON.stringify(urlData[k]));
+        var dataKey = k.replace('urlCache_', '');
+        URL_DATA[dataKey] = urlData[k];
+      }
+
+      // Alles als dirty markieren -> Upload noetig
+      DIRTY = new Set();
+      DIRTY.add('stamm');
+      for (var k in WP_DATA) { DIRTY.add('wp:' + k); }
+      for (var k in URL_DATA) { DIRTY.add('url:' + k); }
+      updateDirtyIndicator();
+
+      // Ansicht aktualisieren
+      renderStammdaten();
+      loadWochenplan('stark');
+      if (document.getElementById('view-schwachstrom').style.display !== 'none') {
+        loadWochenplan('schwach');
+      }
+      loadUrlaub();
+
+      input.value = '';
+      showToast('Backup wiederhergestellt! Bitte "Upload" klicken um auf GitHub zu speichern.', 'success');
+
+    } catch(err) {
+      showToast('Fehler beim Laden: ' + err.message, 'error');
+      input.value = '';
+    }
+  };
+  reader.readAsText(file);
+}
+
 window.addEventListener('online', ()=>updateOnlineStatus(true));
 window.addEventListener('offline', ()=>updateOnlineStatus(false));
 
