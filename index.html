@@ -1007,7 +1007,11 @@ async function onProjChange(sel) {
   if (tr) tr.style.height = 'auto';
 
   localStorage.setItem('wpCache_'+key, JSON.stringify(WP_DATA[key]));
-  DIRTY.add('wp:'+key); updateDirtyIndicator();
+  DIRTY.add('wp:'+key);
+  // Zelle merken fuer zellweisen Merge beim Upload
+  if (!DIRTY_CELLS[key]) DIRTY_CELLS[key] = new Set();
+  DIRTY_CELLS[key].add(ma + '-' + d + '-' + s);
+  updateDirtyIndicator();
   showToast('Lokal gespeichert – Upload-Button zum Hochladen', '');
 }
 
@@ -1371,49 +1375,100 @@ function updateDirtyIndicator() {
 
 // Nur geänderte Daten hochladen
 async function uploadData() {
-  if (!ghIsConfigured()) {
-    openConfig();
-    return;
-  }
-  if (DIRTY.size === 0) {
-    showToast('Keine Änderungen zum Hochladen', '');
-    return;
-  }
+  if (!ghIsConfigured()) { openConfig(); return; }
+  if (DIRTY.size === 0) { showToast('Keine Aenderungen zum Hochladen', ''); return; }
 
   const btn = document.getElementById('uploadBtn');
   btn.classList.add('spinning');
   btn.style.background = 'rgba(46,125,50,0.4)';
-  showLoading(`${DIRTY.size} geänderte Datei(en) werden hochgeladen…`);
+  showLoading('Aenderungen werden zusammengefuehrt und hochgeladen...');
   let ok = 0, err = 0;
 
   try {
     for (const dirtyKey of DIRTY) {
+
       if (dirtyKey === 'stamm') {
-        try { await saveJSON('stammdaten.json', STAMM); ok++; } catch(e) { err++; }
+        // Stammdaten: kein Merge noetig (wird immer komplett gespeichert)
+        try { await saveJSON('stammdaten.json', STAMM); ok++; }
+        catch(e) { err++; console.error('stamm upload:', e); }
 
       } else if (dirtyKey.startsWith('wp:')) {
         const key = dirtyKey.slice(3);
         const parts = key.split('-');
         const typ = parts[0], jahr = parts[1], kwPart = parts[2];
-        const path = `wochenplan-${typ}-${jahr}-${kwPart}.json`;
-        try { await saveJSON(path, WP_DATA[key]); ok++; } catch(e) { err++; }
+        const path = 'wochenplan-' + typ + '-' + jahr + '-' + kwPart + '.json';
+
+        try {
+          // Erst aktuelle Server-Version holen (Merge)
+          const serverData = await loadJSON(path);
+          const serverObj  = (serverData && serverData.content) ? serverData.content : {};
+          const localObj   = WP_DATA[key] || {};
+
+          // Merge: Server-Eintraege behalten, lokale Aenderungen drueberlegen
+          // Nur Zellen die in DIRTY_CELLS fuer diesen Key stehen werden ueberschrieben
+          const merged = Object.assign({}, serverObj);
+          const changedCells = DIRTY_CELLS[key] || null;
+          if (changedCells && changedCells.size > 0) {
+            // Nur veraenderte Zellen einspielen
+            for (const cellKey of changedCells) {
+              merged[cellKey] = localObj[cellKey] !== undefined ? localObj[cellKey] : '';
+              if (merged[cellKey] === '') delete merged[cellKey];
+            }
+          } else {
+            // Fallback: ganzen lokalen Stand nehmen
+            Object.assign(merged, localObj);
+          }
+
+          await saveJSON(path, merged);
+          WP_DATA[key] = merged;
+          localStorage.setItem('wpCache_' + key, JSON.stringify(merged));
+          ok++;
+        } catch(e) { err++; console.error('wp upload:', e); }
 
       } else if (dirtyKey.startsWith('url:')) {
         const key = dirtyKey.slice(4);
-        try { await saveJSON(`urlaub-${key}.json`, URL_DATA[key]); ok++; } catch(e) { err++; }
+        const path = 'urlaub-' + key + '.json';
+
+        try {
+          // Urlaubsplan: zellweiser Merge
+          const serverData = await loadJSON(path);
+          const serverObj  = (serverData && serverData.content) ? serverData.content : {};
+          const localObj   = URL_DATA[key] || {};
+
+          const merged = Object.assign({}, serverObj);
+          const changedCells = DIRTY_CELLS_URL[key] || null;
+          if (changedCells && changedCells.size > 0) {
+            for (const cellKey of changedCells) {
+              if (localObj[cellKey]) {
+                merged[cellKey] = localObj[cellKey];
+              } else {
+                delete merged[cellKey];
+              }
+            }
+          } else {
+            Object.assign(merged, localObj);
+          }
+
+          await saveJSON(path, merged);
+          URL_DATA[key] = merged;
+          localStorage.setItem('urlCache_' + key, JSON.stringify(merged));
+          ok++;
+        } catch(e) { err++; console.error('url upload:', e); }
       }
     }
 
     hideLoading();
     if (err === 0) {
       DIRTY.clear();
-      STAMM_DIRTY = false;
+      DIRTY_CELLS = {};
+      DIRTY_CELLS_URL = {};
       updateDirtyIndicator();
-      showToast(`✅ ${ok} Datei(en) hochgeladen`, 'success');
+      showToast('Hochgeladen und zusammengefuehrt (' + ok + ' Dateien)', 'success');
     } else {
-      showToast(`⚠️ ${ok} OK, ${err} Fehler`, 'error');
+      showToast(ok + ' OK, ' + err + ' Fehler', 'error');
     }
     updateOnlineStatus(true);
+
   } catch(e) {
     hideLoading();
     showToast('Upload fehlgeschlagen: ' + e.message, 'error');
@@ -1651,7 +1706,10 @@ function waehleWartungskunde(name, ort) {
   }
 
   localStorage.setItem('wpCache_'+_wpopKey, JSON.stringify(WP_DATA[_wpopKey]));
-  DIRTY.add('wp:'+_wpopKey); updateDirtyIndicator();
+  DIRTY.add('wp:'+_wpopKey);
+  if (!DIRTY_CELLS[_wpopKey]) DIRTY_CELLS[_wpopKey] = new Set();
+  DIRTY_CELLS[_wpopKey].add(_wpopMa + '-' + _wpopD + '-' + _wpopS);
+  updateDirtyIndicator();
   showToast('Lokal gespeichert – Upload-Button zum Hochladen', '');
   closeWartungsPopup();
 }
