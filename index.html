@@ -950,7 +950,13 @@ function renderWochenplan(typ, kw, jahr, tableId) {
 function buildProjSelect(ma, d, s, key, val, disabled) {
   const maEnc = encodeURIComponent(ma);
   if (val && !disabled) {
-    const opts = STAMM.projekte.map(p =>
+    const projSorted2 = [...STAMM.projekte].sort((a,b) => {
+      const aW = a.bez.toLowerCase().includes('wartung') ? 0 : 1;
+      const bW = b.bez.toLowerCase().includes('wartung') ? 0 : 1;
+      if (aW !== bW) return aW - bW;
+      return String(a.nr).localeCompare(String(b.nr), 'de', {numeric:true});
+    });
+    const opts = projSorted2.map(p =>
       `<option value="${escHtml(p.bez)}" ${p.bez===val?'selected':''}>${escHtml(p.nr)}</option>`
     ).join('');
     // Wartungs-Button statt eingebettetem Dropdown
@@ -965,16 +971,27 @@ function buildProjSelect(ma, d, s, key, val, disabled) {
       + `<option value="">── ändern ──</option>`
       + `<option value="__DELETE__" style="color:#C62828;font-weight:700">✕ Löschen</option>`
       + `${opts}</select>`
+      + `<button class="proj-toggle" onclick="toggleFreitext(this,'${escHtml(key)}','${maEnc}',${d},${s})">&#9998; Freitext</button>`
       + `</div>`;
   }
-  const opts = STAMM.projekte.map(p =>
+  // Wartung nach oben, Rest alphabetisch nach Nr
+  const projSorted = [...STAMM.projekte].sort((a,b) => {
+    const aW = a.bez.toLowerCase().includes('wartung') ? 0 : 1;
+    const bW = b.bez.toLowerCase().includes('wartung') ? 0 : 1;
+    if (aW !== bW) return aW - bW;
+    return String(a.nr).localeCompare(String(b.nr), 'de', {numeric:true});
+  });
+  const opts = projSorted.map(p =>
     `<option value="${escHtml(p.bez)}">${escHtml(p.nr)}</option>`
   ).join('');
   const disAttr = disabled ? 'disabled' : '';
-  return `<select class="proj-select" ${disAttr}`
+  return `<div class="proj-cell">`
+    + `<select class="proj-select" ${disAttr}`
     + ` data-key="${escHtml(key)}" data-ma="${maEnc}" data-d="${d}" data-s="${s}"`
     + ` onchange="onProjChange(this)">`
-    + `<option value=""></option>${opts}</select>`;
+    + `<option value=""></option>${opts}</select>`
+    + (!disabled ? `<button class="proj-toggle" onclick="toggleFreitext(this,'${escHtml(key)}','${maEnc}',${d},${s})">&#9998; Freitext</button>` : '')
+    + `</div>`;
 }
 
 function escHtml(s) {
@@ -1862,6 +1879,63 @@ function renderProtokoll() {
     html += '</div>';
   });
   el.innerHTML = html;
+}
+
+
+// ── Freitext-Eingabe ────────────────────────────────────────
+function toggleFreitext(btn, key, maEnc, d, s) {
+  var ma = decodeURIComponent(maEnc);
+  var td = btn.closest('td');
+  td.innerHTML = buildFreitextCell(key, maEnc, d, s, '');
+  td.querySelector('.proj-freitext').focus();
+}
+
+function buildFreitextCell(key, maEnc, d, s, val) {
+  return '<div class="proj-cell">'
+    + '<textarea class="proj-freitext" rows="2"'
+    + ' data-key="' + escHtml(key) + '" data-ma="' + maEnc + '" data-d="' + d + '" data-s="' + s + '"'
+    + ' onblur="onFreitextBlur(this)"'
+    + ' onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();this.blur();}"'
+    + ' placeholder="Freitext...">' + escHtml(val) + '</textarea>'
+    + '<button class="proj-toggle" onclick="onFreitextAbbrechen(this,'' + escHtml(key) + '','' + maEnc + '',' + d + ',' + s + ')">&#x2715; Abbrechen</button>'
+    + '</div>';
+}
+
+function onFreitextBlur(ta) {
+  var key  = ta.dataset.key;
+  var ma   = decodeURIComponent(ta.dataset.ma);
+  var d    = parseInt(ta.dataset.d);
+  var s    = parseInt(ta.dataset.s);
+  var val  = ta.value.trim();
+  if (!val) {
+    // Leer -> zurueck zu Dropdown
+    var td = ta.closest('td');
+    td.innerHTML = buildProjSelect(ma, d, s, key, '', false);
+    return;
+  }
+  if (!WP_DATA[key]) WP_DATA[key] = {};
+  WP_DATA[key][ma + '-' + d + '-' + s] = val;
+  var td = ta.closest('td');
+  td.className = 'td-proj';
+  td.innerHTML = buildProjSelect(ma, d, s, key, val, false);
+  var tr = td.closest('tr');
+  if (tr) tr.style.height = 'auto';
+  localStorage.setItem('wpCache_'+key, JSON.stringify(WP_DATA[key]));
+  DIRTY.add('wp:'+key);
+  if (!DIRTY_CELLS[key]) DIRTY_CELLS[key] = new Set();
+  DIRTY_CELLS[key].add(ma + '-' + d + '-' + s);
+  updateDirtyIndicator();
+  var _t=['Montag','Dienstag','Mittwoch','Donnerstag','Freitag'];
+  var _k=key.split('-')[2]||key;
+  protEintrag('Freitext eingetragen: '+_k+'/'+ma+'/'+_t[d]+' A'+(s+1)+': '+val);
+  showToast('Lokal gespeichert', '');
+}
+
+function onFreitextAbbrechen(btn, key, maEnc, d, s) {
+  var ma = decodeURIComponent(maEnc);
+  var td = btn.closest('td');
+  var bestehend = (WP_DATA[key] && WP_DATA[key][ma+'-'+d+'-'+s]) || '';
+  td.innerHTML = buildProjSelect(ma, d, s, key, bestehend, false);
 }
 
 window.addEventListener('online', ()=>updateOnlineStatus(true));
