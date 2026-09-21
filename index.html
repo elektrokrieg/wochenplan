@@ -465,7 +465,7 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
       <div class="stamm-body">
         <ul class="stamm-list" id="listMAStark"></ul>
         <div class="add-row">
-          <input id="newMAStark" placeholder="Name eintragen…" onkeydown="if(event.key==='Enter')addMA('stark')">
+    + ' onblur="onFreitextBlur(this)" onkeydown="if(event.key=='Enter'&&!event.shiftKey){event.preventDefault();this.blur();}"'
           <button class="add-btn" onclick="addMA('stark')">+ Hinzufügen</button>
         </div>
       </div>
@@ -1687,6 +1687,10 @@ function waehleWartungskunde(name, ort) {
 // ESC schliesst Popup
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') { closeWartungsPopup(); closeProtokollPopup(); }
+  if (e.key === 'Enter' && !e.shiftKey && e.target && e.target.classList.contains('proj-freitext')) {
+    e.preventDefault();
+    e.target.blur();
+  }
 });
 
 // ══════════════════════════════════════════════════════════════
@@ -1891,13 +1895,14 @@ function toggleFreitext(btn, key, maEnc, d, s) {
 }
 
 function buildFreitextCell(key, maEnc, d, s, val) {
+  var safeKey = escHtml(key);
   return '<div class="proj-cell">'
     + '<textarea class="proj-freitext" rows="2"'
-    + ' data-key="' + escHtml(key) + '" data-ma="' + maEnc + '" data-d="' + d + '" data-s="' + s + '"'
+    + ' data-key="' + safeKey + '" data-ma="' + maEnc + '" data-d="' + d + '" data-s="' + s + '"'
     + ' onblur="onFreitextBlur(this)"'
-    + ' onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();this.blur();}"'
     + ' placeholder="Freitext...">' + escHtml(val) + '</textarea>'
-    + '<button class="proj-toggle" onclick="onFreitextAbbrechen(this,'' + escHtml(key) + '','' + maEnc + '',' + d + ',' + s + ')">&#x2715; Abbrechen</button>'
+    + '<button class="proj-toggle" onclick="onFreitextAbbrechen(this)">'
+    + '&#x2715; Abbrechen</button>'
     + '</div>';
 }
 
@@ -1931,8 +1936,12 @@ function onFreitextBlur(ta) {
   showToast('Lokal gespeichert', '');
 }
 
-function onFreitextAbbrechen(btn, key, maEnc, d, s) {
-  var ma = decodeURIComponent(maEnc);
+function onFreitextAbbrechen(btn) {
+  var ta = btn.closest('.proj-cell').querySelector('textarea');
+  var key  = ta.dataset.key;
+  var ma   = decodeURIComponent(ta.dataset.ma);
+  var d    = parseInt(ta.dataset.d);
+  var s    = parseInt(ta.dataset.s);
   var td = btn.closest('td');
   var bestehend = (WP_DATA[key] && WP_DATA[key][ma+'-'+d+'-'+s]) || '';
   td.innerHTML = buildProjSelect(ma, d, s, key, bestehend, false);
