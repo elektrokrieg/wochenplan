@@ -1733,23 +1733,7 @@ function backupLaden(input) {
       var anzahlWP  = Object.keys(backup.wochenplan || {}).length;
       var anzahlURL = Object.keys(backup.urlaub || {}).length;
 
-      var bestaetigt = confirm(
-        'Backup vom ' + datum + ' wiederherstellen?
-
-' +
-        'Enthaelt:
-' +
-        '- Stammdaten (Mitarbeiter, Projekte, Wartungskunden)
-' +
-        '- ' + anzahlWP + ' Wochenplan-Eintraege
-' +
-        '- ' + anzahlURL + ' Urlaubsplan-Monate
-
-' +
-        'ACHTUNG: Aktuelle lokale Daten werden ueberschrieben!
-' +
-        'Danach "Upload" klicken um den Backup auf GitHub hochzuladen.'
-      );
+      var bestaetigt = confirm('Backup vom ' + datum + ' wiederherstellen? Enthaelt: Stammdaten, ' + anzahlWP + ' Wochenplan-Eintraege, ' + anzahlURL + ' Urlaubsplan-Monate. ACHTUNG: Aktuelle lokale Daten werden ueberschrieben! Danach Upload klicken.');
 
       if (!bestaetigt) { input.value = ''; return; }
 
