@@ -326,9 +326,7 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
     <input id="cfgToken" type="password" placeholder="github_pat_... oder ghp_..." style="width:100%;border:1px solid #DADCE0;border-radius:6px;padding:7px 10px;font-size:13px;margin-bottom:8px;box-sizing:border-box;" />
     <p style="font-size:11px;color:#9AA0A6;margin-bottom:14px;">Fine-grained Token mit <strong>Contents: Read & Write</strong> auf dieses Repo empfohlen.</p>
     <div id="cfgError" style="display:none;background:#FFEBEE;color:#B71C1C;padding:8px 12px;border-radius:6px;font-size:12px;margin-bottom:12px;border-left:3px solid #C62828;"></div>
-    <div style="display:flex;gap:8px;justify-content:space-between;align-items:center;">
-      <button onclick="openProtokollPopup()" style="background:none;border:1px solid #DADCE0;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:11px;color:#888;">&#128203; Protokoll</button>
-      <div style="display:flex;gap:8px;">
+    <div style="display:flex;gap:8px;justify-content:flex-end;">
       <button id="cfgDisconnect" style="border:none;border-radius:6px;padding:7px 16px;cursor:pointer;font-size:13px;font-weight:600;background:#F1F3F4;color:#5F6368;">Trennen</button>
       <button id="cfgCancel" style="border:none;border-radius:6px;padding:7px 16px;cursor:pointer;font-size:13px;font-weight:600;background:#F1F3F4;color:#5F6368;">Abbrechen</button>
       <button id="cfgSave" style="border:none;border-radius:6px;padding:7px 16px;cursor:pointer;font-size:13px;font-weight:600;background:#1F4E79;color:white;">Speichern</button>
@@ -516,8 +514,7 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
 // ═══════════════════════════════════════════════════════════════
 //  STATE
 // ═══════════════════════════════════════════════════════════════
-let CFG = { user:'', repo:'', token:'', name:'' };
-let BENUTZER_NAME = ''; // lokal gespeicherter Anzeigename
+let CFG = { user:'', repo:'', token:'' };
 let STAMM = { maStark:[], maSchwach:[], projekte:[], wartungskunden:[] };
 let WP_DATA  = {};  // { "stark-2026-KW01": { "MA-tag-sub": "wert" } }
 let URL_DATA = {};  // { "2026-07": { "MA-tag": "U" } }
@@ -636,12 +633,6 @@ function loadLocalConfig() {
       }
     } catch(e) {}
   }
-  // Benutzername laden
-  try {
-    var savedName = localStorage.getItem('wp_user_name');
-    if (savedName) BENUTZER_NAME = savedName;
-  } catch(e) {}
-
   // Cookie fallback
   try {
     const m = document.cookie.match(/(?:^|;)\s*wpCfg=([^;]+)/);
@@ -1016,18 +1007,7 @@ async function onProjChange(sel) {
   if (tr) tr.style.height = 'auto';
 
   localStorage.setItem('wpCache_'+key, JSON.stringify(WP_DATA[key]));
-  DIRTY.add('wp:'+key);
-  if (!DIRTY_CELLS[key]) DIRTY_CELLS[key] = new Set();
-  DIRTY_CELLS[key].add(ma + '-' + d + '-' + s);
-  updateDirtyIndicator();
-  // Protokoll
-  var kwPart = key.split('-')[2] || key;
-  var tagName = ['Montag','Dienstag','Mittwoch','Donnerstag','Freitag'][d] || ('Tag '+(d+1));
-  if (!val) {
-    protokollEintrag('Eintrag geloescht in ' + kwPart + ' / ' + ma + ' / ' + tagName + ' Auftrag ' + (parseInt(s)+1));
-  } else {
-    protokollEintrag('Eingetragen in ' + kwPart + ' / ' + ma + ' / ' + tagName + ' Auftrag ' + (parseInt(s)+1) + ': ' + val);
-  }
+  DIRTY.add('wp:'+key); updateDirtyIndicator();
   showToast('Lokal gespeichert – Upload-Button zum Hochladen', '');
 }
 
@@ -1337,8 +1317,8 @@ function addMA(typ) {
   renderStammdaten();
 }
 
-function removeMAStark(i) { var name=STAMM.maStark[i]||'?'; STAMM.maStark.splice(i,1); STAMM_DIRTY=true; DIRTY.add('stamm'); updateDirtyIndicator(); protokollEintrag('Starkstrom-Mitarbeiter entfernt: '+name); renderStammdaten(); }
-function removeMASchwach(i) { var name=STAMM.maSchwach[i]||'?'; STAMM.maSchwach.splice(i,1); STAMM_DIRTY=true; DIRTY.add('stamm'); updateDirtyIndicator(); protokollEintrag('Schwachstrom-Mitarbeiter entfernt: '+name); renderStammdaten(); }
+function removeMAStark(i) { STAMM.maStark.splice(i,1); STAMM_DIRTY=true; DIRTY.add('stamm'); updateDirtyIndicator(); renderStammdaten(); }
+function removeMASchwach(i) { STAMM.maSchwach.splice(i,1); STAMM_DIRTY=true; DIRTY.add('stamm'); updateDirtyIndicator(); renderStammdaten(); }
 
 function addProjekt() {
   const nr = document.getElementById('newProjNr').value.trim();
@@ -1350,7 +1330,7 @@ function addProjekt() {
   STAMM_DIRTY=true; DIRTY.add('stamm'); updateDirtyIndicator();
   renderStammdaten();
 }
-function removeProjekt(i) { var p=STAMM.projekte[i]; var pText=p?(p.nr+' - '+p.bez):'?'; STAMM.projekte.splice(i,1); STAMM_DIRTY=true; DIRTY.add('stamm'); updateDirtyIndicator(); protokollEintrag('Projekt entfernt aus Stammdaten: '+pText); renderStammdaten(); }
+function removeProjekt(i) { STAMM.projekte.splice(i,1); STAMM_DIRTY=true; DIRTY.add('stamm'); updateDirtyIndicator(); renderStammdaten(); }
 
 async function saveStammdaten() {
   STAMM_DIRTY = true;
@@ -1391,100 +1371,49 @@ function updateDirtyIndicator() {
 
 // Nur geänderte Daten hochladen
 async function uploadData() {
-  if (!ghIsConfigured()) { openConfig(); return; }
-  if (DIRTY.size === 0) { showToast('Keine Aenderungen zum Hochladen', ''); return; }
+  if (!ghIsConfigured()) {
+    openConfig();
+    return;
+  }
+  if (DIRTY.size === 0) {
+    showToast('Keine Änderungen zum Hochladen', '');
+    return;
+  }
 
   const btn = document.getElementById('uploadBtn');
   btn.classList.add('spinning');
   btn.style.background = 'rgba(46,125,50,0.4)';
-  showLoading('Aenderungen werden zusammengefuehrt und hochgeladen...');
+  showLoading(`${DIRTY.size} geänderte Datei(en) werden hochgeladen…`);
   let ok = 0, err = 0;
 
   try {
     for (const dirtyKey of DIRTY) {
-
       if (dirtyKey === 'stamm') {
-        // Stammdaten: kein Merge noetig (wird immer komplett gespeichert)
-        try { await saveJSON('stammdaten.json', STAMM); ok++; }
-        catch(e) { err++; console.error('stamm upload:', e); }
+        try { await saveJSON('stammdaten.json', STAMM); ok++; } catch(e) { err++; }
 
       } else if (dirtyKey.startsWith('wp:')) {
         const key = dirtyKey.slice(3);
         const parts = key.split('-');
         const typ = parts[0], jahr = parts[1], kwPart = parts[2];
-        const path = 'wochenplan-' + typ + '-' + jahr + '-' + kwPart + '.json';
-
-        try {
-          // Erst aktuelle Server-Version holen (Merge)
-          const serverData = await loadJSON(path);
-          const serverObj  = (serverData && serverData.content) ? serverData.content : {};
-          const localObj   = WP_DATA[key] || {};
-
-          // Merge: Server-Eintraege behalten, lokale Aenderungen drueberlegen
-          // Nur Zellen die in DIRTY_CELLS fuer diesen Key stehen werden ueberschrieben
-          const merged = Object.assign({}, serverObj);
-          const changedCells = DIRTY_CELLS[key] || null;
-          if (changedCells && changedCells.size > 0) {
-            // Nur veraenderte Zellen einspielen
-            for (const cellKey of changedCells) {
-              merged[cellKey] = localObj[cellKey] !== undefined ? localObj[cellKey] : '';
-              if (merged[cellKey] === '') delete merged[cellKey];
-            }
-          } else {
-            // Fallback: ganzen lokalen Stand nehmen
-            Object.assign(merged, localObj);
-          }
-
-          await saveJSON(path, merged);
-          WP_DATA[key] = merged;
-          localStorage.setItem('wpCache_' + key, JSON.stringify(merged));
-          ok++;
-        } catch(e) { err++; console.error('wp upload:', e); }
+        const path = `wochenplan-${typ}-${jahr}-${kwPart}.json`;
+        try { await saveJSON(path, WP_DATA[key]); ok++; } catch(e) { err++; }
 
       } else if (dirtyKey.startsWith('url:')) {
         const key = dirtyKey.slice(4);
-        const path = 'urlaub-' + key + '.json';
-
-        try {
-          // Urlaubsplan: zellweiser Merge
-          const serverData = await loadJSON(path);
-          const serverObj  = (serverData && serverData.content) ? serverData.content : {};
-          const localObj   = URL_DATA[key] || {};
-
-          const merged = Object.assign({}, serverObj);
-          const changedCells = DIRTY_CELLS_URL[key] || null;
-          if (changedCells && changedCells.size > 0) {
-            for (const cellKey of changedCells) {
-              if (localObj[cellKey]) {
-                merged[cellKey] = localObj[cellKey];
-              } else {
-                delete merged[cellKey];
-              }
-            }
-          } else {
-            Object.assign(merged, localObj);
-          }
-
-          await saveJSON(path, merged);
-          URL_DATA[key] = merged;
-          localStorage.setItem('urlCache_' + key, JSON.stringify(merged));
-          ok++;
-        } catch(e) { err++; console.error('url upload:', e); }
+        try { await saveJSON(`urlaub-${key}.json`, URL_DATA[key]); ok++; } catch(e) { err++; }
       }
     }
 
     hideLoading();
     if (err === 0) {
       DIRTY.clear();
-      DIRTY_CELLS = {};
-      DIRTY_CELLS_URL = {};
+      STAMM_DIRTY = false;
       updateDirtyIndicator();
-      showToast('Hochgeladen und zusammengefuehrt (' + ok + ' Dateien)', 'success');
+      showToast(`✅ ${ok} Datei(en) hochgeladen`, 'success');
     } else {
-      showToast(ok + ' OK, ' + err + ' Fehler', 'error');
+      showToast(`⚠️ ${ok} OK, ${err} Fehler`, 'error');
     }
     updateOnlineStatus(true);
-
   } catch(e) {
     hideLoading();
     showToast('Upload fehlgeschlagen: ' + e.message, 'error');
@@ -1608,7 +1537,6 @@ function openConfig() {
     document.getElementById('cfgRepo').value = CFG.repo || '';
     document.getElementById('cfgToken').value = CFG.token || '';
   }
-  document.getElementById('cfgName').value = BENUTZER_NAME || '';
   document.getElementById('cfgError').style.display = 'none';
   document.getElementById('settingsModalBack').style.display = 'flex';
 }
@@ -1723,23 +1651,14 @@ function waehleWartungskunde(name, ort) {
   }
 
   localStorage.setItem('wpCache_'+_wpopKey, JSON.stringify(WP_DATA[_wpopKey]));
-  DIRTY.add('wp:'+_wpopKey);
-  if (!DIRTY_CELLS[_wpopKey]) DIRTY_CELLS[_wpopKey] = new Set();
-  DIRTY_CELLS[_wpopKey].add(_wpopMa + '-' + _wpopD + '-' + _wpopS);
-  updateDirtyIndicator();
-  var kwPartWK = _wpopKey.split('-')[2] || _wpopKey;
-  var tagNameWK = ['Montag','Dienstag','Mittwoch','Donnerstag','Freitag'][_wpopD] || ('Tag '+(_wpopD+1));
-  protokollEintrag('Eingetragen in ' + kwPartWK + ' / ' + _wpopMa + ' / ' + tagNameWK + ' Auftrag ' + (_wpopS+1) + ': ' + val);
+  DIRTY.add('wp:'+_wpopKey); updateDirtyIndicator();
   showToast('Lokal gespeichert – Upload-Button zum Hochladen', '');
   closeWartungsPopup();
 }
 
 // ESC schliesst Popup
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    closeWartungsPopup();
-    closeProtokollPopup();
-  }
+  if (e.key === 'Escape') closeWartungsPopup();
 });
 
 // ══════════════════════════════════════════════════════════════
@@ -1873,7 +1792,6 @@ function backupLaden(input) {
       loadUrlaub();
 
       input.value = '';
-      protokollEintrag('Backup wiederhergestellt vom ' + datum);
       showToast('Backup wiederhergestellt! Bitte "Upload" klicken um auf GitHub zu speichern.', 'success');
 
     } catch(err) {
@@ -1882,95 +1800,6 @@ function backupLaden(input) {
     }
   };
   reader.readAsText(file);
-}
-
-
-// ══════════════════════════════════════════════════════════════
-//  EREIGNISPROTOKOLL
-// ══════════════════════════════════════════════════════════════
-var PROTOKOLL_KEY = 'wp_ereignisprotokoll';
-var PROTOKOLL_MAX_TAGE = 14;
-
-function protokollEintrag(text) {
-  var name = BENUTZER_NAME || 'Unbekannt';
-  var jetzt = new Date();
-  var eintrag = {
-    ts: jetzt.toISOString(),
-    name: name,
-    text: text
-  };
-  var liste = protokollLaden();
-  liste.unshift(eintrag); // neueste zuerst
-
-  // Aeltere als 14 Tage entfernen
-  var grenze = new Date(Date.now() - PROTOKOLL_MAX_TAGE * 24 * 60 * 60 * 1000);
-  liste = liste.filter(function(e) { return new Date(e.ts) > grenze; });
-
-  try { localStorage.setItem(PROTOKOLL_KEY, JSON.stringify(liste)); } catch(ex) {}
-}
-
-function protokollLaden() {
-  try {
-    var raw = localStorage.getItem(PROTOKOLL_KEY);
-    return raw ? JSON.parse(raw) : [];
-  } catch(e) { return []; }
-}
-
-function protokollLeeren() {
-  if (!confirm('Komplettes Protokoll loeschen?')) return;
-  localStorage.removeItem(PROTOKOLL_KEY);
-  renderProtokoll();
-  showToast('Protokoll geleert', '');
-  // Popup bleibt offen und zeigt "keine Eintraege"
-}
-
-function openProtokollPopup() {
-  // Config-Popup schliessen falls offen
-  closeConfig();
-  renderProtokoll();
-  document.getElementById('protokollPopupBack').style.display = 'flex';
-}
-
-function closeProtokollPopup() {
-  document.getElementById('protokollPopupBack').style.display = 'none';
-}
-
-function renderProtokoll() {
-  var liste = protokollLaden();
-  var el = document.getElementById('protokollListe');
-  if (!el) return;
-
-  if (liste.length === 0) {
-    el.innerHTML = '<div style="padding:24px;text-align:center;color:#999">Noch keine Ereignisse aufgezeichnet.</div>';
-    return;
-  }
-
-  // Nach Datum gruppieren
-  var gruppen = {};
-  liste.forEach(function(e) {
-    var tag = new Date(e.ts).toLocaleDateString('de-DE', {weekday:'long', day:'2-digit', month:'2-digit', year:'numeric'});
-    if (!gruppen[tag]) gruppen[tag] = [];
-    gruppen[tag].push(e);
-  });
-
-  var html = '';
-  Object.keys(gruppen).forEach(function(tag) {
-    html += '<div style="margin-bottom:16px">'
-      + '<div style="font-weight:700;font-size:12px;color:#1F4E79;padding:4px 0;border-bottom:2px solid #D6E4F0;margin-bottom:6px">' + tag + '</div>';
-    gruppen[tag].forEach(function(e) {
-      var uhrzeit = new Date(e.ts).toLocaleTimeString('de-DE', {hour:'2-digit', minute:'2-digit'});
-      var farbe = e.text.indexOf('geloescht') >= 0 || e.text.indexOf('entfernt') >= 0 ? '#C62828' :
-                  e.text.indexOf('wiederhergestellt') >= 0 ? '#E65100' : '#2E7D32';
-      html += '<div style="display:flex;gap:8px;align-items:baseline;padding:4px 8px;border-radius:4px;margin-bottom:2px;background:#F8F9FA">'
-        + '<span style="color:#888;font-size:11px;white-space:nowrap;min-width:38px">' + uhrzeit + '</span>'
-        + '<span style="font-weight:700;color:#1F4E79;white-space:nowrap;min-width:120px">' + escHtml(e.name) + '</span>'
-        + '<span style="color:' + farbe + '">' + escHtml(e.text) + '</span>'
-        + '</div>';
-    });
-    html += '</div>';
-  });
-
-  el.innerHTML = html;
 }
 
 window.addEventListener('online', ()=>updateOnlineStatus(true));
@@ -1982,7 +1811,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Use event delegation for popup backdrop
   document.addEventListener('click', function(ev) {
     if (ev.target && ev.target.id === 'wartungsPopupBack') closeWartungsPopup();
-    if (ev.target && ev.target.id === 'protokollPopupBack') closeProtokollPopup();
   });
   init();
 });
@@ -2005,23 +1833,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
     <div style="padding:8px 12px;border-top:1px solid #DADCE0;text-align:right;">
       <button onclick="closeWartungsPopup()" style="background:#F1F3F4;color:#5F6368;border:none;border-radius:6px;padding:7px 16px;cursor:pointer;font-size:13px;font-weight:600;">Abbrechen</button>
-    </div>
-  </div>
-</div>
-
-<!-- Protokoll Popup -->
-<div id="protokollPopupBack" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:3000;align-items:center;justify-content:center;padding:16px;">
-  <div style="background:white;border-radius:8px;width:100%;max-width:700px;max-height:85vh;display:flex;flex-direction:column;box-shadow:0 4px 24px rgba(0,0,0,0.3);">
-    <div style="background:#1F4E79;color:white;padding:12px 16px;border-radius:8px 8px 0 0;display:flex;align-items:center;gap:8px;">
-      <span style="font-weight:700;font-size:14px;flex:1">&#128203; Ereignisprotokoll (letzte 14 Tage)</span>
-      <button onclick="closeProtokollPopup()" style="background:rgba(255,255,255,0.15);border:none;color:white;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:16px;line-height:1;">&#x2715;</button>
-    </div>
-    <div style="overflow-y:auto;flex:1;padding:12px 16px;">
-      <div id="protokollListe" style="font-size:12px;"></div>
-    </div>
-    <div style="padding:8px 12px;border-top:1px solid #DADCE0;display:flex;gap:8px;justify-content:flex-end;align-items:center;">
-      <button onclick="protokollLeeren()" style="background:#FFEBEE;color:#C62828;border:none;border-radius:6px;padding:6px 14px;cursor:pointer;font-size:12px;font-weight:600;">Protokoll leeren</button>
-      <button onclick="closeProtokollPopup()" style="background:#F1F3F4;color:#5F6368;border:none;border-radius:6px;padding:6px 14px;cursor:pointer;font-size:13px;font-weight:600;">Schliessen</button>
     </div>
   </div>
 </div>
