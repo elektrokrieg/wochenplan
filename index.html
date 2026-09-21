@@ -325,11 +325,16 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
     <label style="display:block;font-size:12px;font-weight:600;color:#5F6368;margin-bottom:3px;">GitHub Token (wird nur lokal gespeichert)</label>
     <input id="cfgToken" type="password" placeholder="github_pat_... oder ghp_..." style="width:100%;border:1px solid #DADCE0;border-radius:6px;padding:7px 10px;font-size:13px;margin-bottom:8px;box-sizing:border-box;" />
     <p style="font-size:11px;color:#9AA0A6;margin-bottom:14px;">Fine-grained Token mit <strong>Contents: Read & Write</strong> auf dieses Repo empfohlen.</p>
+    <label style="display:block;font-size:12px;font-weight:600;color:#5F6368;margin-bottom:3px;">Dein Name (fuer Protokoll)</label>
+    <input id="cfgName" placeholder="z.B. Christian Berthold" style="width:100%;border:1px solid #DADCE0;border-radius:6px;padding:7px 10px;font-size:13px;margin-bottom:14px;box-sizing:border-box;" />
     <div id="cfgError" style="display:none;background:#FFEBEE;color:#B71C1C;padding:8px 12px;border-radius:6px;font-size:12px;margin-bottom:12px;border-left:3px solid #C62828;"></div>
-    <div style="display:flex;gap:8px;justify-content:flex-end;">
+    <div style="display:flex;gap:8px;justify-content:space-between;align-items:center;">
+      <button onclick="openProtokollPopup()" style="background:none;border:1px solid #DADCE0;border-radius:6px;padding:5px 10px;cursor:pointer;font-size:11px;color:#999;">&#128203; Protokoll</button>
+      <div style="display:flex;gap:8px;">
       <button id="cfgDisconnect" style="border:none;border-radius:6px;padding:7px 16px;cursor:pointer;font-size:13px;font-weight:600;background:#F1F3F4;color:#5F6368;">Trennen</button>
       <button id="cfgCancel" style="border:none;border-radius:6px;padding:7px 16px;cursor:pointer;font-size:13px;font-weight:600;background:#F1F3F4;color:#5F6368;">Abbrechen</button>
       <button id="cfgSave" style="border:none;border-radius:6px;padding:7px 16px;cursor:pointer;font-size:13px;font-weight:600;background:#1F4E79;color:white;">Speichern</button>
+      </div>
     </div>
   </div>
 </div>
@@ -515,6 +520,7 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
 //  STATE
 // ═══════════════════════════════════════════════════════════════
 let CFG = { user:'', repo:'', token:'' };
+var BENUTZER_NAME = '';
 let STAMM = { maStark:[], maSchwach:[], projekte:[], wartungskunden:[] };
 let WP_DATA  = {};  // { "stark-2026-KW01": { "MA-tag-sub": "wert" } }
 let URL_DATA = {};  // { "2026-07": { "MA-tag": "U" } }
@@ -620,6 +626,7 @@ async function init() {
 }
 
 function loadLocalConfig() {
+  try { var n = localStorage.getItem('wp_user_name'); if (n) BENUTZER_NAME = n; } catch(e) {}
   const keys = ['wp_gh_config_v1', 'wp_gh_config_v2', 'wpConfig', 'wpConfig_v2'];
   for (const key of keys) {
     try {
@@ -1008,6 +1015,9 @@ async function onProjChange(sel) {
 
   localStorage.setItem('wpCache_'+key, JSON.stringify(WP_DATA[key]));
   DIRTY.add('wp:'+key); updateDirtyIndicator();
+  var _t=['Montag','Dienstag','Mittwoch','Donnerstag','Freitag'];
+  var _k=key.split('-')[2]||key;
+  if (!val){protEintrag('Geloescht: '+_k+'/'+ma+'/'+_t[d]+' A'+(+s+1));}else{protEintrag('Eingetragen: '+_k+'/'+ma+'/'+_t[d]+' A'+(+s+1)+': '+val);}
   showToast('Lokal gespeichert – Upload-Button zum Hochladen', '');
 }
 
@@ -1537,6 +1547,7 @@ function openConfig() {
     document.getElementById('cfgRepo').value = CFG.repo || '';
     document.getElementById('cfgToken').value = CFG.token || '';
   }
+  document.getElementById('cfgName').value = BENUTZER_NAME || '';
   document.getElementById('cfgError').style.display = 'none';
   document.getElementById('settingsModalBack').style.display = 'flex';
 }
@@ -1658,7 +1669,7 @@ function waehleWartungskunde(name, ort) {
 
 // ESC schliesst Popup
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeWartungsPopup();
+  if (e.key === 'Escape') { closeWartungsPopup(); closeProtokollPopup(); }
 });
 
 // ══════════════════════════════════════════════════════════════
@@ -1776,7 +1787,7 @@ function backupLaden(input) {
       loadUrlaub();
 
       input.value = '';
-      showToast('Backup wiederhergestellt! Bitte "Upload" klicken um auf GitHub zu speichern.', 'success');
+      protEintrag('Backup wiederhergestellt'); showToast('Backup wiederhergestellt! Bitte Upload klicken.', 'success');
 
     } catch(err) {
       showToast('Fehler beim Laden: ' + err.message, 'error');
@@ -1784,6 +1795,73 @@ function backupLaden(input) {
     }
   };
   reader.readAsText(file);
+}
+
+
+// ══ EREIGNISPROTOKOLL ══════════════════════════════════════
+var PROT_KEY = 'wp_protokoll';
+var PROT_TAGE = 14;
+
+function protEintrag(text) {
+  var name = BENUTZER_NAME || 'Unbekannt';
+  var liste = protLaden();
+  liste.unshift({ ts: new Date().toISOString(), name: name, text: text });
+  var grenze = Date.now() - PROT_TAGE * 86400000;
+  liste = liste.filter(function(e) { return new Date(e.ts).getTime() > grenze; });
+  try { localStorage.setItem(PROT_KEY, JSON.stringify(liste)); } catch(ex) {}
+}
+
+function protLaden() {
+  try { var r = localStorage.getItem(PROT_KEY); return r ? JSON.parse(r) : []; } catch(e) { return []; }
+}
+
+function protokollLeeren() {
+  if (!confirm('Protokoll leeren?')) return;
+  localStorage.removeItem(PROT_KEY);
+  renderProtokoll();
+  showToast('Protokoll geleert', '');
+}
+
+function openProtokollPopup() {
+  closeConfig();
+  renderProtokoll();
+  document.getElementById('protokollPopupBack').style.display = 'flex';
+}
+
+function closeProtokollPopup() {
+  document.getElementById('protokollPopupBack').style.display = 'none';
+}
+
+function renderProtokoll() {
+  var el = document.getElementById('protokollListe');
+  if (!el) return;
+  var liste = protLaden();
+  if (liste.length === 0) {
+    el.innerHTML = '<div style="padding:24px;text-align:center;color:#999">Noch keine Ereignisse.</div>';
+    return;
+  }
+  var gruppen = {};
+  liste.forEach(function(e) {
+    var tag = new Date(e.ts).toLocaleDateString('de-DE', {weekday:'long', day:'2-digit', month:'2-digit', year:'numeric'});
+    if (!gruppen[tag]) gruppen[tag] = [];
+    gruppen[tag].push(e);
+  });
+  var html = '';
+  Object.keys(gruppen).forEach(function(tag) {
+    html += '<div style="margin-bottom:14px"><div style="font-weight:700;font-size:12px;color:#1F4E79;padding:3px 0;border-bottom:2px solid #D6E4F0;margin-bottom:5px">' + tag + '</div>';
+    gruppen[tag].forEach(function(e) {
+      var uhr = new Date(e.ts).toLocaleTimeString('de-DE', {hour:'2-digit', minute:'2-digit'});
+      var rot = e.text.indexOf('geloescht') >= 0 || e.text.indexOf('entfernt') >= 0;
+      var farbe = rot ? '#C62828' : '#2E7D32';
+      html += '<div style="display:flex;gap:8px;padding:3px 6px;border-radius:3px;margin-bottom:2px;background:#F8F9FA">'
+        + '<span style="color:#888;font-size:11px;min-width:36px">' + uhr + '</span>'
+        + '<span style="font-weight:700;color:#1F4E79;min-width:130px;white-space:nowrap">' + escHtml(e.name) + '</span>'
+        + '<span style="color:' + farbe + '">' + escHtml(e.text) + '</span>'
+        + '</div>';
+    });
+    html += '</div>';
+  });
+  el.innerHTML = html;
 }
 
 window.addEventListener('online', ()=>updateOnlineStatus(true));
@@ -1795,6 +1873,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Use event delegation for popup backdrop
   document.addEventListener('click', function(ev) {
     if (ev.target && ev.target.id === 'wartungsPopupBack') closeWartungsPopup();
+    if (ev.target && ev.target.id === 'protokollPopupBack') closeProtokollPopup();
   });
   init();
 });
@@ -1817,6 +1896,23 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
     <div style="padding:8px 12px;border-top:1px solid #DADCE0;text-align:right;">
       <button onclick="closeWartungsPopup()" style="background:#F1F3F4;color:#5F6368;border:none;border-radius:6px;padding:7px 16px;cursor:pointer;font-size:13px;font-weight:600;">Abbrechen</button>
+    </div>
+  </div>
+</div>
+
+<!-- Protokoll Popup -->
+<div id="protokollPopupBack" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:3000;align-items:center;justify-content:center;padding:16px;">
+  <div style="background:white;border-radius:8px;width:100%;max-width:700px;max-height:85vh;display:flex;flex-direction:column;box-shadow:0 4px 24px rgba(0,0,0,0.3);">
+    <div style="background:#1F4E79;color:white;padding:12px 16px;border-radius:8px 8px 0 0;display:flex;align-items:center;gap:8px;">
+      <span style="font-weight:700;font-size:14px;flex:1">&#128203; Ereignisprotokoll (letzte 14 Tage)</span>
+      <button onclick="closeProtokollPopup()" style="background:rgba(255,255,255,0.15);border:none;color:white;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:16px;line-height:1;">&#x2715;</button>
+    </div>
+    <div style="overflow-y:auto;flex:1;padding:12px 16px;">
+      <div id="protokollListe" style="font-size:12px;"></div>
+    </div>
+    <div style="padding:8px 12px;border-top:1px solid #DADCE0;display:flex;gap:8px;justify-content:flex-end;align-items:center;">
+      <button onclick="protokollLeeren()" style="background:#FFEBEE;color:#C62828;border:none;border-radius:6px;padding:6px 14px;cursor:pointer;font-size:12px;font-weight:600;">Leeren</button>
+      <button onclick="closeProtokollPopup()" style="background:#F1F3F4;color:#5F6368;border:none;border-radius:6px;padding:6px 14px;cursor:pointer;font-size:13px;font-weight:600;">Schliessen</button>
     </div>
   </div>
 </div>
