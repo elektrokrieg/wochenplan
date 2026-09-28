@@ -2388,6 +2388,15 @@ document.addEventListener('DOMContentLoaded', function() {
     if (ev.target && ev.target.id === 'wartungsPopupBack') closeWartungsPopup();
     if (ev.target && ev.target.id === 'protokollPopupBack') closeProtokollPopup();
   });
+  // Warnung beim Schließen/Neuladen wenn ungespeicherte Änderungen vorhanden
+  window.addEventListener('beforeunload', function(ev) {
+    if (DIRTY.size > 0 || STAMM_DIRTY) {
+      var msg = 'Es gibt noch nicht hochgeladene Änderungen. Trotzdem schließen?';
+      ev.preventDefault();
+      ev.returnValue = msg; // Chrome/Edge benötigt returnValue
+      return msg;
+    }
+  });
   init();
 });
 </script>
