@@ -59,7 +59,9 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
 }
 .sync-btn:hover { background: rgba(255,255,255,0.25); }
 .sync-btn.spinning svg { animation: spin 1s linear infinite; }
+.sync-btn.locked { opacity: 0.4; cursor: not-allowed; filter: grayscale(60%); }
 @keyframes spin { to { transform: rotate(360deg); } }
+@keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-5px)} 40%{transform:translateX(5px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
 
 /* ── Tabs ── */
 .tabs {
@@ -402,7 +404,7 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
 <div class="app-header">
   <h1>📅 Wochenplan – Elektro Krieg</h1>
   <div class="status-dot" id="statusDot"></div>
-  <button class="sync-btn" id="uploadBtn" onclick="uploadData()">
+  <button class="sync-btn locked" id="uploadBtn" title="Erst Download klicken um Datenverlust zu vermeiden" onclick="uploadData()">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
       <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
     </svg>
@@ -604,6 +606,7 @@ let WP_DATA  = {};  // { "stark-2026-KW01": { "MA-tag-sub": "wert" } }
 let URL_DATA = {};  // { "2026-07": { "MA-tag": "U" } }
 let DIRTY = new Set(); // Keys mit ungespeicherten Änderungen
 let STAMM_DIRTY = false;
+let _downloadedThisSession = false; // Schutz: Upload erst nach Download erlaubt
 let currentTab = 'wochenplan';
 
 const TAGE = ['Montag','Dienstag','Mittwoch','Donnerstag','Freitag'];
@@ -656,6 +659,8 @@ async function init() {
   loadLocalConfig();
   buildKWSelects();
   setCurrentKW();
+  // Upload-Button sofort sperren bis Download erfolgt ist
+  setTimeout(_updateUploadLock, 0);
 
   const now = new Date();
   document.getElementById('monatSelect').value = now.getMonth()+1;
@@ -1487,9 +1492,35 @@ function updateDirtyIndicator() {
 }
 
 // Nur geänderte Daten hochladen
+function _updateUploadLock() {
+  var btn = document.getElementById('uploadBtn');
+  if (!btn) return;
+  if (_downloadedThisSession) {
+    btn.classList.remove('locked');
+    btn.title = '';
+    btn.onclick = function(){ uploadData(); };
+  } else {
+    btn.classList.add('locked');
+    btn.title = 'Erst Download klicken um Datenverlust zu vermeiden';
+    btn.onclick = function(){
+      showToast('⚠️ Bitte zuerst Download klicken – sonst werden Einträge anderer überschrieben!', 'error');
+      btn.style.animation = 'shake 0.4s';
+      setTimeout(function(){ btn.style.animation = ''; }, 450);
+    };
+  }
+}
+
 async function uploadData() {
   if (!ghIsConfigured()) {
     openConfig();
+    return;
+  }
+  if (!_downloadedThisSession) {
+    showToast('⚠️ Bitte zuerst Download klicken – sonst werden Einträge anderer überschrieben!', 'error');
+    // Button kurz schütteln zur Verstärkung
+    var _ub = document.getElementById('uploadBtn');
+    _ub.style.animation = 'shake 0.4s';
+    setTimeout(function(){ _ub.style.animation = ''; }, 450);
     return;
   }
   if (DIRTY.size === 0) {
@@ -1594,6 +1625,8 @@ async function downloadData() {
     DIRTY.clear();
     STAMM_DIRTY = false;
     updateDirtyIndicator();
+    _downloadedThisSession = true;
+    _updateUploadLock();
     showToast('✅ Daten heruntergeladen – alles synchron', 'success');
     updateOnlineStatus(true);
   } catch(e) {
