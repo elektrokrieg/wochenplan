@@ -152,6 +152,7 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
 .td-proj.elternzeit { background: #F3E5F5 !important; }
 .td-proj.krank    { background: #FFEBEE !important; }
 .td-proj.aza      { background: #FFF3E0 !important; }
+.td-proj.berufsschule { background: #E3F2FD !important; }
 
 .proj-select {
   width: 100%; height: 26px; border: none; background: transparent;
@@ -249,6 +250,7 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
 .utd-code.E { background: #F3E5F5; color: #6A1B9A; }
 .utd-code.K { background: #FFEBEE; color: #B71C1C; }
 .utd-code.A { background: #FFF3E0; color: #E65100; }
+.utd-code.B { background: #E3F2FD; color: #0D47A1; }
 .tr-sep-schwach td { background: var(--green-dark); color: white; font-weight: 700; font-size: 11px; padding: 3px 6px; }
 
 /* ── Stammdaten ── */
@@ -468,6 +470,7 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
     <div class="legend-item"><div class="legend-dot" style="background:#FFEBEE"></div>Krank</div>
     <div class="legend-item"><div class="legend-dot" style="background:#F3E5F5"></div>Elternzeit</div>
     <div class="legend-item"><div class="legend-dot" style="background:#FFF3E0"></div>AZA</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#E3F2FD"></div>Berufsschule</div>
   </div>
 </div>
 
@@ -492,6 +495,7 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
     <div class="legend-item"><div class="legend-dot" style="background:#FFEBEE"></div>Krank</div>
     <div class="legend-item"><div class="legend-dot" style="background:#F3E5F5"></div>Elternzeit</div>
     <div class="legend-item"><div class="legend-dot" style="background:#FFF3E0"></div>AZA</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#E3F2FD"></div>Berufsschule</div>
   </div>
 </div>
 
@@ -519,6 +523,7 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
     <div class="legend-item"><div class="legend-dot" style="background:#F3E5F5"></div>E = Elternzeit</div>
     <div class="legend-item"><div class="legend-dot" style="background:#FFEBEE"></div>K = Krank</div>
     <div class="legend-item"><div class="legend-dot" style="background:#FFF3E0"></div>A = AZA</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#E3F2FD"></div>B = Berufsschule</div>
   </div>
 </div>
 
@@ -615,7 +620,7 @@ let currentTab = 'wochenplan';
 const TAGE = ['Montag','Dienstag','Mittwoch','Donnerstag','Freitag'];
 const MONATE_NAMES = ['','Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
 const CODES = ['','U','E','K','A'];
-const CODE_LABELS = { U:'Urlaub', E:'Elternzeit', K:'Krank', A:'AZA' };
+const CODE_LABELS = { U:'Urlaub', E:'Elternzeit', K:'Krank', A:'AZA', B:'Berufsschule' };
 
 // ═══════════════════════════════════════════════════════════════
 //  INIT
@@ -1006,9 +1011,9 @@ function renderWochenplan(typ, kw, jahr, tableId) {
             cls += ' feiertag';
             cellContent = '';
           } else if (urlCode && s===0 && !val) {
-            const urlLabels = {U:'Urlaub',E:'Elternzeit',K:'Krank',A:'Arbeitszeitausgleich'};
+            const urlLabels = {U:'Urlaub',E:'Elternzeit',K:'Krank',A:'Arbeitszeitausgleich',B:'Berufsschule'};
             val = urlLabels[urlCode] || urlCode;
-            const colorMap = {U:'urlaub',E:'elternzeit',K:'krank',A:'aza'};
+            const colorMap = {U:'urlaub',E:'elternzeit',K:'krank',A:'aza',B:'berufsschule'};
             cls += ' ' + (colorMap[urlCode]||'');
             // Langtext direkt anzeigen, kein Dropdown (aus Urlaubsplan übernommen)
             cellContent = `<div class="proj-cell"><div class="proj-text" style="color:#555;font-style:italic">${escHtml(val)}</div><div style="font-size:9px;color:#999;padding:0 2px">📅 Urlaubsplan</div></div>`;
@@ -1259,7 +1264,7 @@ async function cycleCode(td) {
   const ma  = decodeURIComponent(td.dataset.ma);
   const tag = parseInt(td.dataset.tag);
 
-  const codes = ['','U','E','K','A'];
+  const codes = ['','U','E','K','A','B'];
   const current = URL_DATA[key]?.[`${ma}-${tag}`]||'';
   const nextIdx = (codes.indexOf(current)+1)%codes.length;
   const next = codes[nextIdx];
@@ -1750,7 +1755,7 @@ function renderMonatsübersicht() {
     var urlData = {};
     try { var uc = localStorage.getItem('urlCache_'+monatKey2); if(uc) urlData = JSON.parse(uc); } catch(e){}
     var urlCode = urlData[ma+'-'+date.getUTCDate()];
-    var urlLabels = {U:'Urlaub',E:'Elternzeit',K:'Krank',A:'Arbeitszeitausgleich'};
+    var urlLabels = {U:'Urlaub',E:'Elternzeit',K:'Krank',A:'Arbeitszeitausgleich',B:'Berufsschule'};
     if (urlCode) auftraege.push({ text: urlLabels[urlCode]||urlCode, typ: 'urlaub' });
 
     if (isWE || isFT) return { auftraege: auftraege, isFT: isFT, ftName: feiertage[ds]||'', isWE: isWE };
@@ -2305,7 +2310,7 @@ function _getTdAtPoint(x, y) {
   var el = document.elementFromPoint(x, y);
   while (el && el.tagName !== 'TD') el = el.parentElement;
   if (!el || !el.classList.contains('td-proj')) return null;
-  if (el.classList.contains('feiertag') || el.classList.contains('urlaub') || el.classList.contains('elternzeit') || el.classList.contains('krank') || el.classList.contains('aza')) return null;
+  if (el.classList.contains('feiertag') || el.classList.contains('urlaub') || el.classList.contains('elternzeit') || el.classList.contains('krank') || el.classList.contains('aza') || el.classList.contains('berufsschule')) return null;
   var sel = el.querySelector('[data-key]');
   if (!sel) return null;
   return { td: el, key: sel.dataset.key, ma: decodeURIComponent(sel.dataset.ma), maEnc: sel.dataset.ma, d: parseInt(sel.dataset.d), s: parseInt(sel.dataset.s) };
@@ -2375,7 +2380,7 @@ function _getDragTargetTd(ev) {
   // Nicht auf Feiertag / Urlaub / etc. droppen
   if (el.classList.contains('feiertag') || el.classList.contains('urlaub') ||
       el.classList.contains('elternzeit') || el.classList.contains('krank') ||
-      el.classList.contains('aza')) return null;
+      el.classList.contains('aza') || el.classList.contains('berufsschule')) return null;
   // Ziel-Daten aus erstem [data-key] Element im TD lesen
   var sel = el.querySelector('[data-key]');
   if (!sel) return null;
