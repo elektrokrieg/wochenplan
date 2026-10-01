@@ -16,8 +16,7 @@
     "SV Tech 1",
     "SV Tech 2",
     "Mario Schäufele",
-    "Ralf Schäufele",
-    "Louis Heurich"
+    "Ralf Schäufele"
   ],
   "maSchwach": [
     "Anakin Schäfner",
@@ -348,10 +347,6 @@
     {
       "nr": "Firma",
       "bez": "Firma"
-    },
-    {
-      "nr": "798",
-      "bez": "Bad Langensalza"
     }
   ],
   "wartungskunden": [
