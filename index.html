@@ -617,6 +617,7 @@ let DIRTY = new Set(); // Keys mit ungespeicherten Änderungen (wp:key oder url:
 let DIRTY_CELLS = {}; // { 'wp:stark-2026-KW40': { 'MA-0-0': 'Wert', 'MA-0-0-ok': 1, ... } } — nur geänderte Zellen
 let STAMM_DIRTY = false;
 let _downloadedThisSession = false; // Schutz: Upload erst nach Download erlaubt
+var PROT_NEW_ENTRIES = []; // Neue lokale Einträge die noch nicht auf GitHub sind
 let currentTab = 'wochenplan';
 
 const TAGE = ['Montag','Dienstag','Mittwoch','Donnerstag','Freitag'];
@@ -1651,6 +1652,31 @@ async function uploadData() {
       }
     }
 
+    // Protokoll auf GitHub aktualisieren — immer: lokalen Stand mit Remote mergen
+    // (funktioniert auch für Einträge aus früheren Sessions die noch nicht auf GitHub sind)
+    try {
+      var lokaleListe = protLaden(); // alle lokalen Einträge aus localStorage
+      var grenze = Date.now() - PROT_TAGE * 86400000;
+      if (lokaleListe.length > 0) {
+        const remProt = await loadJSON('protokoll.json');
+        var remListe = (remProt && Array.isArray(remProt.content)) ? remProt.content : [];
+        // Merge: lokale Einträge + Remote-Einträge, Duplikate per ts entfernen
+        var alleTs = new Set();
+        var merged = lokaleListe.concat(remListe).filter(function(e) {
+          if (alleTs.has(e.ts)) return false;
+          alleTs.add(e.ts);
+          return new Date(e.ts).getTime() > grenze;
+        });
+        // Nach Zeitstempel absteigend sortieren (neueste zuerst)
+        merged.sort(function(a,b){ return b.ts.localeCompare(a.ts); });
+        await saveJSON('protokoll.json', merged);
+        try { localStorage.setItem(PROT_KEY, JSON.stringify(merged)); } catch(ex) {}
+        PROT_NEW_ENTRIES = [];
+      }
+    } catch(protErr) {
+      console.warn('Protokoll-Upload fehlgeschlagen:', protErr);
+    }
+
     hideLoading();
     if (err === 0) {
       DIRTY.clear();
@@ -1724,8 +1750,23 @@ async function downloadData() {
     renderWochenplan('schwach', kwSW, parseInt(jahrSW), 'wpTableSchwach');
     renderUrlaub(parseInt(monat), parseInt(jahrU), keyU);
 
+    // Protokoll von GitHub laden und lokal mergen
+    try {
+      const remProt = await loadJSON('protokoll.json');
+      if (remProt && Array.isArray(remProt.content)) {
+        var grenze = Date.now() - PROT_TAGE * 86400000;
+        var remListe = remProt.content.filter(function(e){return new Date(e.ts).getTime()>grenze;});
+        // Lokale noch-nicht-hochgeladene Einträge vorne behalten
+        var vorhandenTs = new Set(remListe.map(function(e){return e.ts;}));
+        var lokaleNeu = PROT_NEW_ENTRIES.filter(function(e){return !vorhandenTs.has(e.ts);});
+        var merged = lokaleNeu.concat(remListe);
+        try { localStorage.setItem(PROT_KEY, JSON.stringify(merged)); } catch(ex) {}
+      }
+    } catch(protErr) { console.warn('Protokoll-Download fehlgeschlagen:', protErr); }
+
     hideLoading();
     DIRTY.clear();
+    DIRTY_CELLS = {};
     STAMM_DIRTY = false;
     updateDirtyIndicator();
     _downloadedThisSession = true;
@@ -2204,23 +2245,20 @@ var PROT_TAGE = 14;
 
 function protEintrag(text) {
   var name = BENUTZER_NAME || 'Unbekannt';
+  var eintrag = { ts: new Date().toISOString(), name: name, text: text };
   var liste = protLaden();
-  liste.unshift({ ts: new Date().toISOString(), name: name, text: text });
+  liste.unshift(eintrag);
   var grenze = Date.now() - PROT_TAGE * 86400000;
   liste = liste.filter(function(e) { return new Date(e.ts).getTime() > grenze; });
   try { localStorage.setItem(PROT_KEY, JSON.stringify(liste)); } catch(ex) {}
+  // Für GitHub-Upload merken
+  PROT_NEW_ENTRIES.unshift(eintrag);
 }
 
 function protLaden() {
   try { var r = localStorage.getItem(PROT_KEY); return r ? JSON.parse(r) : []; } catch(e) { return []; }
 }
 
-function protokollLeeren() {
-  if (!confirm('Protokoll leeren?')) return;
-  localStorage.removeItem(PROT_KEY);
-  renderProtokoll();
-  showToast('Protokoll geleert', '');
-}
 
 function openProtokollPopup() {
   closeConfig();
@@ -2532,14 +2570,13 @@ document.addEventListener('DOMContentLoaded', function() {
 <div id="protokollPopupBack" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:3000;align-items:center;justify-content:center;padding:16px;">
   <div style="background:white;border-radius:8px;width:100%;max-width:700px;max-height:85vh;display:flex;flex-direction:column;box-shadow:0 4px 24px rgba(0,0,0,0.3);">
     <div style="background:#1F4E79;color:white;padding:12px 16px;border-radius:8px 8px 0 0;display:flex;align-items:center;gap:8px;">
-      <span style="font-weight:700;font-size:14px;flex:1">&#128203; Ereignisprotokoll (letzte 14 Tage)</span>
+      <span style="font-weight:700;font-size:14px;flex:1">&#128203; Ereignisprotokoll – alle Mitarbeiter (letzte 14 Tage)</span>
       <button onclick="closeProtokollPopup()" style="background:rgba(255,255,255,0.15);border:none;color:white;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:16px;line-height:1;">&#x2715;</button>
     </div>
     <div style="overflow-y:auto;flex:1;padding:12px 16px;">
       <div id="protokollListe" style="font-size:12px;"></div>
     </div>
     <div style="padding:8px 12px;border-top:1px solid #DADCE0;display:flex;gap:8px;justify-content:flex-end;align-items:center;">
-      <button onclick="protokollLeeren()" style="background:#FFEBEE;color:#C62828;border:none;border-radius:6px;padding:6px 14px;cursor:pointer;font-size:12px;font-weight:600;">Leeren</button>
       <button onclick="closeProtokollPopup()" style="background:#F1F3F4;color:#5F6368;border:none;border-radius:6px;padding:6px 14px;cursor:pointer;font-size:13px;font-weight:600;">Schliessen</button>
     </div>
   </div>
