@@ -204,7 +204,8 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
 .proj-cell[draggable="true"]:active { cursor: grabbing; }
 .td-proj.drag-over { outline: 2px dashed var(--blue-mid); background: rgba(31,78,121,0.12) !important; }
 .td-proj.drag-source { opacity: 0.4; }
-.td-proj.termin-ok { background: #C8E6C9 !important; border-left: 4px solid #2E7D32 !important; }
+.td-proj.termin-ok       { background: #C8E6C9 !important; border-left: 4px solid #2E7D32 !important; }
+.td-proj.termin-ok.sw   { background: #BBDEFB !important; border-left: 4px solid #1565C0 !important; }
 .termin-check { display:inline-flex; align-items:center; justify-content:center; width:16px; height:16px; border:1.5px solid #9E9E9E; border-radius:3px; cursor:pointer; font-size:11px; line-height:1; flex-shrink:0; background:white; color:transparent; margin-left:auto; transition:background 0.15s,border-color 0.15s,color 0.15s; }
 .termin-check.checked { background:#43A047; border-color:#2E7D32; color:white; }
 
@@ -1020,7 +1021,7 @@ function renderWochenplan(typ, kw, jahr, tableId) {
             cellContent = `<div class="proj-cell"><div class="proj-text" style="color:#555;font-style:italic">${escHtml(val)}</div><div style="font-size:9px;color:#999;padding:0 2px">📅 Urlaubsplan</div></div>`;
           } else {
             cellContent = buildProjSelect(ma,d,s,key,val,false);
-            if (data[`${ma}-${d}-${s}-ok`]) cls += ' termin-ok';
+            if (data[`${ma}-${d}-${s}-ok`]) cls += ' ' + _terminOkClass(key);
           }
           html += `<td class="${cls}">${cellContent}</td>`;
         }
@@ -1110,11 +1111,16 @@ function toggleTerminOk(ev, key, maEnc, d, s) {
   else { span.classList.remove('checked'); span.textContent = ''; }
   var td = span.closest('td');
   if (td) {
-    // grüne Klasse setzen/entfernen, aber andere Klassen (feiertag, urlaub etc.) behalten
-    if (nowOk) td.classList.add('termin-ok');
-    else td.classList.remove('termin-ok');
+    // Kontrastfarbe setzen/entfernen (grün für Starkstrom, blau für Schwachstrom)
+    if (nowOk) { td.classList.add('termin-ok'); if (key.startsWith('schwach')) td.classList.add('sw'); }
+    else { td.classList.remove('termin-ok'); td.classList.remove('sw'); }
   }
   protEintrag((nowOk?'Termin bestätigt':'Termin-Bestätigung zurückgenommen')+': '+key+'/'+ma+'/'+d+'/'+s);
+}
+
+function _terminOkClass(key) {
+  // Schwachstrom → blauer Kontrast, Starkstrom → grüner Kontrast
+  return key && key.startsWith('schwach') ? 'termin-ok sw' : 'termin-ok';
 }
 
 function escHtml(s) {
@@ -1157,7 +1163,7 @@ async function onProjChange(sel) {
   else { delete WP_DATA[key][`${ma}-${d}-${s}`]; delete WP_DATA[key][`${ma}-${d}-${s}-ok`]; }
 
   td.className = 'td-proj';
-  if (val && WP_DATA[key][`${ma}-${d}-${s}-ok`]) td.classList.add('termin-ok');
+  if (val && WP_DATA[key][`${ma}-${d}-${s}-ok`]) { td.classList.add('termin-ok'); if (key.startsWith('schwach')) td.classList.add('sw'); }
   td.innerHTML = buildProjSelect(ma, d, s, key, val, false);
   const tr = td.closest('tr');
   if (tr) tr.style.height = 'auto';
@@ -2334,7 +2340,11 @@ function _applyDrop(srcKey, srcMa, srcD, srcS, srcVal, tgtKey, tgtMa, tgtD, tgtS
   if (!WP_DATA[tgtKey]) WP_DATA[tgtKey] = {};
   WP_DATA[tgtKey][tgtMa+'-'+tgtD+'-'+tgtS] = srcVal;
   var tgtTd = _findTd(tgtKey, tgtMa, tgtD, tgtS);
-  if (tgtTd) { tgtTd.className = 'td-proj'; tgtTd.innerHTML = buildProjSelect(tgtMa, tgtD, tgtS, tgtKey, srcVal, false); }
+  if (tgtTd) {
+    var tgtOkCls = (WP_DATA[tgtKey] && WP_DATA[tgtKey][tgtMa+'-'+tgtD+'-'+tgtS+'-ok']) ? ' ' + _terminOkClass(tgtKey) : '';
+    tgtTd.className = 'td-proj' + tgtOkCls;
+    tgtTd.innerHTML = buildProjSelect(tgtMa, tgtD, tgtS, tgtKey, srcVal, false);
+  }
   localStorage.setItem('wpCache_'+tgtKey, JSON.stringify(WP_DATA[tgtKey]));
   _markCellDirty('wp:'+tgtKey, tgtMa+'-'+tgtD+'-'+tgtS, srcVal);
 
