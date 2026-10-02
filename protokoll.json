@@ -1,0 +1,917 @@
+[
+  {
+    "ts": "2026-10-02T04:49:47.814Z",
+    "name": "Christian Berthold",
+    "text": "Freitext eingetragen: KW40/Christian Berthold/Freitag A2: Breitungen Regelschule Beamer Raum 009"
+  },
+  {
+    "ts": "2026-10-01T10:50:37.061Z",
+    "name": "Christian Berthold",
+    "text": "Termin-Bestätigung zurückgenommen: schwach-2026-KW40/Andreas Krieg/0/1"
+  },
+  {
+    "ts": "2026-10-01T10:50:35.380Z",
+    "name": "Christian Berthold",
+    "text": "Termin bestätigt: schwach-2026-KW40/Andreas Krieg/0/1"
+  },
+  {
+    "ts": "2026-10-01T10:44:35.614Z",
+    "name": "Christian Berthold",
+    "text": "Freitext eingetragen: KW42/Andreas Krieg/Montag A1: 8:00 Dreißigacker Winkhaus Umrüsten Wählgerät"
+  },
+  {
+    "ts": "2026-10-01T10:43:49.492Z",
+    "name": "Christian Berthold",
+    "text": "Freitext eingetragen: KW43/Allgemein/Mittwoch A1: 11:00 Mgn Drk Henneberger Straße umrüsten Wählgerät"
+  },
+  {
+    "ts": "2026-10-01T10:43:27.184Z",
+    "name": "Christian Berthold",
+    "text": "Freitext eingetragen: KW43/Allgemein/Mittwoch A1: 11:00"
+  },
+  {
+    "ts": "2026-10-01T10:43:19.980Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: 14:00 MGN Sarterstift umrüsten Wählgerät von KW43/Allgemein/Mittwoch A1 → KW43/Allgemein/Mittwoch A2"
+  },
+  {
+    "ts": "2026-10-01T10:35:52.009Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW40/Christian Berthold/Freitag A2"
+  },
+  {
+    "ts": "2026-10-01T10:35:15.707Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Christian Berthold/Freitag A2: Walldorf Turnhalle"
+  },
+  {
+    "ts": "2026-10-01T10:35:02.533Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW40/Allgemein/Donnerstag A3"
+  },
+  {
+    "ts": "2026-10-01T10:34:58.150Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW40/Christian Berthold/Freitag A2"
+  },
+  {
+    "ts": "2026-10-01T10:32:42.252Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Allgemein/Donnerstag A3: Henneberg Beleuchtung"
+  },
+  {
+    "ts": "2026-10-01T10:29:37.879Z",
+    "name": "Christian Berthold",
+    "text": "Termin bestätigt: schwach-2026-KW41/Christian Berthold/3/1"
+  },
+  {
+    "ts": "2026-10-01T10:29:36.119Z",
+    "name": "Christian Berthold",
+    "text": "Termin bestätigt: schwach-2026-KW41/Christian Berthold/3/0"
+  },
+  {
+    "ts": "2026-10-01T10:29:34.562Z",
+    "name": "Christian Berthold",
+    "text": "Termin bestätigt: schwach-2026-KW41/Christian Berthold/1/1"
+  },
+  {
+    "ts": "2026-10-01T10:29:33.257Z",
+    "name": "Christian Berthold",
+    "text": "Termin bestätigt: schwach-2026-KW41/Christian Berthold/1/0"
+  },
+  {
+    "ts": "2026-10-01T10:28:53.452Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW41/Christian Berthold/Donnerstag A2: Wartung – Schmalkalden – Rhön-Rennsteig-Sparkasse"
+  },
+  {
+    "ts": "2026-10-01T10:28:49.532Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW41/Christian Berthold/Donnerstag A2"
+  },
+  {
+    "ts": "2026-10-01T10:28:46.891Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW41/Christian Berthold/Donnerstag A1: Wartung – Floh – Grundschule"
+  },
+  {
+    "ts": "2026-10-01T10:28:42.495Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW41/Christian Berthold/Donnerstag A1"
+  },
+  {
+    "ts": "2026-10-01T10:28:39.197Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW41/Christian Berthold/Mittwoch A1: Wartung – Meiningen – Seniorenzentrum Residenz Georg II"
+  },
+  {
+    "ts": "2026-10-01T10:28:33.253Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW41/Christian Berthold/Mittwoch A1"
+  },
+  {
+    "ts": "2026-10-01T10:28:30.003Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW41/Christian Berthold/Dienstag A3: Wartung – Meiningen – Grundschule Ludwig Chronegk"
+  },
+  {
+    "ts": "2026-10-01T10:28:26.411Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW41/Christian Berthold/Dienstag A3"
+  },
+  {
+    "ts": "2026-10-01T10:28:23.792Z",
+    "name": "Christian Berthold",
+    "text": "Freitext eingetragen: KW41/Christian Berthold/Dienstag A2: 11:00 Mgn Haus Lebenswert umbauen Wählgerät"
+  },
+  {
+    "ts": "2026-10-01T10:28:01.650Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW41/Christian Berthold/Dienstag A1: Wartung – Meiningen – Dampflokwerk"
+  },
+  {
+    "ts": "2026-10-01T10:27:55.803Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW41/Christian Berthold/Dienstag A1"
+  },
+  {
+    "ts": "2026-10-01T10:27:51.637Z",
+    "name": "Christian Berthold",
+    "text": "Termin bestätigt: schwach-2026-KW41/Christian Berthold/0/0"
+  },
+  {
+    "ts": "2026-10-01T10:27:50.010Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW41/Christian Berthold/Montag A1: Wartung – Meiningen – Süd-Thüringen-Bahn Service Center"
+  },
+  {
+    "ts": "2026-10-01T10:27:41.193Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW41/Christian Berthold/Montag A1"
+  },
+  {
+    "ts": "2026-10-01T05:34:22.018Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: 14:00 Walldorf Diakonie umrüsten Wählgerät von KW42/Allgemein/Dienstag A3 → KW42/Christian Berthold/Dienstag A3"
+  },
+  {
+    "ts": "2026-10-01T05:34:19.706Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: 11:00 Mgn Kita Landsberger Straße umrüsten Wählgerät von KW42/Allgemein/Dienstag A2 → KW42/Christian Berthold/Dienstag A2"
+  },
+  {
+    "ts": "2026-10-01T05:34:17.777Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: 8:00 Mgn AWO umrüsten Wählgerät von KW42/Allgemein/Dienstag A1 → KW42/Christian Berthold/Dienstag A1"
+  },
+  {
+    "ts": "2026-10-01T05:34:15.164Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: 8:00 Trusetal AWO umrüsten Wählgerät von KW42/Allgemein/Montag A1 → KW42/Christian Berthold/Montag A1"
+  },
+  {
+    "ts": "2026-10-01T05:18:24.752Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: 14:00 Walldorf Diakonie umrüsten Wählgerät von KW42/Allgemein/Dienstag A2 → KW42/Allgemein/Dienstag A3"
+  },
+  {
+    "ts": "2026-10-01T05:10:25.397Z",
+    "name": "Christian Berthold",
+    "text": "Termin bestätigt: schwach-2026-KW40/Christian Berthold/3/2"
+  },
+  {
+    "ts": "2026-10-01T05:10:23.655Z",
+    "name": "Christian Berthold",
+    "text": "Termin bestätigt: schwach-2026-KW40/Christian Berthold/3/1"
+  },
+  {
+    "ts": "2026-10-01T05:10:19.691Z",
+    "name": "Christian Berthold",
+    "text": "Termin bestätigt: schwach-2026-KW40/Christian Berthold/3/0"
+  },
+  {
+    "ts": "2026-10-01T05:09:12.309Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: MGN Lebenshilfe Barbarastraße RM nachrüsten von KW40/Christian Berthold/Donnerstag A1 → KW40/Christian Berthold/Donnerstag A2"
+  },
+  {
+    "ts": "2026-10-01T05:09:09.545Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Meiningen – Sozialverbund Südthüringen Teilhabe GmbH von KW40/Christian Berthold/Donnerstag A2 → KW40/Christian Berthold/Donnerstag A3"
+  },
+  {
+    "ts": "2026-10-01T04:57:03.473Z",
+    "name": "Christian Berthold",
+    "text": "Termin bestätigt: schwach-2026-KW41/Christian Berthold/3/1"
+  },
+  {
+    "ts": "2026-10-01T04:57:02.320Z",
+    "name": "Christian Berthold",
+    "text": "Termin bestätigt: schwach-2026-KW41/Christian Berthold/3/0"
+  },
+  {
+    "ts": "2026-10-01T04:57:01.471Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Schmalkalden – Rhön-Rennsteig-Sparkasse von KW41/Christian Berthold/Donnerstag A3 → KW41/Christian Berthold/Donnerstag A2"
+  },
+  {
+    "ts": "2026-10-01T04:56:59.369Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Floh – Grundschule von KW41/Christian Berthold/Donnerstag A2 → KW41/Christian Berthold/Donnerstag A1"
+  },
+  {
+    "ts": "2026-10-01T04:56:56.353Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Schmalkalden – Rhön-Rennsteig-Sparkasse von KW41/Christian Berthold/Donnerstag A1 → KW41/Christian Berthold/Donnerstag A3"
+  },
+  {
+    "ts": "2026-10-01T04:56:49.482Z",
+    "name": "Christian Berthold",
+    "text": "Termin bestätigt: schwach-2026-KW41/Christian Berthold/1/1"
+  },
+  {
+    "ts": "2026-10-01T04:56:48.331Z",
+    "name": "Christian Berthold",
+    "text": "Termin bestätigt: schwach-2026-KW41/Christian Berthold/1/0"
+  },
+  {
+    "ts": "2026-10-01T04:56:45.889Z",
+    "name": "Christian Berthold",
+    "text": "Termin bestätigt: schwach-2026-KW41/Christian Berthold/0/0"
+  },
+  {
+    "ts": "2026-10-01T04:56:03.042Z",
+    "name": "Christian Berthold",
+    "text": "Backup wiederhergestellt"
+  },
+  {
+    "ts": "2026-10-01T04:55:26.760Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Floh – Grundschule von KW41/Christian Berthold/Donnerstag A2 → KW41/Christian Berthold/Donnerstag A1"
+  },
+  {
+    "ts": "2026-10-01T04:55:24.616Z",
+    "name": "Christian Berthold",
+    "text": "Termin bestätigt: schwach-2026-KW41/Christian Berthold/3/1"
+  },
+  {
+    "ts": "2026-10-01T04:54:16.892Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: MGN Lebenshilfe Barbarastraße RM nachrüsten von KW40/Christian Berthold/Donnerstag A1 → KW40/Christian Berthold/Donnerstag A3"
+  },
+  {
+    "ts": "2026-09-30T13:01:06.899Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: 14:00 Walldorf Diakonie umrüsten Wählgerät von KW42/Allgemein/Dienstag A2 → KW42/Allgemein/Dienstag A3"
+  },
+  {
+    "ts": "2026-09-30T10:04:03.689Z",
+    "name": "Christian Berthold",
+    "text": "Termin bestätigt: schwach-2026-KW41/Christian Berthold/1/1"
+  },
+  {
+    "ts": "2026-09-30T10:04:02.005Z",
+    "name": "Christian Berthold",
+    "text": "Termin bestätigt: schwach-2026-KW41/Christian Berthold/1/0"
+  },
+  {
+    "ts": "2026-09-30T10:04:00.319Z",
+    "name": "Christian Berthold",
+    "text": "Termin bestätigt: schwach-2026-KW41/Christian Berthold/3/0"
+  },
+  {
+    "ts": "2026-09-30T10:03:56.634Z",
+    "name": "Christian Berthold",
+    "text": "Termin bestätigt: schwach-2026-KW41/Christian Berthold/0/0"
+  },
+  {
+    "ts": "2026-09-30T09:51:26.804Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW40/Christian Berthold/Donnerstag A3"
+  },
+  {
+    "ts": "2026-09-30T09:51:14.759Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW41/Christian Berthold/Dienstag A1: Wartung – Meiningen – Dampflokwerk"
+  },
+  {
+    "ts": "2026-09-30T09:51:10.810Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW41/Christian Berthold/Dienstag A1"
+  },
+  {
+    "ts": "2026-09-30T09:51:02.561Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Meiningen – Grundschule Ludwig Chronegk von KW41/Christian Berthold/Dienstag A1 → KW41/Christian Berthold/Dienstag A3"
+  },
+  {
+    "ts": "2026-09-30T09:46:37.510Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW41/Christian Berthold/Dienstag A1: Wartung – Meiningen – Grundschule Ludwig Chronegk"
+  },
+  {
+    "ts": "2026-09-30T09:46:32.359Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW41/Christian Berthold/Dienstag A1"
+  },
+  {
+    "ts": "2026-09-30T09:46:29.935Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Meiningen – Seniorenzentrum Residenz Georg II von KW41/Christian Berthold/Dienstag A1 → KW41/Christian Berthold/Mittwoch A1"
+  },
+  {
+    "ts": "2026-09-30T09:46:24.517Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Schmalkalden – Rhön-Rennsteig-Sparkasse von KW41/Christian Berthold/Mittwoch A1 → KW41/Christian Berthold/Donnerstag A1"
+  },
+  {
+    "ts": "2026-09-30T09:46:21.947Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Floh – Grundschule von KW41/Christian Berthold/Mittwoch A2 → KW41/Christian Berthold/Donnerstag A2"
+  },
+  {
+    "ts": "2026-09-30T09:44:08.687Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW41/Christian Berthold/Mittwoch A2: Wartung – Floh – Grundschule"
+  },
+  {
+    "ts": "2026-09-30T09:44:05.051Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW41/Christian Berthold/Mittwoch A2"
+  },
+  {
+    "ts": "2026-09-30T09:44:02.804Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW41/Christian Berthold/Mittwoch A1: Wartung – Schmalkalden – Rhön-Rennsteig-Sparkasse"
+  },
+  {
+    "ts": "2026-09-30T09:43:59.019Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW41/Christian Berthold/Mittwoch A1"
+  },
+  {
+    "ts": "2026-09-30T09:43:52.449Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW41/Christian Berthold/Montag A1: Wartung – Meiningen – Süd-Thüringen-Bahn Service Center"
+  },
+  {
+    "ts": "2026-09-30T09:43:48.716Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW41/Christian Berthold/Montag A1"
+  },
+  {
+    "ts": "2026-09-30T09:43:03.130Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW41/Christian Berthold/Montag A1: Wartung – Meiningen – Süd-Thüringen-Bahn Service Center"
+  },
+  {
+    "ts": "2026-09-30T09:42:58.215Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW41/Christian Berthold/Montag A1"
+  },
+  {
+    "ts": "2026-09-30T09:39:10.951Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW41/Christian Berthold/Dienstag A1: Wartung – Meiningen – Seniorenzentrum Residenz Georg II"
+  },
+  {
+    "ts": "2026-09-30T09:39:05.995Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW41/Christian Berthold/Dienstag A1"
+  },
+  {
+    "ts": "2026-09-30T09:35:32.174Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: 11:00 Mgn Haus Lebenswert Umrüstung Wählgerät von KW41/Christian Berthold/Dienstag A1 → KW41/Christian Berthold/Dienstag A2"
+  },
+  {
+    "ts": "2026-09-30T09:34:23.316Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: MGN Haus Lebenswert Umrüstung ÜE von KW41/Allgemein/Dienstag A1 → KW41/Christian Berthold/Dienstag A1"
+  },
+  {
+    "ts": "2026-09-30T09:34:05.645Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW40/Guido Köhler/Mittwoch A1"
+  },
+  {
+    "ts": "2026-09-30T09:33:47.095Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Wartung – Dreißigacker – August Winkhaus GmbH & Co. KG von KW40/Christian Berthold/Mittwoch A1 → KW40/Stephan Übensee/Mittwoch A1"
+  },
+  {
+    "ts": "2026-09-30T09:33:43.650Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Christian Berthold/Mittwoch A1: Wartung – Dreißigacker – August Winkhaus GmbH & Co. KG"
+  },
+  {
+    "ts": "2026-09-30T09:33:37.719Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW40/Christian Berthold/Mittwoch A1"
+  },
+  {
+    "ts": "2026-09-30T09:33:32.237Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Christian Berthold/Freitag A1: Firma"
+  },
+  {
+    "ts": "2026-09-30T09:33:17.657Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: MGN Volkshaus BMA von KW40/Holger Krieg/Donnerstag A1 → KW40/Holger Krieg/Freitag A1"
+  },
+  {
+    "ts": "2026-09-30T09:33:15.786Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: MGN Volkshaus BMA von KW40/Holger Krieg/Mittwoch A1 → KW40/Holger Krieg/Donnerstag A1"
+  },
+  {
+    "ts": "2026-09-30T09:33:12.408Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: MGN Volkshaus BMA von KW40/Holger Krieg/Dienstag A1 → KW40/Holger Krieg/Mittwoch A1"
+  },
+  {
+    "ts": "2026-09-30T09:33:05.716Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW40/Christian Berthold/Mittwoch A3"
+  },
+  {
+    "ts": "2026-09-30T09:33:00.177Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Meiningen – Sozialverbund Südthüringen Teilhabe GmbH von KW40/Stephan Übensee/Mittwoch A1 → KW40/Stephan Übensee/Donnerstag A2"
+  },
+  {
+    "ts": "2026-09-30T09:32:55.844Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Meiningen – Sozialverbund Südthüringen Teilhabe GmbH von KW40/Christian Berthold/Mittwoch A1 → KW40/Christian Berthold/Donnerstag A2"
+  },
+  {
+    "ts": "2026-09-30T09:32:49.387Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Meiningen – Dampflokwerk von KW40/Christian Berthold/Donnerstag A2 → KW40/Christian Berthold/Donnerstag A3"
+  },
+  {
+    "ts": "2026-09-30T09:32:39.152Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: MGN Lebenshilfe Barbarastraße RM nachrüsten von KW40/Stephan Übensee/Mittwoch A2 → KW40/Stephan Übensee/Donnerstag A1"
+  },
+  {
+    "ts": "2026-09-30T09:32:36.133Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: MGN Lebenshilfe Barbarastraße RM nachrüsten von KW40/Christian Berthold/Mittwoch A2 → KW40/Christian Berthold/Donnerstag A1"
+  },
+  {
+    "ts": "2026-09-30T09:32:32.236Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Wartung – Meiningen – Dampflokwerk von KW40/Christian Berthold/Mittwoch A3 → KW40/Christian Berthold/Donnerstag A2"
+  },
+  {
+    "ts": "2026-09-29T09:44:15.990Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: 14:00 Walldorf Diakonie umrüsten Wählgerät von KW42/Allgemein/Dienstag A1 → KW42/Allgemein/Dienstag A2"
+  },
+  {
+    "ts": "2026-09-28T12:34:28.725Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Guido Köhler/Mittwoch A1: Wartung – Meiningen – Berufsbildungszentrum"
+  },
+  {
+    "ts": "2026-09-28T12:33:38.580Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW40/Guido Köhler/Mittwoch A1"
+  },
+  {
+    "ts": "2026-09-28T12:32:29.397Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Stephan Übensee/Freitag A1: Arbeitszeitausgleich"
+  },
+  {
+    "ts": "2026-09-28T12:31:52.016Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW40/Andreas Krieg/Freitag A2"
+  },
+  {
+    "ts": "2026-09-28T12:31:46.738Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW40/Andreas Krieg/Donnerstag A3"
+  },
+  {
+    "ts": "2026-09-28T12:31:42.143Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW40/Andreas Krieg/Donnerstag A2"
+  },
+  {
+    "ts": "2026-09-28T12:31:36.940Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW40/Andreas Krieg/Mittwoch A3"
+  },
+  {
+    "ts": "2026-09-28T12:31:33.808Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW40/Andreas Krieg/Mittwoch A2"
+  },
+  {
+    "ts": "2026-09-28T12:31:23.996Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW40/Andreas Krieg/Dienstag A3"
+  },
+  {
+    "ts": "2026-09-28T12:31:20.311Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW40/Andreas Krieg/Dienstag A2"
+  },
+  {
+    "ts": "2026-09-28T12:14:21.615Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Christian Berthold/Mittwoch A3: Wartung – Meiningen – Dampflokwerk"
+  },
+  {
+    "ts": "2026-09-28T12:14:16.509Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW40/Christian Berthold/Mittwoch A3"
+  },
+  {
+    "ts": "2026-09-28T11:58:30.439Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Christian Berthold/Montag A2: Firma"
+  },
+  {
+    "ts": "2026-09-28T11:56:37.755Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW50/Allgemein/Freitag A1: Wartung – Kaltensundheim – DRK Senioren WG \"an der Felda\""
+  },
+  {
+    "ts": "2026-09-28T11:56:30.418Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW50/Allgemein/Freitag A1"
+  },
+  {
+    "ts": "2026-09-28T11:55:46.394Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW46/Allgemein/Freitag A1: Wartung – Bauerbach – Schillermuseum"
+  },
+  {
+    "ts": "2026-09-28T11:55:40.942Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW46/Allgemein/Freitag A1"
+  },
+  {
+    "ts": "2026-09-28T05:07:52.485Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Stephan Übensee/Freitag A1: Arbeitszeitausgleich"
+  },
+  {
+    "ts": "2026-09-28T04:59:08.329Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: MGN Lebenshilfe Barbarastraße RM nachrüsten von KW40/Christian Berthold/Mittwoch A2 → KW40/Stephan Übensee/Mittwoch A2"
+  },
+  {
+    "ts": "2026-09-28T04:59:06.101Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Christian Berthold/Mittwoch A2: MGN Lebenshilfe Barbarastraße RM nachrüsten"
+  },
+  {
+    "ts": "2026-09-28T04:57:34.147Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Meiningen – Sozialverbund Südthüringen Teilhabe GmbH von KW40/Anakin Schäfner/Mittwoch A1 → KW40/Christian Berthold/Mittwoch A1"
+  },
+  {
+    "ts": "2026-09-28T04:57:32.032Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Wartung – Meiningen – Sozialverbund Südthüringen Teilhabe GmbH von KW40/Anakin Schäfner/Mittwoch A1 → KW40/Stephan Übensee/Mittwoch A1"
+  },
+  {
+    "ts": "2026-09-28T04:57:27.657Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Anakin Schäfner/Mittwoch A1: Wartung – Meiningen – Sozialverbund Südthüringen Teilhabe GmbH"
+  },
+  {
+    "ts": "2026-09-28T04:57:14.844Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW40/Anakin Schäfner/Mittwoch A1"
+  },
+  {
+    "ts": "2026-09-28T04:57:11.421Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Zwenkau Alloheim KNX-Tableau von KW40/Christian Berthold/Dienstag A3 → KW40/Stephan Übensee/Dienstag A3"
+  },
+  {
+    "ts": "2026-09-28T04:57:09.733Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Zwenkau Alloheim KNX-Tableau von KW40/Anakin Schäfner/Dienstag A3 → KW40/Christian Berthold/Dienstag A3"
+  },
+  {
+    "ts": "2026-09-28T04:57:07.770Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Zwenkau Alloheim Meldertausch BMA von KW40/Christian Berthold/Dienstag A2 → KW40/Stephan Übensee/Dienstag A2"
+  },
+  {
+    "ts": "2026-09-28T04:57:06.206Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Zwenkau Alloheim Meldertausch BMA von KW40/Anakin Schäfner/Dienstag A2 → KW40/Christian Berthold/Dienstag A2"
+  },
+  {
+    "ts": "2026-09-28T04:57:03.327Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Anakin Schäfner/Dienstag A3: Zwenkau Alloheim KNX-Tableau"
+  },
+  {
+    "ts": "2026-09-28T04:56:55.280Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Anakin Schäfner/Dienstag A2: Zwenkau Alloheim Meldertausch BMA"
+  },
+  {
+    "ts": "2026-09-28T04:56:15.928Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: MGN Volkshaus BMA von KW40/Andreas Krieg/Dienstag A1 → KW40/Holger Krieg/Dienstag A1"
+  },
+  {
+    "ts": "2026-09-28T04:56:13.696Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: MGN Volkshaus BMA von KW40/Andreas Krieg/Montag A1 → KW40/Andreas Krieg/Dienstag A1"
+  },
+  {
+    "ts": "2026-09-28T04:56:10.184Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Wartung – Zwenkau – Alloheim Senioren-Residenz \"Zwenkau\" von KW40/Christian Berthold/Dienstag A1 → KW40/Stephan Übensee/Dienstag A1"
+  },
+  {
+    "ts": "2026-09-28T04:56:07.740Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Wartung – Zwenkau – Alloheim Senioren-Residenz \"Zwenkau\" von KW40/Anakin Schäfner/Dienstag A1 → KW40/Christian Berthold/Dienstag A1"
+  },
+  {
+    "ts": "2026-09-28T04:55:59.909Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Anakin Schäfner/Dienstag A1: Wartung – Zwenkau – Alloheim Senioren-Residenz \"Zwenkau\""
+  },
+  {
+    "ts": "2026-09-28T04:55:52.866Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW40/Anakin Schäfner/Dienstag A1"
+  },
+  {
+    "ts": "2026-09-28T04:55:41.154Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Andreas Krieg/Montag A2: Wartung – Würzburg – Elisabeth Weber-Schule"
+  },
+  {
+    "ts": "2026-09-28T04:55:36.524Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW40/Andreas Krieg/Montag A2"
+  },
+  {
+    "ts": "2026-09-28T04:55:31.504Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: MGN Volkshaus BMA von KW40/Andreas Krieg/Montag A1 → KW40/Holger Krieg/Montag A1"
+  },
+  {
+    "ts": "2026-09-28T04:55:28.621Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Andreas Krieg/Montag A1: MGN Volkshaus BMA"
+  },
+  {
+    "ts": "2026-09-28T04:55:11.845Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Schweinfurt Elektro Küche von KW40/Anakin Schäfner/Montag A1 → KW40/Stephan Übensee/Montag A1"
+  },
+  {
+    "ts": "2026-09-28T04:54:55.376Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW40/Anakin Schäfner/Montag A1"
+  },
+  {
+    "ts": "2026-09-28T04:54:48.467Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW40/Anakin Schäfner/Montag A1"
+  },
+  {
+    "ts": "2026-09-28T04:54:41.778Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Christian Berthold/Montag A1: Queinfeld Deko Lichtschranke"
+  },
+  {
+    "ts": "2026-09-25T07:40:02.503Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW40/Andreas Krieg/Montag A1"
+  },
+  {
+    "ts": "2026-09-24T04:59:47.115Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Zwenkau Alloheim KNX-Tableau von KW40/Christian Berthold/Dienstag A3 → KW40/Stephan Übensee/Dienstag A3"
+  },
+  {
+    "ts": "2026-09-24T04:59:45.673Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Zwenkau Alloheim KNX-Tableau von KW40/Anakin Schäfner/Dienstag A3 → KW40/Christian Berthold/Dienstag A3"
+  },
+  {
+    "ts": "2026-09-24T04:59:43.446Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Zwenkau Alloheim Meldertausch BMA von KW40/Christian Berthold/Dienstag A2 → KW40/Stephan Übensee/Dienstag A2"
+  },
+  {
+    "ts": "2026-09-24T04:59:41.759Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Zwenkau Alloheim Meldertausch BMA von KW40/Anakin Schäfner/Dienstag A2 → KW40/Christian Berthold/Dienstag A2"
+  },
+  {
+    "ts": "2026-09-24T04:59:39.126Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Anakin Schäfner/Dienstag A3: Zwenkau Alloheim KNX-Tableau"
+  },
+  {
+    "ts": "2026-09-24T04:59:33.772Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Anakin Schäfner/Dienstag A2: Zwenkau Alloheim Meldertausch BMA"
+  },
+  {
+    "ts": "2026-09-24T04:54:19.982Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Wartung – Zwenkau – Alloheim Senioren-Residenz \"Zwenkau\" von KW40/Christian Berthold/Dienstag A1 → KW40/Stephan Übensee/Dienstag A1"
+  },
+  {
+    "ts": "2026-09-24T04:54:16.814Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Wartung – Zwenkau – Alloheim Senioren-Residenz \"Zwenkau\" von KW40/Christian Berthold/Dienstag A1 → KW40/Anakin Schäfner/Dienstag A1"
+  },
+  {
+    "ts": "2026-09-24T04:54:12.109Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW40/Christian Berthold/Dienstag A1: Wartung – Zwenkau – Alloheim Senioren-Residenz \"Zwenkau\""
+  },
+  {
+    "ts": "2026-09-24T04:54:08.003Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW40/Christian Berthold/Dienstag A1"
+  },
+  {
+    "ts": "2026-09-23T10:25:50.457Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: MGN Lebenshilfe Barbarastraße RM nachrüsten von KW39/Christian Berthold/Donnerstag A2 → KW39/Stephan Übensee/Donnerstag A2"
+  },
+  {
+    "ts": "2026-09-23T10:25:46.944Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW39/Christian Berthold/Donnerstag A2: MGN Lebenshilfe Barbarastraße RM nachrüsten"
+  },
+  {
+    "ts": "2026-09-23T10:22:58.255Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Wartung – Meiningen – Sozialverbund Südthüringen Teilhabe GmbH von KW39/Christian Berthold/Donnerstag A1 → KW39/Stephan Übensee/Donnerstag A1"
+  },
+  {
+    "ts": "2026-09-23T10:22:53.372Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW39/Christian Berthold/Donnerstag A1: Wartung – Meiningen – Sozialverbund Südthüringen Teilhabe GmbH"
+  },
+  {
+    "ts": "2026-09-23T10:22:12.973Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW39/Christian Berthold/Donnerstag A1"
+  },
+  {
+    "ts": "2026-09-23T10:21:37.790Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Wartung – Meiningen – Wohnheim Berufsbildungszentrum von KW39/Christian Berthold/Mittwoch A3 → KW39/Stephan Übensee/Mittwoch A3"
+  },
+  {
+    "ts": "2026-09-23T10:21:34.122Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW39/Christian Berthold/Mittwoch A3: Wartung – Meiningen – Wohnheim Berufsbildungszentrum"
+  },
+  {
+    "ts": "2026-09-23T10:21:17.149Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW39/Christian Berthold/Mittwoch A3"
+  },
+  {
+    "ts": "2026-09-23T10:21:14.316Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Römhild Leuchte tauschen von KW39/Stephan Übensee/Mittwoch A3 → KW39/Stephan Übensee/Mittwoch A1"
+  },
+  {
+    "ts": "2026-09-23T10:21:12.764Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Exdorf – Multifunktionsgebäude (Kulturhaus) von KW39/Stephan Übensee/Mittwoch A1 → KW39/Stephan Übensee/Mittwoch A2"
+  },
+  {
+    "ts": "2026-09-23T10:21:10.962Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Römhild Leuchte tauschen von KW39/Stephan Übensee/Mittwoch A2 → KW39/Stephan Übensee/Mittwoch A3"
+  },
+  {
+    "ts": "2026-09-23T10:21:08.065Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Römhild Leuchte tauschen von KW39/Christian Berthold/Mittwoch A3 → KW39/Christian Berthold/Mittwoch A1"
+  },
+  {
+    "ts": "2026-09-23T10:21:06.154Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Exdorf – Multifunktionsgebäude (Kulturhaus) von KW39/Christian Berthold/Mittwoch A1 → KW39/Christian Berthold/Mittwoch A2"
+  },
+  {
+    "ts": "2026-09-23T10:21:03.288Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Römhild Leuchte tauschen von KW39/Christian Berthold/Mittwoch A2 → KW39/Christian Berthold/Mittwoch A3"
+  },
+  {
+    "ts": "2026-09-23T06:14:37.480Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW39/Anakin Schäfner/Mittwoch A1: Wartung – Meiningen – Berufsbildungszentrum"
+  },
+  {
+    "ts": "2026-09-23T06:13:46.798Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW39/Anakin Schäfner/Mittwoch A1"
+  },
+  {
+    "ts": "2026-09-23T06:13:00.693Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Römhild Leuchte tauschen von KW39/Stephan Übensee/Mittwoch A3 → KW39/Stephan Übensee/Mittwoch A2"
+  },
+  {
+    "ts": "2026-09-23T06:12:57.097Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW39/Stephan Übensee/Mittwoch A2"
+  },
+  {
+    "ts": "2026-09-23T06:12:52.384Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Wartung – Exdorf – Multifunktionsgebäude (Kulturhaus) von KW39/Stephan Übensee/Mittwoch A2 → KW39/Stephan Übensee/Mittwoch A1"
+  },
+  {
+    "ts": "2026-09-23T06:12:49.909Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW39/Stephan Übensee/Mittwoch A1"
+  },
+  {
+    "ts": "2026-09-23T06:12:46.123Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Römhild Leuchte tauschen von KW39/Stephan Übensee/Mittwoch A3 → KW39/Christian Berthold/Mittwoch A2"
+  },
+  {
+    "ts": "2026-09-23T06:12:43.428Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: Wartung – Exdorf – Multifunktionsgebäude (Kulturhaus) von KW39/Stephan Übensee/Mittwoch A2 → KW39/Christian Berthold/Mittwoch A1"
+  },
+  {
+    "ts": "2026-09-23T06:12:36.053Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: MGN Volkshaus BMA von KW39/Holger Krieg/Donnerstag A1 → KW39/Holger Krieg/Freitag A1"
+  },
+  {
+    "ts": "2026-09-23T06:12:31.968Z",
+    "name": "Christian Berthold",
+    "text": "Kopiert: MGN Volkshaus BMA von KW39/Andreas Krieg/Donnerstag A1 → KW39/Andreas Krieg/Freitag A1"
+  },
+  {
+    "ts": "2026-09-23T05:57:34.140Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: MGN Volkshaus BMA von KW39/Holger Krieg/Freitag A1 → KW39/Holger Krieg/Donnerstag A1"
+  },
+  {
+    "ts": "2026-09-23T05:57:28.606Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: MGN Volkshaus BMA von KW39/Holger Krieg/Donnerstag A1 → KW39/Holger Krieg/Freitag A1"
+  },
+  {
+    "ts": "2026-09-23T05:05:26.690Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Schweinfurt – Seniorenpflegezentrum \"Am Wasserturm\" von KW39/Christian Berthold/Dienstag A2 → KW39/Christian Berthold/Dienstag A1"
+  },
+  {
+    "ts": "2026-09-23T05:05:24.522Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Schweinfurt – Seniorenpflegezentrum \"Am Wasserturm\" von KW39/Christian Berthold/Dienstag A2 → KW39/Christian Berthold/Dienstag A2"
+  },
+  {
+    "ts": "2026-09-23T05:03:31.006Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: MGN Haus Lebenswert Umrüstung ÜE von KW41/Christian Berthold/Dienstag A2 → KW41/Allgemein/Dienstag A1"
+  },
+  {
+    "ts": "2026-09-23T05:03:24.512Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: MGN Haus Lebenswert Umrüstung ÜE von KW41/Allgemein/Dienstag A2 → KW41/Christian Berthold/Dienstag A1"
+  },
+  {
+    "ts": "2026-09-22T05:09:01.972Z",
+    "name": "Unbekannt",
+    "text": "Geloescht: KW39/Christian Berthold/Mittwoch A1"
+  },
+  {
+    "ts": "2026-09-22T05:07:51.205Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW39/Christian Berthold/Mittwoch A1: Metzels Pension Austausch BMA"
+  },
+  {
+    "ts": "2026-09-22T05:05:21.098Z",
+    "name": "Unbekannt",
+    "text": "Geloescht: KW39/Christian Berthold/Montag A2"
+  },
+  {
+    "ts": "2026-09-21T06:35:05.181Z",
+    "name": "Unbekannt",
+    "text": "Geloescht: KW39/Holger Krieg/Dienstag A2"
+  }
+]
