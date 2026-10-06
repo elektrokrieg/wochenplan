@@ -1,5 +1,25 @@
 [
   {
+    "ts": "2026-10-06T05:17:19.623Z",
+    "name": "Holger Krieg",
+    "text": "Freitext eingetragen: KW43/Holger Krieg/Mittwoch A1: Krank"
+  },
+  {
+    "ts": "2026-10-06T05:15:33.232Z",
+    "name": "Holger Krieg",
+    "text": "Freitext eingetragen: KW43/Holger Krieg/Dienstag A1: Krank"
+  },
+  {
+    "ts": "2026-10-06T05:13:10.025Z",
+    "name": "Holger Krieg",
+    "text": "Kopiert: Volkshaus BMA von KW41/Andreas Krieg/Mittwoch A1 → KW41/Andreas Krieg/Dienstag A1"
+  },
+  {
+    "ts": "2026-10-06T05:13:05.040Z",
+    "name": "Holger Krieg",
+    "text": "Verschoben: Volkshaus BMA von KW41/Andreas Krieg/Dienstag A1 → KW41/Andreas Krieg/Mittwoch A1"
+  },
+  {
     "ts": "2026-10-05T13:13:38.375Z",
     "name": "Unbekannt",
     "text": "Eingetragen: KW41/Guido Köhler/Freitag A1: Krank"
@@ -1308,20 +1328,5 @@
     "ts": "2026-09-23T05:03:24.512Z",
     "name": "Christian Berthold",
     "text": "Verschoben: MGN Haus Lebenswert Umrüstung ÜE von KW41/Allgemein/Dienstag A2 → KW41/Christian Berthold/Dienstag A1"
-  },
-  {
-    "ts": "2026-09-22T05:09:01.972Z",
-    "name": "Unbekannt",
-    "text": "Geloescht: KW39/Christian Berthold/Mittwoch A1"
-  },
-  {
-    "ts": "2026-09-22T05:07:51.205Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW39/Christian Berthold/Mittwoch A1: Metzels Pension Austausch BMA"
-  },
-  {
-    "ts": "2026-09-22T05:05:21.098Z",
-    "name": "Unbekannt",
-    "text": "Geloescht: KW39/Christian Berthold/Montag A2"
   }
 ]
