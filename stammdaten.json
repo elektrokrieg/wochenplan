@@ -316,6 +316,10 @@
     {
       "nr": "fehlend",
       "bez": "nicht im Unternehmen"
+    },
+    {
+      "nr": "Frei",
+      "bez": "Arbeitszeitausgleich"
     }
   ],
   "wartungskunden": [
