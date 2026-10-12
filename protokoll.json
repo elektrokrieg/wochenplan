@@ -1,5 +1,10 @@
 [
   {
+    "ts": "2026-10-12T04:59:06.342Z",
+    "name": "Unbekannt",
+    "text": "Freitext eingetragen: KW42/Stephan Übensee/Montag A1: Meiningen"
+  },
+  {
     "ts": "2026-10-10T07:07:58.428Z",
     "name": "Unbekannt",
     "text": "Freitext eingetragen: KW42/Guido Köhler/Donnerstag A1: Wartung AWG Meiningen"
@@ -1838,135 +1843,5 @@
     "ts": "2026-09-28T05:07:52.485Z",
     "name": "Christian Berthold",
     "text": "Eingetragen: KW40/Stephan Übensee/Freitag A1: Arbeitszeitausgleich"
-  },
-  {
-    "ts": "2026-09-28T04:59:08.329Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: MGN Lebenshilfe Barbarastraße RM nachrüsten von KW40/Christian Berthold/Mittwoch A2 → KW40/Stephan Übensee/Mittwoch A2"
-  },
-  {
-    "ts": "2026-09-28T04:59:06.101Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW40/Christian Berthold/Mittwoch A2: MGN Lebenshilfe Barbarastraße RM nachrüsten"
-  },
-  {
-    "ts": "2026-09-28T04:57:34.147Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: Wartung – Meiningen – Sozialverbund Südthüringen Teilhabe GmbH von KW40/Anakin Schäfner/Mittwoch A1 → KW40/Christian Berthold/Mittwoch A1"
-  },
-  {
-    "ts": "2026-09-28T04:57:32.032Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Wartung – Meiningen – Sozialverbund Südthüringen Teilhabe GmbH von KW40/Anakin Schäfner/Mittwoch A1 → KW40/Stephan Übensee/Mittwoch A1"
-  },
-  {
-    "ts": "2026-09-28T04:57:27.657Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW40/Anakin Schäfner/Mittwoch A1: Wartung – Meiningen – Sozialverbund Südthüringen Teilhabe GmbH"
-  },
-  {
-    "ts": "2026-09-28T04:57:14.844Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW40/Anakin Schäfner/Mittwoch A1"
-  },
-  {
-    "ts": "2026-09-28T04:57:11.421Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Zwenkau Alloheim KNX-Tableau von KW40/Christian Berthold/Dienstag A3 → KW40/Stephan Übensee/Dienstag A3"
-  },
-  {
-    "ts": "2026-09-28T04:57:09.733Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Zwenkau Alloheim KNX-Tableau von KW40/Anakin Schäfner/Dienstag A3 → KW40/Christian Berthold/Dienstag A3"
-  },
-  {
-    "ts": "2026-09-28T04:57:07.770Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Zwenkau Alloheim Meldertausch BMA von KW40/Christian Berthold/Dienstag A2 → KW40/Stephan Übensee/Dienstag A2"
-  },
-  {
-    "ts": "2026-09-28T04:57:06.206Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Zwenkau Alloheim Meldertausch BMA von KW40/Anakin Schäfner/Dienstag A2 → KW40/Christian Berthold/Dienstag A2"
-  },
-  {
-    "ts": "2026-09-28T04:57:03.327Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW40/Anakin Schäfner/Dienstag A3: Zwenkau Alloheim KNX-Tableau"
-  },
-  {
-    "ts": "2026-09-28T04:56:55.280Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW40/Anakin Schäfner/Dienstag A2: Zwenkau Alloheim Meldertausch BMA"
-  },
-  {
-    "ts": "2026-09-28T04:56:15.928Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: MGN Volkshaus BMA von KW40/Andreas Krieg/Dienstag A1 → KW40/Holger Krieg/Dienstag A1"
-  },
-  {
-    "ts": "2026-09-28T04:56:13.696Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: MGN Volkshaus BMA von KW40/Andreas Krieg/Montag A1 → KW40/Andreas Krieg/Dienstag A1"
-  },
-  {
-    "ts": "2026-09-28T04:56:10.184Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Wartung – Zwenkau – Alloheim Senioren-Residenz \"Zwenkau\" von KW40/Christian Berthold/Dienstag A1 → KW40/Stephan Übensee/Dienstag A1"
-  },
-  {
-    "ts": "2026-09-28T04:56:07.740Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Wartung – Zwenkau – Alloheim Senioren-Residenz \"Zwenkau\" von KW40/Anakin Schäfner/Dienstag A1 → KW40/Christian Berthold/Dienstag A1"
-  },
-  {
-    "ts": "2026-09-28T04:55:59.909Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW40/Anakin Schäfner/Dienstag A1: Wartung – Zwenkau – Alloheim Senioren-Residenz \"Zwenkau\""
-  },
-  {
-    "ts": "2026-09-28T04:55:52.866Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW40/Anakin Schäfner/Dienstag A1"
-  },
-  {
-    "ts": "2026-09-28T04:55:41.154Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW40/Andreas Krieg/Montag A2: Wartung – Würzburg – Elisabeth Weber-Schule"
-  },
-  {
-    "ts": "2026-09-28T04:55:36.524Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW40/Andreas Krieg/Montag A2"
-  },
-  {
-    "ts": "2026-09-28T04:55:31.504Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: MGN Volkshaus BMA von KW40/Andreas Krieg/Montag A1 → KW40/Holger Krieg/Montag A1"
-  },
-  {
-    "ts": "2026-09-28T04:55:28.621Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW40/Andreas Krieg/Montag A1: MGN Volkshaus BMA"
-  },
-  {
-    "ts": "2026-09-28T04:55:11.845Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Schweinfurt Elektro Küche von KW40/Anakin Schäfner/Montag A1 → KW40/Stephan Übensee/Montag A1"
-  },
-  {
-    "ts": "2026-09-28T04:54:55.376Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW40/Anakin Schäfner/Montag A1"
-  },
-  {
-    "ts": "2026-09-28T04:54:48.467Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW40/Anakin Schäfner/Montag A1"
-  },
-  {
-    "ts": "2026-09-28T04:54:41.778Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW40/Christian Berthold/Montag A1: Queinfeld Deko Lichtschranke"
   }
 ]
