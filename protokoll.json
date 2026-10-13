@@ -1,5 +1,15 @@
 [
   {
+    "ts": "2026-10-13T04:54:05.110Z",
+    "name": "Christian Berthold",
+    "text": "Freitext eingetragen: KW42/Christian Berthold/Dienstag A2: 11:00 Mgn Kita Landsberger Straße umrüsten Wählgerät"
+  },
+  {
+    "ts": "2026-10-13T04:53:24.824Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW42/Christian Berthold/Dienstag A2"
+  },
+  {
     "ts": "2026-10-12T11:26:46.315Z",
     "name": "Unbekannt",
     "text": "Geloescht: KW42/Andreas Krieg/Dienstag A2"
@@ -1768,90 +1778,5 @@
     "ts": "2026-09-29T09:44:15.990Z",
     "name": "Christian Berthold",
     "text": "Verschoben: 14:00 Walldorf Diakonie umrüsten Wählgerät von KW42/Allgemein/Dienstag A1 → KW42/Allgemein/Dienstag A2"
-  },
-  {
-    "ts": "2026-09-28T12:34:28.725Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW40/Guido Köhler/Mittwoch A1: Wartung – Meiningen – Berufsbildungszentrum"
-  },
-  {
-    "ts": "2026-09-28T12:33:38.580Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW40/Guido Köhler/Mittwoch A1"
-  },
-  {
-    "ts": "2026-09-28T12:32:29.397Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW40/Stephan Übensee/Freitag A1: Arbeitszeitausgleich"
-  },
-  {
-    "ts": "2026-09-28T12:31:52.016Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW40/Andreas Krieg/Freitag A2"
-  },
-  {
-    "ts": "2026-09-28T12:31:46.738Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW40/Andreas Krieg/Donnerstag A3"
-  },
-  {
-    "ts": "2026-09-28T12:31:42.143Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW40/Andreas Krieg/Donnerstag A2"
-  },
-  {
-    "ts": "2026-09-28T12:31:36.940Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW40/Andreas Krieg/Mittwoch A3"
-  },
-  {
-    "ts": "2026-09-28T12:31:33.808Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW40/Andreas Krieg/Mittwoch A2"
-  },
-  {
-    "ts": "2026-09-28T12:31:23.996Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW40/Andreas Krieg/Dienstag A3"
-  },
-  {
-    "ts": "2026-09-28T12:31:20.311Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW40/Andreas Krieg/Dienstag A2"
-  },
-  {
-    "ts": "2026-09-28T12:14:21.615Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW40/Christian Berthold/Mittwoch A3: Wartung – Meiningen – Dampflokwerk"
-  },
-  {
-    "ts": "2026-09-28T12:14:16.509Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW40/Christian Berthold/Mittwoch A3"
-  },
-  {
-    "ts": "2026-09-28T11:58:30.439Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW40/Christian Berthold/Montag A2: Firma"
-  },
-  {
-    "ts": "2026-09-28T11:56:37.755Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW50/Allgemein/Freitag A1: Wartung – Kaltensundheim – DRK Senioren WG \"an der Felda\""
-  },
-  {
-    "ts": "2026-09-28T11:56:30.418Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW50/Allgemein/Freitag A1"
-  },
-  {
-    "ts": "2026-09-28T11:55:46.394Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW46/Allgemein/Freitag A1: Wartung – Bauerbach – Schillermuseum"
-  },
-  {
-    "ts": "2026-09-28T11:55:40.942Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW46/Allgemein/Freitag A1"
   }
 ]
