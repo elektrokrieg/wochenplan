@@ -403,6 +403,16 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
     <label style="display:block;font-size:12px;font-weight:600;color:#5F6368;margin-bottom:3px;">Dein Name (fuer Protokoll)</label>
     <input id="cfgName" placeholder="z.B. Christian Berthold" style="width:100%;border:1px solid #DADCE0;border-radius:6px;padding:7px 10px;font-size:13px;margin-bottom:14px;box-sizing:border-box;" />
     <div id="cfgError" style="display:none;background:#FFEBEE;color:#B71C1C;padding:8px 12px;border-radius:6px;font-size:12px;margin-bottom:12px;border-left:3px solid #C62828;"></div>
+    <div id="cfgBookmarkBox" style="display:none;background:#E8F5E9;border:1px solid #A5D6A7;border-radius:6px;padding:10px 12px;margin-bottom:12px;">
+      <div style="font-size:11px;font-weight:600;color:#2E7D32;margin-bottom:5px;">🔖 Lesezeichen zum Wiederverwenden</div>
+      <div style="font-size:11px;color:#388E3C;margin-bottom:7px;">Diesen Link als Lesezeichen speichern → nächstes Mal kein Einloggen nötig:</div>
+      <input id="cfgBookmarkUrl" readonly style="width:100%;border:1px solid #A5D6A7;border-radius:4px;padding:5px 8px;font-size:11px;color:#1B5E20;background:#F1F8E9;box-sizing:border-box;cursor:text;" onclick="this.select()" />
+      <div style="display:flex;gap:6px;margin-top:7px;">
+        <button onclick="_copyBookmarkUrl()" style="flex:1;border:none;border-radius:4px;padding:5px 0;cursor:pointer;font-size:11px;font-weight:600;background:#43A047;color:#fff;">📋 Link kopieren</button>
+        <button onclick="_downloadDesktopShortcut()" style="flex:1;border:none;border-radius:4px;padding:5px 0;cursor:pointer;font-size:11px;font-weight:600;background:#1565C0;color:#fff;">💾 Desktop-Verknüpfung</button>
+      </div>
+      <div style="font-size:10px;color:#888;margin-top:6px;">⚠️ Diesen Link nur für dich behalten – er enthält deinen Token.</div>
+    </div>
     <div style="display:flex;gap:8px;justify-content:space-between;align-items:center;">
       <button onclick="openProtokollPopup()" style="background:none;border:1px solid #DADCE0;border-radius:6px;padding:5px 10px;cursor:pointer;font-size:11px;color:#999;">&#128203; Protokoll</button>
       <div style="display:flex;gap:8px;">
@@ -729,6 +739,22 @@ async function init() {
 
 function loadLocalConfig() {
   try { var n = localStorage.getItem('wp_user_name'); if (n) BENUTZER_NAME = n; } catch(e) {}
+
+  // 1. URL-Parameter (Lesezeichen-Login) — höchste Priorität
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const pu = params.get('u'), pr = params.get('r'), pt = params.get('t'), pn = params.get('n');
+    if (pu && pr && pt) {
+      CFG = { user: pu, repo: pr, token: pt };
+      if (pn) { BENUTZER_NAME = pn; try { localStorage.setItem('wp_user_name', pn); } catch(e) {} }
+      saveConfigAllStores(); // dauerhaft speichern
+      // URL bereinigen (Token nicht in Adresszeile sichtbar lassen)
+      try { window.history.replaceState({}, '', window.location.pathname); } catch(e) {}
+      return;
+    }
+  } catch(e) {}
+
+  // 2. localStorage
   const keys = ['wp_gh_config_v1', 'wp_gh_config_v2', 'wpConfig', 'wpConfig_v2'];
   for (const key of keys) {
     try {
@@ -742,7 +768,8 @@ function loadLocalConfig() {
       }
     } catch(e) {}
   }
-  // Cookie fallback
+
+  // 3. Cookie fallback
   try {
     const m = document.cookie.match(/(?:^|;)\s*wpCfg=([^;]+)/);
     if (m) {
@@ -753,6 +780,38 @@ function loadLocalConfig() {
       }
     }
   } catch(e) {}
+}
+
+function _buildBookmarkUrl(user, repo, token, name) {
+  const base = window.location.origin + window.location.pathname;
+  const params = new URLSearchParams({ u: user, r: repo, t: token });
+  if (name) params.set('n', name);
+  return base + '?' + params.toString();
+}
+
+function _copyBookmarkUrl() {
+  const url = document.getElementById('cfgBookmarkUrl').value;
+  if (!url) return;
+  navigator.clipboard.writeText(url).then(() => showToast('Link kopiert ✓', 'success')).catch(() => {
+    document.getElementById('cfgBookmarkUrl').select();
+    document.execCommand('copy');
+    showToast('Link kopiert ✓', 'success');
+  });
+}
+
+function _downloadDesktopShortcut() {
+  const url = document.getElementById('cfgBookmarkUrl').value;
+  if (!url) return;
+  const name = BENUTZER_NAME ? `Wochenplan – ${BENUTZER_NAME}` : 'Wochenplan Elektro Krieg';
+  // Windows .url Format — funktioniert auch auf dem Desktop als Verknüpfung
+  const content = `[InternetShortcut]\r\nURL=${url}\r\n`;
+  const blob = new Blob([content], { type: 'text/plain' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = name + '.url';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  showToast('Verknüpfung wird heruntergeladen ✓', 'success');
 }
 
 function buildKWSelects() {
@@ -2131,8 +2190,14 @@ function initConfigListeners() {
       BENUTZER_NAME = nameVal;
       try { localStorage.setItem('wp_user_name', nameVal); } catch(e) {}
     }
-    closeConfig();
-    showToast('Gespeichert ✓ – jetzt Download klicken', 'success');
+    // Lesezeichen-Link anzeigen
+    try {
+      const bmUrl = _buildBookmarkUrl(u, r, t, nameVal);
+      const bmBox = document.getElementById('cfgBookmarkBox');
+      const bmInput = document.getElementById('cfgBookmarkUrl');
+      if (bmBox && bmInput) { bmInput.value = bmUrl; bmBox.style.display = 'block'; }
+    } catch(e) {}
+    showToast('Gespeichert ✓ – Lesezeichen-Link kopieren, dann Download klicken', 'success');
   });
   document.getElementById('cfgCancel').addEventListener('click', closeConfig);
   document.getElementById('cfgDisconnect').addEventListener('click', function() {
