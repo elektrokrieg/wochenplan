@@ -19,9 +19,6 @@
   "Stephan Übensee-1-0": "Schweinfurt Austausch Beleuchtung",
   "Anakin Schäfner-1-0": "Schweinfurt Austausch Beleuchtung",
   "Anakin Schäfner-0-0": "Schweinfurt Austausch Beleuchtung",
-  "Allgemein-2-0": "Wartung – Meiningen – Berufsbildungszentrum",
-  "Allgemein-2-1": "Wartung – Kaltenwestheim – Mehrzweckhalle Kaltenwestheim",
-  "Allgemein-2-2": "Wartung – Meiningen – Multihalle",
   "Andreas Krieg-0-0": "Volkshaus BMA",
   "Andreas Krieg-1-0": "Volkshaus BMA",
   "Anakin Schäfner-4-0": "Polizei H3 USV Verschattung",
@@ -30,5 +27,8 @@
   "Guido Köhler-3-0": "Krank",
   "Guido Köhler-4-0": "Krank",
   "Andreas Krieg-2-0": "Volkshaus BMA",
-  "Christian Berthold-1-2-ok": 1
+  "Christian Berthold-1-2-ok": 1,
+  "Allgemein-0-0": "Wartung – Meiningen – Berufsbildungszentrum",
+  "Allgemein-0-1": "Wartung – Kaltenwestheim – Mehrzweckhalle Kaltenwestheim",
+  "Allgemein-0-2": "Wartung – Meiningen – Multihalle"
 }
