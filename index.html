@@ -785,11 +785,15 @@ function getISOWeek(date) {
 // ═══════════════════════════════════════════════════════════════
 //  GITHUB API
 // ═══════════════════════════════════════════════════════════════
-const API = () => `https://api.github.com/repos/${CFG.user}/${CFG.repo}/contents`;
+// JSON-Dateien leben im Branch "data", index.html im Branch "main"
+const DATA_BRANCH = 'data';
+const API = (branch) => `https://api.github.com/repos/${CFG.user}/${CFG.repo}/contents${branch ? `?ref=${branch}` : ''}`;
+const API_PATH = (path, branch) => `https://api.github.com/repos/${CFG.user}/${CFG.repo}/contents/${path}${branch ? `?ref=${branch}` : ''}`;
 
-async function ghGet(path) {
+async function ghGet(path, branch) {
   if (!ghIsConfigured()) return null;
-  const r = await fetch(`${API()}/${path}`, {
+  const url = API_PATH(path, branch || DATA_BRANCH);
+  const r = await fetch(url, {
     headers: {
       Authorization: `Bearer ${CFG.token}`,
       Accept: 'application/vnd.github+json',
@@ -801,11 +805,16 @@ async function ghGet(path) {
   return r.json();
 }
 
-async function ghPut(path, content, sha) {
+async function ghPut(path, content, sha, branch) {
   if (!ghIsConfigured()) throw new Error('Nicht konfiguriert');
-  const body = { message: `Update ${path}`, content: btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2)))) };
+  const targetBranch = branch || DATA_BRANCH;
+  const body = {
+    message: `Update ${path}`,
+    content: btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2)))),
+    branch: targetBranch
+  };
   if (sha) body.sha = sha;
-  const r = await fetch(`${API()}/${path}`, {
+  const r = await fetch(API_PATH(path, null), {  // PUT-URL ohne ?ref, branch im Body
     method: 'PUT',
     headers: {
       Authorization: `Bearer ${CFG.token}`,
@@ -815,20 +824,39 @@ async function ghPut(path, content, sha) {
     },
     body: JSON.stringify(body)
   });
-  if (!r.ok) throw new Error(`GitHub PUT ${path}: ${r.status}`);
+  if (!r.ok) {
+    const errText = await r.text().catch(()=>'');
+    throw new Error(`GitHub PUT ${path}: ${r.status} ${errText}`);
+  }
   return r.json();
 }
 
 async function loadJSON(path) {
-  const data = await ghGet(path);
+  const data = await ghGet(path, DATA_BRANCH);
   if (!data) return null;
   try { return { content: JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g,""))))), sha: data.sha }; }
   catch(e) { return null; }
 }
 
-async function saveJSON(path, content) {
-  const existing = await ghGet(path);
-  return ghPut(path, content, existing ? existing.sha : undefined);
+async function saveJSON(path, content, _retries) {
+  const maxRetries = _retries !== undefined ? _retries : 3;
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    try {
+      const existing = await ghGet(path, DATA_BRANCH);
+      return await ghPut(path, content, existing ? existing.sha : undefined, DATA_BRANCH);
+    } catch(e) {
+      const msg = e && e.message ? e.message : String(e);
+      // Bei Konflikten kurz warten und nochmal versuchen
+      const isRetryable = msg.includes('in progress') || msg.includes('status: 400') || msg.includes('status: 409') || msg.includes('409');
+      if (isRetryable && attempt < maxRetries) {
+        const delay = 2000 * (attempt + 1);
+        console.warn(`saveJSON Retry ${attempt+1}/${maxRetries} für ${path} in ${delay}ms:`, msg);
+        await new Promise(r => setTimeout(r, delay));
+        continue;
+      }
+      throw e;
+    }
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════
