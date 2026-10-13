@@ -153,6 +153,14 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
 .td-proj.krank    { background: #FFEBEE !important; }
 .td-proj.aza      { background: #FFF3E0 !important; }
 .td-proj.berufsschule { background: #E3F2FD !important; }
+/* Feste Zeilen Allgemein / Termine */
+.tr-fest .td-name { background: #37474F !important; color: #fff !important; font-style: italic; border-right: 2px solid #546E7A; }
+.tr-fest .td-proj { background: #ECEFF1 !important; }
+.tr-fest.termin-row .td-name { background: #4A148C !important; border-right: 2px solid #6A1B9A; }
+.tr-fest.termin-row .td-proj { background: #F3E5F5 !important; }
+.tr-fest-sep td { background: #546E7A; color: #fff; font-size: 10px; padding: 1px 8px; font-style: italic; letter-spacing: 0.5px; }
+.td-vortrag { background: #F5F5F5 !important; cursor: pointer; }
+.td-vortrag:hover { background: #E3F2FD !important; }
 
 .proj-select {
   width: 100%; height: 26px; border: none; background: transparent;
@@ -950,6 +958,45 @@ async function loadWochenplan(typ) {
   renderWochenplan(typ, kw, jahr, tableId);
 }
 
+// Feste MA-Namen (nie aus STAMM, immer zuerst)
+const FEST_MA = ['Allgemein', 'Termine'];
+
+// Allgemein-Einträge aus Vorwochen vorwärts tragen (solange nicht einem MA zugeordnet)
+function _getAllgemeinVortrag(typ, kw, jahr) {
+  // Suche bis zu 12 Wochen zurück nach unbeanspruchten Allgemein-Einträgen
+  var result = {};
+  var kwInt = parseInt(kw);
+  for (var rueck = 1; rueck <= 12; rueck++) {
+    var prevKw = kwInt - rueck;
+    var prevJahr = jahr;
+    if (prevKw < 1) { prevKw += 53; prevJahr -= 1; }
+    var prevKey = `${typ}-${prevJahr}-KW${String(prevKw).padStart(2,'0')}`;
+    var cached = localStorage.getItem('wpCache_'+prevKey);
+    if (!cached) continue;
+    var prevData;
+    try { prevData = JSON.parse(cached); } catch(e) { continue; }
+    // Alle Allgemein-Zellen dieser Vorwoche
+    for (var d = 0; d < 5; d++) {
+      for (var s = 0; s < 3; s++) {
+        var cellKey = `Allgemein-${d}-${s}`;
+        var val = prevData[cellKey];
+        if (!val) continue;
+        // Prüfen ob dieser Wert schon in der aktuellen KW bei einem MA eingetragen ist
+        var curKey = `${typ}-${jahr}-KW${kw}`;
+        var curData = WP_DATA[curKey] || {};
+        var bereitsZugeordnet = Object.keys(curData).some(function(k) {
+          return !k.startsWith('Allgemein') && !k.startsWith('Termine') && curData[k] === val;
+        });
+        // Auch in result selbst nicht doppelt
+        if (!bereitsZugeordnet && !result[cellKey]) {
+          result[cellKey] = val;
+        }
+      }
+    }
+  }
+  return result;
+}
+
 function renderWochenplan(typ, kw, jahr, tableId) {
   const isStark = typ === 'stark';
   const maList = isStark ? STAMM.maStark : STAMM.maSchwach;
@@ -992,50 +1039,72 @@ function renderWochenplan(typ, kw, jahr, tableId) {
   }
   html += '</tr></thead><tbody>';
 
+  // Feste MA-Namen aus der regulären Liste herausfiltern (falls jemand Allgemein/Termine als STAMM angelegt hat)
+  const maListFiltered = maList.filter(ma => !FEST_MA.includes(ma));
+
+  // Allgemein-Vortrag aus Vorwochen laden
+  const allgemeinVortrag = _getAllgemeinVortrag(typ, kw, jahr);
+
+  // Hilfsfunktion: eine Wochenplan-Zeile rendern (für feste UND normale MA)
+  const renderOneRow = (ma, isSchwach, isFest, isTermin) => {
+    let rowCls = 'tr-ma';
+    if (isSchwach) rowCls += ' schwach';
+    if (isFest) rowCls += ' tr-fest';
+    if (isTermin) rowCls += ' termin-row';
+    html += `<tr class="${rowCls}">`;
+    html += `<td class="td-name">${ma}</td>`;
+    for (let d=0;d<5;d++) {
+      const dt = addDays(montag,d);
+      const ds = dateStr(dt);
+      const isFT = !!feiertage[ds];
+      for (let s=0;s<3;s++) {
+        const cellKey = `${ma}-${d}-${s}`;
+        let val = data[cellKey] || '';
+        // Für Allgemein: falls leer, Vortrag aus Vorwoche zeigen (nur lesbar anzeigen)
+        let isVortrag = false;
+        if (ma === 'Allgemein' && !val && allgemeinVortrag[cellKey]) {
+          val = allgemeinVortrag[cellKey];
+          isVortrag = true;
+        }
+        let cls = 'td-proj';
+        let cellContent = '';
+        if (isFT && s===0) {
+          cls += ' feiertag';
+          cellContent = `<div class="proj-cell"><div class="proj-text" style="color:#8B6914;font-weight:700">${feiertage[ds]}</div></div>`;
+        } else if (isFT) {
+          cls += ' feiertag';
+          cellContent = '';
+        } else if (isVortrag) {
+          // Vorgetragener Wert: grau hinterlegt, klickbar um zu übernehmen
+          cls += ' td-vortrag';
+          cellContent = `<div class="proj-cell" title="Übernehmen: Klicken" onclick="wpVortragUebernehmen('${escHtml(ma)}',${d},${s},'${escHtml(key)}','${escHtml(val)}')"><div class="proj-text" style="color:#9E9E9E;font-style:italic">${escHtml(val)}</div><div style="font-size:9px;color:#BDBDBD;padding:0 2px">↩ Vorwoche</div></div>`;
+        } else {
+          cellContent = buildProjSelect(ma,d,s,key,val,false);
+          if (data[`${ma}-${d}-${s}-ok`]) cls += ' ' + _terminOkClass(key);
+        }
+        html += `<td class="${cls}">${cellContent}</td>`;
+      }
+    }
+    html += '</tr>';
+  };
+
   // MA rows
   const renderRows = (maArr, isSchwach) => {
-    maArr.forEach((ma, idx) => {
-      html += `<tr class="tr-ma${isSchwach?' schwach':''}">`;
-      html += `<td class="td-name">${ma}</td>`;
-      for (let d=0;d<5;d++) {
-        const dt = addDays(montag,d);
-        const ds = dateStr(dt);
-        const isFT = !!feiertage[ds];
-        const urlCode = urlaubDaten[ma]?.[d];
-        for (let s=0;s<3;s++) {
-          const cellKey = `${ma}-${d}-${s}`;
-          let val = data[cellKey] || '';
-          let cls = 'td-proj';
-          let cellContent = '';
-          if (isFT && s===0) {
-            cls += ' feiertag';
-            cellContent = `<div class="proj-cell"><div class="proj-text" style="color:#8B6914;font-weight:700">${feiertage[ds]}</div></div>`;
-          } else if (isFT) {
-            cls += ' feiertag';
-            cellContent = '';
-          } else if (urlCode && s===0 && !val) {
-            const urlLabels = {U:'Urlaub',E:'Elternzeit',K:'Krank',A:'Arbeitszeitausgleich',B:'Berufsschule'};
-            val = urlLabels[urlCode] || urlCode;
-            const colorMap = {U:'urlaub',E:'elternzeit',K:'krank',A:'aza',B:'berufsschule'};
-            cls += ' ' + (colorMap[urlCode]||'');
-            // Langtext direkt anzeigen, kein Dropdown (aus Urlaubsplan übernommen)
-            cellContent = `<div class="proj-cell"><div class="proj-text" style="color:#555;font-style:italic">${escHtml(val)}</div><div style="font-size:9px;color:#999;padding:0 2px">📅 Urlaubsplan</div></div>`;
-          } else {
-            cellContent = buildProjSelect(ma,d,s,key,val,false);
-            if (data[`${ma}-${d}-${s}-ok`]) cls += ' ' + _terminOkClass(key);
-          }
-          html += `<td class="${cls}">${cellContent}</td>`;
-        }
-      }
-      html += '</tr>';
+    maArr.forEach((ma) => {
+      renderOneRow(ma, isSchwach, false, false);
     });
   };
 
+  // Feste Zeilen zuerst: Allgemein, dann Termine
+  renderOneRow('Allgemein', isStark ? false : true, true, false);
+  renderOneRow('Termine',   isStark ? false : true, true, true);
+  // Trennzeile
+  html += `<tr class="tr-fest-sep"><td colspan="${1+5*3}">── Mitarbeiter ──</td></tr>`;
+
   if (isStark) {
-    renderRows(maList, false);
+    renderRows(maListFiltered, false);
   } else {
-    // Schwachstrom: show separator if there are also stark MA above (but here it's its own table)
-    renderRows(maList, true);
+    renderRows(maListFiltered, true);
   }
 
   html += '</tbody>';
@@ -1122,6 +1191,22 @@ function toggleTerminOk(ev, key, maEnc, d, s) {
 function _terminOkClass(key) {
   // Schwachstrom → blauer Kontrast, Starkstrom → grüner Kontrast
   return key && key.startsWith('schwach') ? 'termin-ok sw' : 'termin-ok';
+}
+
+// Vorgetragenen Allgemein-Wert in die aktuelle KW übernehmen
+function wpVortragUebernehmen(ma, d, s, key, val) {
+  if (!WP_DATA[key]) WP_DATA[key] = {};
+  const cellKey = `${ma}-${d}-${s}`;
+  WP_DATA[key][cellKey] = val;
+  const dirtyKey = 'wp:' + key;
+  _markCellDirty(dirtyKey, cellKey, val);
+  protEintrag(`Vortrag übernommen: ${ma} → ${key} [${d},${s}] = "${val}"`);
+  // Tabelle neu rendern
+  const typ = key.split('-')[0];
+  const jahr = parseInt(key.split('-')[1]);
+  const kwStr = key.split('-')[2].replace('KW','');
+  const tableId = typ === 'stark' ? 'wpTableStark' : 'wpTableSchwach';
+  renderWochenplan(typ, kwStr, jahr, tableId);
 }
 
 function escHtml(s) {
