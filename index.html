@@ -1057,6 +1057,7 @@ function renderWochenplan(typ, kw, jahr, tableId) {
       const dt = addDays(montag,d);
       const ds = dateStr(dt);
       const isFT = !!feiertage[ds];
+      const urlCode = urlaubDaten[ma]?.[d];
       for (let s=0;s<3;s++) {
         const cellKey = `${ma}-${d}-${s}`;
         let val = data[cellKey] || '';
@@ -1074,6 +1075,12 @@ function renderWochenplan(typ, kw, jahr, tableId) {
         } else if (isFT) {
           cls += ' feiertag';
           cellContent = '';
+        } else if (urlCode && s===0 && !val && !isFest) {
+          const urlLabels = {U:'Urlaub',E:'Elternzeit',K:'Krank',A:'Arbeitszeitausgleich',B:'Berufsschule'};
+          const urlVal = urlLabels[urlCode] || urlCode;
+          const colorMap = {U:'urlaub',E:'elternzeit',K:'krank',A:'aza',B:'berufsschule'};
+          cls += ' ' + (colorMap[urlCode]||'');
+          cellContent = `<div class="proj-cell"><div class="proj-text" style="color:#555;font-style:italic">${escHtml(urlVal)}</div><div style="font-size:9px;color:#999;padding:0 2px">📅 Urlaubsplan</div></div>`;
         } else if (isVortrag) {
           // Vorgetragener Wert: grau hinterlegt, klickbar um zu übernehmen
           cls += ' td-vortrag';
