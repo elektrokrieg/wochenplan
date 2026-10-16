@@ -1,5 +1,20 @@
 [
   {
+    "ts": "2026-10-16T06:22:14.129Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW42/Christian Berthold/Freitag A1"
+  },
+  {
+    "ts": "2026-10-16T06:21:39.450Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW42/Christian Berthold/Freitag A1: Wartung – Meiningen – Berufsbildungszentrum"
+  },
+  {
+    "ts": "2026-10-16T06:21:23.837Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW42/Christian Berthold/Freitag A1"
+  },
+  {
     "ts": "2026-10-16T05:07:31.237Z",
     "name": "Unbekannt",
     "text": "Verschoben: Wartung – Meiningen – Berufsbildungszentrum von KW43/Allgemein/Montag A1 → KW43/Guido Köhler/Donnerstag A1"
@@ -1443,40 +1458,5 @@
     "ts": "2026-10-02T07:52:48.669Z",
     "name": "Unbekannt",
     "text": "Eingetragen: KW41/Guido Köhler/Montag A1: Krank"
-  },
-  {
-    "ts": "2026-10-02T05:47:08.639Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW41/Holger Krieg/Mittwoch A1: Wartung – Vachdorf – Sport- und Kulturzentrum"
-  },
-  {
-    "ts": "2026-10-02T05:47:02.797Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW41/Holger Krieg/Mittwoch A1"
-  },
-  {
-    "ts": "2026-10-02T05:46:21.724Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW40/Anakin Schäfner/Freitag A1: Wartung – Meiningen – Bildungszentrum der Thüringer Polizei"
-  },
-  {
-    "ts": "2026-10-02T05:46:16.993Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW40/Anakin Schäfner/Freitag A1"
-  },
-  {
-    "ts": "2026-10-02T05:26:52.658Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: Volkshaus BMA von KW41/Holger Krieg/Dienstag A3 → KW41/Holger Krieg/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-02T05:13:38.885Z",
-    "name": "Holger Krieg",
-    "text": "Freitext eingetragen: KW41/Holger Krieg/Donnerstag A1: WBG RWA Motor erneuern Jerusalem er Straße 22"
-  },
-  {
-    "ts": "2026-10-02T05:12:06.339Z",
-    "name": "Holger Krieg",
-    "text": "Freitext eingetragen: KW41/Holger Krieg/Mittwoch A1: Vachdorf Kulturhaus Wartung"
   }
 ]
