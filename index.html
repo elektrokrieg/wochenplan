@@ -1307,6 +1307,94 @@ function escHtml(s) {
   return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
+// Prüft ob eine Wartung (val) im selben Quartal bereits bei einem anderen MA eingetragen ist
+// Lädt fehlende KWs von GitHub nach — gibt { ma, kw, tag, slot } oder null zurück
+async function _pruefeWartungDuplikat(val, aktKey, aktMa, aktD, aktS) {
+  if (!val || !val.toLowerCase().includes('wartung')) return null;
+  const parts = aktKey.split('-'); // z.B. ['stark','2026','KW42']
+  const typ = parts[0], jahr = parts[1];
+  const kwInt = parseInt((parts[2]||'').replace('KW',''));
+  if (!kwInt) return null;
+  const quartal = Math.ceil(kwInt / 13);
+  const kwVon = (quartal - 1) * 13 + 1;
+  const kwBis = quartal * 13;
+  const tage = ['Montag','Dienstag','Mittwoch','Donnerstag','Freitag'];
+
+  for (let kw = kwVon; kw <= kwBis; kw++) {
+    const kwStr = String(kw).padStart(2,'0');
+    const searchKey = `${typ}-${jahr}-KW${kwStr}`;
+    let data = null;
+
+    // Zuerst Cache prüfen
+    const cached = localStorage.getItem('wpCache_'+searchKey);
+    if (cached) {
+      try { data = JSON.parse(cached); } catch(e) {}
+    }
+    // Falls nicht im Cache: von GitHub laden
+    if (!data && ghIsConfigured()) {
+      try {
+        const remote = await loadJSON(`wochenplan-${typ}-${jahr}-KW${kwStr}.json`);
+        if (remote && remote.content) {
+          data = remote.content;
+          // In Cache schreiben für spätere Nutzung
+          try { localStorage.setItem('wpCache_'+searchKey, JSON.stringify(data)); } catch(e) {}
+          // Auch in WP_DATA, falls diese KW noch nicht geladen war
+          if (!WP_DATA[searchKey]) WP_DATA[searchKey] = data;
+        }
+      } catch(e) { /* Netzwerkfehler → überspringen */ }
+    }
+    if (!data) continue;
+
+    for (const [cellKey, cellVal] of Object.entries(data)) {
+      if (cellVal !== val) continue;
+      if (cellKey.endsWith('-ok')) continue;
+      const lastDash2 = cellKey.lastIndexOf('-');
+      const lastDash1 = cellKey.lastIndexOf('-', lastDash2 - 1);
+      const gefMA = cellKey.substring(0, lastDash1);
+      const gefD  = parseInt(cellKey.substring(lastDash1+1, lastDash2));
+      const gefS  = parseInt(cellKey.substring(lastDash2+1));
+      if (searchKey === aktKey && gefMA === aktMa && gefD === aktD && gefS === aktS) continue;
+      return { ma: gefMA, kw: kwStr, jahr, tag: tage[gefD] || gefD, slot: 'A'+(gefS+1), key: searchKey };
+    }
+  }
+  return null;
+}
+
+// Führt das eigentliche Eintragen durch (nach Bestätigung oder ohne Duplikat)
+function _projEintragen(sel, key, ma, d, s, val) {
+  const td = sel ? sel.closest('td') : document.querySelector(`[data-key="${key}"][data-ma="${encodeURIComponent(ma)}"][data-d="${d}"][data-s="${s}"]`)?.closest('td');
+  const isWartung = val && (val === 'Wartung' || val.startsWith('Wartung – '));
+
+  if (isWartung && (STAMM.wartungskunden||[]).length > 0) {
+    if (!WP_DATA[key]) WP_DATA[key] = {};
+    WP_DATA[key][`${ma}-${d}-${s}`] = val;
+    if (td) { td.className = 'td-proj'; td.innerHTML = buildProjSelect(ma, d, s, key, val, false); const tr=td.closest('tr'); if(tr) tr.style.height='auto'; }
+    localStorage.setItem('wpCache_'+key, JSON.stringify(WP_DATA[key]));
+    _markCellDirty('wp:'+key, `${ma}-${d}-${s}`, val);
+    var _tw=['Montag','Dienstag','Mittwoch','Donnerstag','Freitag'];
+    protEintrag('Wartung eingetragen: '+(key.split('-')[2]||key)+'/'+ma+'/'+_tw[d]+' A'+(+s+1));
+    openWartungsPopup(key, ma, d, s);
+    return;
+  }
+
+  if (!WP_DATA[key]) WP_DATA[key] = {};
+  if (val) WP_DATA[key][`${ma}-${d}-${s}`] = val;
+  else { delete WP_DATA[key][`${ma}-${d}-${s}`]; delete WP_DATA[key][`${ma}-${d}-${s}-ok`]; }
+  if (td) {
+    td.className = 'td-proj';
+    if (val && WP_DATA[key][`${ma}-${d}-${s}-ok`]) { td.classList.add('termin-ok'); if (key.startsWith('schwach')) td.classList.add('sw'); }
+    td.innerHTML = buildProjSelect(ma, d, s, key, val, false);
+    const tr = td.closest('tr'); if (tr) tr.style.height = 'auto';
+  }
+  localStorage.setItem('wpCache_'+key, JSON.stringify(WP_DATA[key]));
+  _markCellDirty('wp:'+key, `${ma}-${d}-${s}`, val || null);
+  if (!val) _markCellDirty('wp:'+key, `${ma}-${d}-${s}-ok`, null);
+  var _t=['Montag','Dienstag','Mittwoch','Donnerstag','Freitag'];
+  var _k=key.split('-')[2]||key;
+  if (!val){protEintrag('Geloescht: '+_k+'/'+ma+'/'+_t[d]+' A'+(+s+1));}else{protEintrag('Eingetragen: '+_k+'/'+ma+'/'+_t[d]+' A'+(+s+1)+': '+val);}
+  showToast('Lokal gespeichert – Upload-Button zum Hochladen', '');
+}
+
 async function onProjChange(sel) {
   const key  = sel.dataset.key;
   const ma   = decodeURIComponent(sel.dataset.ma);
@@ -1320,41 +1408,50 @@ async function onProjChange(sel) {
   const val  = sel.value === '__DELETE__' ? '' : sel.value;
   if (sel.value === '') return; // "── ändern ──" ignorieren
 
-  const td = sel.closest('td');
-  // Wartung + Kundenliste vorhanden → Popup öffnen
-  if (val === 'Wartung' && (STAMM.wartungskunden||[]).length > 0) {
-    if (!WP_DATA[key]) WP_DATA[key] = {};
-    WP_DATA[key][`${ma}-${d}-${s}`] = val;
-    td.className = 'td-proj';
-    td.innerHTML = buildProjSelect(ma, d, s, key, val, false);
-    const tr = td.closest('tr');
-    if (tr) tr.style.height = 'auto';
-    localStorage.setItem('wpCache_'+key, JSON.stringify(WP_DATA[key]));
-    _markCellDirty('wp:'+key, `${ma}-${d}-${s}`, val);
-    var _tw=['Montag','Dienstag','Mittwoch','Donnerstag','Freitag'];
-    var _kw=key.split('-')[2]||key;
-    protEintrag('Wartung eingetragen: '+_kw+'/'+ma+'/'+_tw[d]+' A'+(+s+1));
-    openWartungsPopup(key, ma, d, s);
-    return;
+  // Wartungs-Duplikat-Prüfung (inkl. GitHub-Abfrage für nicht gecachte KWs)
+  if (val && val.toLowerCase().includes('wartung')) {
+    sel.disabled = true;
+    showLoading('Prüfe Quartal auf doppelte Wartung…');
+    let duplikat = null;
+    try {
+      duplikat = await _pruefeWartungDuplikat(val, key, ma, d, s);
+    } catch(e) {}
+    hideLoading();
+    sel.disabled = false;
+    if (duplikat) {
+      sel.value = '';
+      _zeigeDuplikatWarnung(val, duplikat, () => _projEintragen(sel, key, ma, d, s, val));
+      return;
+    }
   }
 
-  if (!WP_DATA[key]) WP_DATA[key] = {};
-  if (val) WP_DATA[key][`${ma}-${d}-${s}`] = val;
-  else { delete WP_DATA[key][`${ma}-${d}-${s}`]; delete WP_DATA[key][`${ma}-${d}-${s}-ok`]; }
+  _projEintragen(sel, key, ma, d, s, val);
+}
 
-  td.className = 'td-proj';
-  if (val && WP_DATA[key][`${ma}-${d}-${s}-ok`]) { td.classList.add('termin-ok'); if (key.startsWith('schwach')) td.classList.add('sw'); }
-  td.innerHTML = buildProjSelect(ma, d, s, key, val, false);
-  const tr = td.closest('tr');
-  if (tr) tr.style.height = 'auto';
-
-  localStorage.setItem('wpCache_'+key, JSON.stringify(WP_DATA[key]));
-  _markCellDirty('wp:'+key, `${ma}-${d}-${s}`, val || null);
-  if (!val) _markCellDirty('wp:'+key, `${ma}-${d}-${s}-ok`, null);
-  var _t=['Montag','Dienstag','Mittwoch','Donnerstag','Freitag'];
-  var _k=key.split('-')[2]||key;
-  if (!val){protEintrag('Geloescht: '+_k+'/'+ma+'/'+_t[d]+' A'+(+s+1));}else{protEintrag('Eingetragen: '+_k+'/'+ma+'/'+_t[d]+' A'+(+s+1)+': '+val);}
-  showToast('Lokal gespeichert – Upload-Button zum Hochladen', '');
+function _zeigeDuplikatWarnung(val, duplikat, onTrotzdem) {
+  // Overlay
+  const overlay = document.createElement('div');
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:3000;display:flex;align-items:center;justify-content:center;padding:16px;';
+  const box = document.createElement('div');
+  box.style.cssText = 'background:#fff;border-radius:10px;padding:22px 24px;max-width:400px;width:100%;box-shadow:0 6px 32px rgba(0,0,0,0.25);';
+  box.innerHTML = `
+    <div style="font-size:22px;margin-bottom:8px;">⚠️</div>
+    <div style="font-size:15px;font-weight:700;color:#B71C1C;margin-bottom:10px;">Wartung bereits eingetragen!</div>
+    <div style="font-size:13px;color:#333;margin-bottom:6px;">
+      <strong>${escHtml(val)}</strong> ist in diesem Quartal bereits eingetragen:
+    </div>
+    <div style="background:#FFF3E0;border:1px solid #FFB74D;border-radius:6px;padding:10px 14px;margin-bottom:16px;font-size:13px;color:#4E342E;">
+      👷 <strong>${escHtml(duplikat.ma)}</strong><br>
+      📅 KW ${duplikat.kw} ${duplikat.jahr} – ${duplikat.tag}, ${duplikat.slot}
+    </div>
+    <div style="display:flex;gap:10px;">
+      <button id="_dupAbbrechen" style="flex:1;padding:9px 0;border:1px solid #DADCE0;border-radius:6px;background:#F1F3F4;color:#3C4043;font-size:13px;font-weight:600;cursor:pointer;">↩ Rückgängig</button>
+      <button id="_dupTrotzdem" style="flex:1;padding:9px 0;border:none;border-radius:6px;background:#E53935;color:#fff;font-size:13px;font-weight:600;cursor:pointer;">Trotzdem eintragen</button>
+    </div>`;
+  overlay.appendChild(box);
+  document.body.appendChild(overlay);
+  document.getElementById('_dupAbbrechen').onclick = () => document.body.removeChild(overlay);
+  document.getElementById('_dupTrotzdem').onclick = () => { document.body.removeChild(overlay); onTrotzdem(); };
 }
 
 function changeKW(delta) {
