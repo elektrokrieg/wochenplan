@@ -1408,23 +1408,6 @@ async function onProjChange(sel) {
   const val  = sel.value === '__DELETE__' ? '' : sel.value;
   if (sel.value === '') return; // "── ändern ──" ignorieren
 
-  // Wartungs-Duplikat-Prüfung (inkl. GitHub-Abfrage für nicht gecachte KWs)
-  if (val && val.toLowerCase().includes('wartung')) {
-    sel.disabled = true;
-    showLoading('Prüfe Quartal auf doppelte Wartung…');
-    let duplikat = null;
-    try {
-      duplikat = await _pruefeWartungDuplikat(val, key, ma, d, s);
-    } catch(e) {}
-    hideLoading();
-    sel.disabled = false;
-    if (duplikat) {
-      sel.value = '';
-      _zeigeDuplikatWarnung(val, duplikat, () => _projEintragen(sel, key, ma, d, s, val));
-      return;
-    }
-  }
-
   _projEintragen(sel, key, ma, d, s, val);
 }
 
@@ -2356,34 +2339,51 @@ function filterWartungskunden(q) {
   ).join('') + (filtered.length === 0 ? '<tr><td colspan="3" style="padding:16px;text-align:center;color:#999">Keine Treffer</td></tr>' : '');
 }
 
-function waehleWartungskunde(name, ort) {
+async function waehleWartungskunde(name, ort) {
   const val = 'Wartung – ' + (ort ? ort + ' – ' : '') + name;
-  if (!WP_DATA[_wpopKey]) WP_DATA[_wpopKey] = {};
-  WP_DATA[_wpopKey][`${_wpopMa}-${_wpopD}-${_wpopS}`] = val;
+  const key = _wpopKey, ma = _wpopMa, d = _wpopD, s = _wpopS;
+
+  // Popup schliessen und Duplikat-Prüfung mit dem konkreten Wartungskunden-Wert
+  closeWartungsPopup();
+  showLoading('Prüfe Quartal auf doppelte Wartung…');
+  let duplikat = null;
+  try {
+    duplikat = await _pruefeWartungDuplikat(val, key, ma, d, s);
+  } catch(e) {}
+  hideLoading();
+
+  if (duplikat) {
+    _zeigeDuplikatWarnung(val, duplikat, () => _waehleWartungskundeEintragen(key, ma, d, s, val));
+    return;
+  }
+
+  _waehleWartungskundeEintragen(key, ma, d, s, val);
+}
+
+function _waehleWartungskundeEintragen(key, ma, d, s, val) {
+  if (!WP_DATA[key]) WP_DATA[key] = {};
+  WP_DATA[key][`${ma}-${d}-${s}`] = val;
 
   // Zelle aktualisieren
-  const cellId = `wp-cell-${CSS.escape(_wpopKey)}-${CSS.escape(_wpopMa)}-${_wpopD}-${_wpopS}`;
-  // Find via data attributes
   const allTd = document.querySelectorAll('td.td-proj');
   for (const td of allTd) {
     const sel = td.querySelector('[data-key]');
-    if (sel && sel.dataset.key === _wpopKey &&
-        decodeURIComponent(sel.dataset.ma) === _wpopMa &&
-        parseInt(sel.dataset.d) === _wpopD &&
-        parseInt(sel.dataset.s) === _wpopS) {
-      td.innerHTML = buildProjSelect(_wpopMa, _wpopD, _wpopS, _wpopKey, val, false);
+    if (sel && sel.dataset.key === key &&
+        decodeURIComponent(sel.dataset.ma) === ma &&
+        parseInt(sel.dataset.d) === d &&
+        parseInt(sel.dataset.s) === s) {
+      td.innerHTML = buildProjSelect(ma, d, s, key, val, false);
       td.closest('tr').style.height = 'auto';
       break;
     }
   }
 
-  localStorage.setItem('wpCache_'+_wpopKey, JSON.stringify(WP_DATA[_wpopKey]));
-  _markCellDirty('wp:'+_wpopKey, `${_wpopMa}-${_wpopD}-${_wpopS}`, val);
+  localStorage.setItem('wpCache_'+key, JSON.stringify(WP_DATA[key]));
+  _markCellDirty('wp:'+key, `${ma}-${d}-${s}`, val);
   var _twk=['Montag','Dienstag','Mittwoch','Donnerstag','Freitag'];
-  var _kwk=_wpopKey.split('-')[2]||_wpopKey;
-  protEintrag('Eingetragen: '+_kwk+'/'+_wpopMa+'/'+_twk[_wpopD]+' A'+(+_wpopS+1)+': '+val);
+  var _kwk=key.split('-')[2]||key;
+  protEintrag('Eingetragen: '+_kwk+'/'+ma+'/'+_twk[d]+' A'+(+s+1)+': '+val);
   showToast('Lokal gespeichert – Upload-Button zum Hochladen', '');
-  closeWartungsPopup();
 }
 
 // ESC schliesst Popup
