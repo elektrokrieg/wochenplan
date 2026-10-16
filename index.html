@@ -1353,6 +1353,7 @@ async function _pruefeWartungDuplikat(val, aktKey, aktMa, aktD, aktS) {
       const gefMA = cellKey.substring(0, lastDash1);
       const gefD  = parseInt(cellKey.substring(lastDash1+1, lastDash2));
       const gefS  = parseInt(cellKey.substring(lastDash2+1));
+      if (gefMA === 'Allgemein' || gefMA === 'Termine') continue;
       if (searchKey === aktKey && gefMA === aktMa && gefD === aktD && gefS === aktS) continue;
       return { ma: gefMA, kw: kwStr, jahr, tag: tage[gefD] || gefD, slot: 'A'+(gefS+1), key: searchKey };
     }
