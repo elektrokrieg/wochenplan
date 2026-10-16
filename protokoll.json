@@ -1,5 +1,10 @@
 [
   {
+    "ts": "2026-10-16T05:07:31.237Z",
+    "name": "Unbekannt",
+    "text": "Verschoben: Wartung – Meiningen – Berufsbildungszentrum von KW43/Allgemein/Montag A1 → KW43/Guido Köhler/Donnerstag A1"
+  },
+  {
     "ts": "2026-10-15T20:23:25.397Z",
     "name": "Unbekannt",
     "text": "Freitext eingetragen: KW43/Guido Köhler/Donnerstag A1: Wartung Berufschule Am Drachenberg EMA RWA"
@@ -1478,10 +1483,5 @@
     "ts": "2026-10-02T05:10:02.492Z",
     "name": "Holger Krieg",
     "text": "Kopiert: Volkshaus BMA von KW41/Holger Krieg/Montag A1 → KW41/Holger Krieg/Dienstag A3"
-  },
-  {
-    "ts": "2026-10-02T04:49:47.814Z",
-    "name": "Christian Berthold",
-    "text": "Freitext eingetragen: KW40/Christian Berthold/Freitag A2: Breitungen Regelschule Beamer Raum 009"
   }
 ]
