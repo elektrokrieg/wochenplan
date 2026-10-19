@@ -1,5 +1,10 @@
 [
   {
+    "ts": "2026-10-19T05:07:27.888Z",
+    "name": "Stephan Übensee",
+    "text": "Freitext eingetragen: KW43/Stephan Übensee/Donnerstag A1: Multihalle"
+  },
+  {
     "ts": "2026-10-18T08:13:43.455Z",
     "name": "Holger Krieg",
     "text": "Freitext eingetragen: KW43/Holger Krieg/Freitag A1: Rhön Park Hotel, Akkutausch Notlicht"
@@ -1608,35 +1613,5 @@
     "ts": "2026-10-05T05:08:21.433Z",
     "name": "Christian Berthold",
     "text": "Wartung eingetragen: KW41/Allgemein/Mittwoch A1"
-  },
-  {
-    "ts": "2026-10-05T05:07:37.479Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Schweinfurt Austausch Beleuchtung von KW41/Anakin Schäfner/Dienstag A1 → KW41/Anakin Schäfner/Montag A1"
-  },
-  {
-    "ts": "2026-10-05T05:07:34.871Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Schweinfurt Austausch Beleuchtung von KW41/Stephan Übensee/Dienstag A1 → KW41/Anakin Schäfner/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-05T05:07:32.642Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Schweinfurt Austausch Beleuchtung von KW41/Stephan Übensee/Montag A1 → KW41/Stephan Übensee/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-05T05:04:42.795Z",
-    "name": "Christian Berthold",
-    "text": "Freitext eingetragen: KW41/Stephan Übensee/Montag A1: Schweinfurt Austausch Beleuchtung"
-  },
-  {
-    "ts": "2026-10-05T05:02:56.263Z",
-    "name": "Christian Berthold",
-    "text": "Termin bestätigt: schwach-2026-KW41/Christian Berthold/0/1"
-  },
-  {
-    "ts": "2026-10-05T05:02:49.555Z",
-    "name": "Christian Berthold",
-    "text": "Freitext eingetragen: KW41/Christian Berthold/Montag A2: Schwallungen BS GuS Beleuchtung Flur"
   }
 ]
