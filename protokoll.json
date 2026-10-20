@@ -1,5 +1,45 @@
 [
   {
+    "ts": "2026-10-20T06:06:23.761Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW44/Christian Berthold/Mittwoch A2: Wartung – Kaltensundheim – Thüringisches Rhön Gymnasium"
+  },
+  {
+    "ts": "2026-10-20T06:06:14.537Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW44/Christian Berthold/Mittwoch A2"
+  },
+  {
+    "ts": "2026-10-20T06:06:11.994Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW44/Christian Berthold/Mittwoch A1: Wartung – Kaltenwestheim – Mehrzweckhalle Kaltenwestheim"
+  },
+  {
+    "ts": "2026-10-20T06:06:00.809Z",
+    "name": "Christian Berthold",
+    "text": "Wartung eingetragen: KW44/Christian Berthold/Mittwoch A1"
+  },
+  {
+    "ts": "2026-10-20T06:05:41.360Z",
+    "name": "Christian Berthold",
+    "text": "Vortrag übernommen: Allgemein → schwach-2026-KW44 [0,1] = \"Wartung – Kaltenwestheim – Mehrzweckhalle Kaltenwestheim\""
+  },
+  {
+    "ts": "2026-10-20T06:05:31.566Z",
+    "name": "Christian Berthold",
+    "text": "Vortrag übernommen: Allgemein → schwach-2026-KW44 [2,2] = \"Wartung – Meiningen – Multihalle\""
+  },
+  {
+    "ts": "2026-10-20T06:05:28.540Z",
+    "name": "Christian Berthold",
+    "text": "Vortrag übernommen: Allgemein → schwach-2026-KW44 [2,2] = \"Wartung – Meiningen – Multihalle\""
+  },
+  {
+    "ts": "2026-10-20T06:05:10.928Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW43/Allgemein/Montag A3"
+  },
+  {
     "ts": "2026-10-19T09:28:59.300Z",
     "name": "Christian Berthold",
     "text": "Freitext eingetragen: KW43/Christian Berthold/Montag A2: Störungen"
@@ -1278,255 +1318,5 @@
     "ts": "2026-10-06T08:46:10.142Z",
     "name": "Christian Berthold",
     "text": "Geloescht: KW41/Christian Berthold/Mittwoch A1"
-  },
-  {
-    "ts": "2026-10-06T05:17:19.623Z",
-    "name": "Holger Krieg",
-    "text": "Freitext eingetragen: KW43/Holger Krieg/Mittwoch A1: Krank"
-  },
-  {
-    "ts": "2026-10-06T05:15:33.232Z",
-    "name": "Holger Krieg",
-    "text": "Freitext eingetragen: KW43/Holger Krieg/Dienstag A1: Krank"
-  },
-  {
-    "ts": "2026-10-06T05:13:10.025Z",
-    "name": "Holger Krieg",
-    "text": "Kopiert: Volkshaus BMA von KW41/Andreas Krieg/Mittwoch A1 → KW41/Andreas Krieg/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-06T05:13:05.040Z",
-    "name": "Holger Krieg",
-    "text": "Verschoben: Volkshaus BMA von KW41/Andreas Krieg/Dienstag A1 → KW41/Andreas Krieg/Mittwoch A1"
-  },
-  {
-    "ts": "2026-10-05T13:13:38.375Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Guido Köhler/Freitag A1: Krank"
-  },
-  {
-    "ts": "2026-10-05T13:13:18.614Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Guido Köhler/Donnerstag A1: Krank"
-  },
-  {
-    "ts": "2026-10-05T10:04:30.481Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Andreas Krieg/Freitag A1: Polizei H3 USV Verschattung"
-  },
-  {
-    "ts": "2026-10-05T10:04:13.176Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Anakin Schäfner/Freitag A1: Polizei H3 USV Verschattung"
-  },
-  {
-    "ts": "2026-10-05T10:03:17.432Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Louis Heurich/Freitag A1: Walldorf Stadtservice"
-  },
-  {
-    "ts": "2026-10-05T10:03:14.617Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Louis Heurich/Donnerstag A1: Walldorf Stadtservice"
-  },
-  {
-    "ts": "2026-10-05T10:03:12.785Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Louis Heurich/Mittwoch A1: Walldorf Stadtservice"
-  },
-  {
-    "ts": "2026-10-05T10:03:10.121Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Louis Heurich/Dienstag A1: Walldorf Stadtservice"
-  },
-  {
-    "ts": "2026-10-05T10:03:06.930Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Louis Heurich/Montag A1: Walldorf Stadtservice"
-  },
-  {
-    "ts": "2026-10-05T10:02:47.916Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Ralf Schäufele/Mittwoch A1: Henneberg Beleuchtung"
-  },
-  {
-    "ts": "2026-10-05T10:02:45.110Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Mario Schäufele/Mittwoch A1: Henneberg Beleuchtung"
-  },
-  {
-    "ts": "2026-10-05T10:02:12.173Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Michael Zöllner/Freitag A2: MGN Ev Gymnasium Sonnenschutz"
-  },
-  {
-    "ts": "2026-10-05T10:01:10.724Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Anakin Schäfner/Freitag A2: Polizei H3 KNX-Steuerung + BMA"
-  },
-  {
-    "ts": "2026-10-05T10:00:16.654Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Jens Wellach/Freitag A1: Blutlabor"
-  },
-  {
-    "ts": "2026-10-05T10:00:14.569Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Jens Wellach/Donnerstag A1: Blutlabor"
-  },
-  {
-    "ts": "2026-10-05T10:00:13.030Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Jens Wellach/Mittwoch A1: Blutlabor"
-  },
-  {
-    "ts": "2026-10-05T10:00:10.902Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Jens Wellach/Dienstag A1: Blutlabor"
-  },
-  {
-    "ts": "2026-10-05T10:00:06.157Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Jens Wellach/Montag A1: Blutlabor"
-  },
-  {
-    "ts": "2026-10-05T09:59:40.617Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Qudrat Hamidi/Freitag A1: Walldorf Stadtservice"
-  },
-  {
-    "ts": "2026-10-05T09:59:37.270Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Qudrat Hamidi/Donnerstag A1: Walldorf Stadtservice"
-  },
-  {
-    "ts": "2026-10-05T09:59:34.421Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Qudrat Hamidi/Mittwoch A1: Walldorf Stadtservice"
-  },
-  {
-    "ts": "2026-10-05T09:59:31.637Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Qudrat Hamidi/Dienstag A1: Walldorf Stadtservice"
-  },
-  {
-    "ts": "2026-10-05T09:59:28.797Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Qudrat Hamidi/Montag A1: Walldorf Stadtservice"
-  },
-  {
-    "ts": "2026-10-05T09:59:05.741Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Tschechen 2/Donnerstag A1: Schleusingen AWO"
-  },
-  {
-    "ts": "2026-10-05T09:59:04.101Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Tschechen 1/Donnerstag A1: Schleusingen AWO"
-  },
-  {
-    "ts": "2026-10-05T09:59:01.398Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Tschechen 2/Mittwoch A1: Schleusingen AWO"
-  },
-  {
-    "ts": "2026-10-05T09:58:59.725Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Tschechen 1/Mittwoch A1: Schleusingen AWO"
-  },
-  {
-    "ts": "2026-10-05T09:58:56.974Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Tschechen 2/Dienstag A1: Schleusingen AWO"
-  },
-  {
-    "ts": "2026-10-05T09:58:54.925Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Tschechen 1/Dienstag A1: Schleusingen AWO"
-  },
-  {
-    "ts": "2026-10-05T09:58:52.581Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Tschechen 2/Montag A1: Schleusingen AWO"
-  },
-  {
-    "ts": "2026-10-05T09:58:50.038Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Tschechen 1/Montag A1: Schleusingen AWO"
-  },
-  {
-    "ts": "2026-10-05T09:58:46.949Z",
-    "name": "Unbekannt",
-    "text": "Geloescht: KW41/SV Tech 2/Montag A1"
-  },
-  {
-    "ts": "2026-10-05T09:58:44.909Z",
-    "name": "Unbekannt",
-    "text": "Geloescht: KW41/SV Tech 1/Montag A1"
-  },
-  {
-    "ts": "2026-10-05T09:58:42.766Z",
-    "name": "Unbekannt",
-    "text": "Geloescht: KW41/SV Tech 2/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-05T09:58:40.274Z",
-    "name": "Unbekannt",
-    "text": "Geloescht: KW41/SV Tech 1/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-05T09:58:37.778Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/SV Tech 2/Dienstag A1: Schleusingen AWO"
-  },
-  {
-    "ts": "2026-10-05T09:58:31.341Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/SV Tech 1/Dienstag A1: Schleusingen AWO"
-  },
-  {
-    "ts": "2026-10-05T09:58:28.389Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/SV Tech 2/Montag A1: Schleusingen AWO"
-  },
-  {
-    "ts": "2026-10-05T09:58:26.109Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/SV Tech 1/Montag A1: Schleusingen AWO"
-  },
-  {
-    "ts": "2026-10-05T09:58:22.509Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Ferhad Mohammadi/Freitag A1: Schleusingen AWO"
-  },
-  {
-    "ts": "2026-10-05T09:58:18.758Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Ferhad Mohammadi/Donnerstag A1: Schleusingen AWO"
-  },
-  {
-    "ts": "2026-10-05T09:58:16.190Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Ferhad Mohammadi/Mittwoch A1: Schleusingen AWO"
-  },
-  {
-    "ts": "2026-10-05T09:58:13.774Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Ferhad Mohammadi/Dienstag A1: Schleusingen AWO"
-  },
-  {
-    "ts": "2026-10-05T09:58:11.173Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Ferhad Mohammadi/Montag A1: Schleusingen AWO"
-  },
-  {
-    "ts": "2026-10-05T09:56:12.040Z",
-    "name": "Unbekannt",
-    "text": "Freitext eingetragen: KW41/Anakin Schäfner/Freitag A1: Polizei Haus 3 USV in Decke Mensa"
-  },
-  {
-    "ts": "2026-10-05T09:55:15.338Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW41/Anakin Schäfner/Freitag A1: Wallbox AFTP H10"
   }
 ]
