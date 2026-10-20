@@ -1,5 +1,30 @@
 [
   {
+    "ts": "2026-10-20T10:56:22.225Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW43/Stephan Übensee/Donnerstag A1: Wartung – Meiningen – Multihalle"
+  },
+  {
+    "ts": "2026-10-20T10:56:04.298Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW43/Stephan Übensee/Donnerstag A1"
+  },
+  {
+    "ts": "2026-10-20T10:55:50.910Z",
+    "name": "Unbekannt",
+    "text": "Freitext eingetragen: KW43/Stephan Übensee/Mittwoch A1: Dreißigacker"
+  },
+  {
+    "ts": "2026-10-20T10:55:31.945Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW43/Stephan Übensee/Dienstag A2: Wartung – Zella-Mehlis – Gewerblich-Technisches Berufsbildungszentrum"
+  },
+  {
+    "ts": "2026-10-20T10:55:18.885Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW43/Stephan Übensee/Dienstag A2"
+  },
+  {
     "ts": "2026-10-20T06:07:24.688Z",
     "name": "Christian Berthold",
     "text": "Eingetragen: KW44/Christian Berthold/Mittwoch A3: Kaltensundheim Gymnasium Signalgeber BMA"
@@ -1263,65 +1288,5 @@
     "ts": "2026-10-06T12:27:11.368Z",
     "name": "Christian Berthold",
     "text": "Verschoben: 11:00 Mgn Kita Landsberger Straße umrüsten Wählgerät von KW42/Christian Berthold/Dienstag A2 → KW42/Andreas Krieg/Dienstag A2"
-  },
-  {
-    "ts": "2026-10-06T08:48:24.491Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW42/Christian Berthold/Donnerstag A2: Wartung – Schmalkalden – AWO Seniorenzentrum \"Hoffnung\""
-  },
-  {
-    "ts": "2026-10-06T08:48:20.653Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW42/Christian Berthold/Donnerstag A2"
-  },
-  {
-    "ts": "2026-10-06T08:48:18.131Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW42/Stephan Übensee/Donnerstag A1"
-  },
-  {
-    "ts": "2026-10-06T08:48:10.447Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW42/Christian Berthold/Donnerstag A1: Wartung – Floh – Grundschule"
-  },
-  {
-    "ts": "2026-10-06T08:48:06.466Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW42/Christian Berthold/Donnerstag A1"
-  },
-  {
-    "ts": "2026-10-06T08:48:01.190Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: 15:00 Schmalkalden PH am Schloss umrüsten Wählgerät von KW42/Christian Berthold/Donnerstag A2 → KW42/Christian Berthold/Donnerstag A3"
-  },
-  {
-    "ts": "2026-10-06T08:46:46.095Z",
-    "name": "Christian Berthold",
-    "text": "Termin bestätigt: schwach-2026-KW41/Christian Berthold/1/2"
-  },
-  {
-    "ts": "2026-10-06T08:46:44.270Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Schwallungen BS GuS Beleuchtung Flur von KW41/Christian Berthold/Montag A2 → KW41/Christian Berthold/Dienstag A3"
-  },
-  {
-    "ts": "2026-10-06T08:46:40.855Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW41/Christian Berthold/Dienstag A3"
-  },
-  {
-    "ts": "2026-10-06T08:46:14.423Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW41/Christian Berthold/Donnerstag A2"
-  },
-  {
-    "ts": "2026-10-06T08:46:12.299Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW41/Christian Berthold/Donnerstag A1"
-  },
-  {
-    "ts": "2026-10-06T08:46:10.142Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW41/Christian Berthold/Mittwoch A1"
   }
 ]
