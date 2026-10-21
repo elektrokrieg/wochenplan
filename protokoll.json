@@ -1,5 +1,25 @@
 [
   {
+    "ts": "2026-10-21T07:39:12.311Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW43/Anakin Schäfner/Mittwoch A1: Wartung – Zella-Mehlis – Staatliche Grundschule Martin Luther"
+  },
+  {
+    "ts": "2026-10-21T07:38:58.055Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW43/Anakin Schäfner/Mittwoch A1"
+  },
+  {
+    "ts": "2026-10-21T07:28:16.375Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW43/Anakin Schäfner/Dienstag A1: Wartung – Meiningen – Ev. Gymnasium"
+  },
+  {
+    "ts": "2026-10-21T07:27:56.108Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW43/Anakin Schäfner/Dienstag A1"
+  },
+  {
     "ts": "2026-10-20T10:57:15.295Z",
     "name": "Unbekannt",
     "text": "Eingetragen: KW43/Guido Köhler/Dienstag A2: Wartung – Zella-Mehlis – Gewerblich-Technisches Berufsbildungszentrum"
@@ -78,6 +98,16 @@
     "ts": "2026-10-20T06:05:10.928Z",
     "name": "Christian Berthold",
     "text": "Geloescht: KW43/Allgemein/Montag A3"
+  },
+  {
+    "ts": "2026-10-20T04:55:28.805Z",
+    "name": "Unbekannt",
+    "text": "Kopiert: Mgn Ev Gym Meldertausch von KW43/Anakin Schäfner/Dienstag A1 → KW43/Anakin Schäfner/Montag A1"
+  },
+  {
+    "ts": "2026-10-20T04:55:25.058Z",
+    "name": "Unbekannt",
+    "text": "Verschoben: Mgn Ev Gym Meldertausch von KW43/Anakin Schäfner/Montag A1 → KW43/Anakin Schäfner/Dienstag A1"
   },
   {
     "ts": "2026-10-19T09:28:59.300Z",
@@ -1263,40 +1293,5 @@
     "ts": "2026-10-08T08:55:01.140Z",
     "name": "Unbekannt",
     "text": "Wartung eingetragen: KW42/Guido Köhler/Montag A1"
-  },
-  {
-    "ts": "2026-10-06T12:28:12.852Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW42/Christian Berthold/Montag A2: Wartung – Trusetal – AWO Seniorenpflegeheim \" Haus für ältere Bürger \""
-  },
-  {
-    "ts": "2026-10-06T12:28:06.892Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW42/Christian Berthold/Montag A2"
-  },
-  {
-    "ts": "2026-10-06T12:27:54.403Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW42/Christian Berthold/Dienstag A2: Wartung – Walldorf – Altenpflegezentrum \"Werra Aue\""
-  },
-  {
-    "ts": "2026-10-06T12:27:47.476Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW42/Christian Berthold/Dienstag A2"
-  },
-  {
-    "ts": "2026-10-06T12:27:42.958Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW42/Andreas Krieg/Dienstag A1: Wartung – Meiningen – Integrative Kindertagesstätte"
-  },
-  {
-    "ts": "2026-10-06T12:27:13.975Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW42/Andreas Krieg/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-06T12:27:11.368Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: 11:00 Mgn Kita Landsberger Straße umrüsten Wählgerät von KW42/Christian Berthold/Dienstag A2 → KW42/Andreas Krieg/Dienstag A2"
   }
 ]
