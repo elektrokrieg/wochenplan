@@ -1,5 +1,20 @@
 [
   {
+    "ts": "2026-10-23T18:00:31.979Z",
+    "name": "Holger Krieg",
+    "text": "Freitext eingetragen: KW45/Holger Krieg/Montag A2: Rhön Park Hotel Notlicht Haus 24 Akkutausch"
+  },
+  {
+    "ts": "2026-10-23T17:59:48.451Z",
+    "name": "Holger Krieg",
+    "text": "Eingetragen: KW45/Holger Krieg/Montag A1: Wartung – Hausen-Roth – Rhön-Park-Hotel"
+  },
+  {
+    "ts": "2026-10-23T17:59:35.734Z",
+    "name": "Holger Krieg",
+    "text": "Wartung eingetragen: KW45/Holger Krieg/Montag A1"
+  },
+  {
     "ts": "2026-10-23T05:56:15.666Z",
     "name": "Unbekannt",
     "text": "Verschoben: Weißkopf Meldertausch von KW44/Anakin Schäfner/Donnerstag A1 → KW44/Andreas Krieg/Donnerstag A1"
@@ -943,120 +958,5 @@
     "ts": "2026-10-10T07:02:56.871Z",
     "name": "Unbekannt",
     "text": "Wartung eingetragen: KW42/Guido Köhler/Donnerstag A1"
-  },
-  {
-    "ts": "2026-10-09T09:56:56.990Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Ronald Zöller/Freitag A1: Arbeitszeitausgleich"
-  },
-  {
-    "ts": "2026-10-09T09:56:49.807Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Martin Ruta/Freitag A1: Arbeitszeitausgleich"
-  },
-  {
-    "ts": "2026-10-09T09:56:43.551Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Jo Hannes Bohnwagner/Freitag A1: Arbeitszeitausgleich"
-  },
-  {
-    "ts": "2026-10-09T09:55:41.577Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Ralf Schäufele/Freitag A1: nicht im Unternehmen"
-  },
-  {
-    "ts": "2026-10-09T09:55:38.608Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Mario Schäufele/Freitag A1: nicht im Unternehmen"
-  },
-  {
-    "ts": "2026-10-09T09:55:36.501Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/SV Tech 2/Freitag A1: nicht im Unternehmen"
-  },
-  {
-    "ts": "2026-10-09T09:55:34.198Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/SV Tech 1/Freitag A1: nicht im Unternehmen"
-  },
-  {
-    "ts": "2026-10-09T09:55:28.587Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Ralf Schäufele/Donnerstag A1: nicht im Unternehmen"
-  },
-  {
-    "ts": "2026-10-09T09:55:26.255Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Mario Schäufele/Donnerstag A1: nicht im Unternehmen"
-  },
-  {
-    "ts": "2026-10-09T09:55:22.287Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/SV Tech 2/Donnerstag A1: nicht im Unternehmen"
-  },
-  {
-    "ts": "2026-10-09T09:55:18.027Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/SV Tech 1/Donnerstag A1: nicht im Unternehmen"
-  },
-  {
-    "ts": "2026-10-09T09:55:01.797Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Ralf Schäufele/Mittwoch A1: nicht im Unternehmen"
-  },
-  {
-    "ts": "2026-10-09T09:54:57.373Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Mario Schäufele/Mittwoch A1: nicht im Unternehmen"
-  },
-  {
-    "ts": "2026-10-09T09:54:55.204Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/SV Tech 2/Mittwoch A1: nicht im Unternehmen"
-  },
-  {
-    "ts": "2026-10-09T09:54:52.805Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/SV Tech 1/Mittwoch A1: nicht im Unternehmen"
-  },
-  {
-    "ts": "2026-10-09T09:54:19.325Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Ralf Schäufele/Dienstag A1: nicht im Unternehmen"
-  },
-  {
-    "ts": "2026-10-09T09:54:14.952Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Mario Schäufele/Dienstag A1: nicht im Unternehmen"
-  },
-  {
-    "ts": "2026-10-09T09:54:12.108Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/SV Tech 2/Dienstag A1: nicht im Unternehmen"
-  },
-  {
-    "ts": "2026-10-09T09:54:09.596Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/SV Tech 1/Dienstag A1: nicht im Unternehmen"
-  },
-  {
-    "ts": "2026-10-09T09:53:58.219Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Ralf Schäufele/Montag A1: nicht im Unternehmen"
-  },
-  {
-    "ts": "2026-10-09T09:53:53.562Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Mario Schäufele/Montag A1: nicht im Unternehmen"
-  },
-  {
-    "ts": "2026-10-09T09:53:45.260Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/SV Tech 2/Montag A1: nicht im Unternehmen"
-  },
-  {
-    "ts": "2026-10-09T09:53:36.598Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/SV Tech 1/Montag A1: nicht im Unternehmen"
   }
 ]
