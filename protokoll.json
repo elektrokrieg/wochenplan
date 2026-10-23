@@ -1,5 +1,15 @@
 [
   {
+    "ts": "2026-10-23T05:23:18.758Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW42/Allgemein/Montag A3"
+  },
+  {
+    "ts": "2026-10-23T05:23:17.061Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW42/Allgemein/Montag A2"
+  },
+  {
     "ts": "2026-10-23T05:19:04.608Z",
     "name": "Andreas Krieg",
     "text": "Freitext eingetragen: KW44/Holger Krieg/Donnerstag A3: Weißkopf Meldertausch"
@@ -1328,45 +1338,5 @@
     "ts": "2026-10-09T05:23:51.817Z",
     "name": "Unbekannt",
     "text": "Eingetragen: KW42/Qudrat Hamidi/Montag A1: Walldorf Technikgebäude"
-  },
-  {
-    "ts": "2026-10-09T05:23:21.021Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Qudrat Hamidi/Freitag A1: Walldorf Technikgebäude"
-  },
-  {
-    "ts": "2026-10-09T05:23:18.421Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Qudrat Hamidi/Donnerstag A1: Walldorf Technikgebäude"
-  },
-  {
-    "ts": "2026-10-09T05:23:13.712Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Qudrat Hamidi/Mittwoch A1: Walldorf Technikgebäude"
-  },
-  {
-    "ts": "2026-10-09T05:23:09.488Z",
-    "name": "Unbekannt",
-    "text": "Freitext eingetragen: KW42/Qudrat Hamidi/Dienstag A1: Oil Tank"
-  },
-  {
-    "ts": "2026-10-09T05:22:17.617Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Lenny Edmondson/Donnerstag A1: Urlaub"
-  },
-  {
-    "ts": "2026-10-09T05:21:43.240Z",
-    "name": "Unbekannt",
-    "text": "Freitext eingetragen: KW42/Lenny Edmondson/Freitag A1: Polizei"
-  },
-  {
-    "ts": "2026-10-09T05:21:36.656Z",
-    "name": "Unbekannt",
-    "text": "Freitext eingetragen: KW42/Lenny Edmondson/Donnerstag A1: Polizei"
-  },
-  {
-    "ts": "2026-10-09T05:21:29.600Z",
-    "name": "Unbekannt",
-    "text": "Freitext eingetragen: KW42/Lenny Edmondson/Mittwoch A1: Polizei"
   }
 ]
