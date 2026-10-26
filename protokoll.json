@@ -1,5 +1,25 @@
 [
   {
+    "ts": "2026-10-26T05:57:47.021Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW44/Christian Berthold/Dienstag A1"
+  },
+  {
+    "ts": "2026-10-26T05:57:35.972Z",
+    "name": "Christian Berthold",
+    "text": "Freitext eingetragen: KW44/Christian Berthold/Montag A1: Störung Mgn Residenz Georg"
+  },
+  {
+    "ts": "2026-10-26T05:57:15.645Z",
+    "name": "Christian Berthold",
+    "text": "Eingetragen: KW44/Christian%20Berthold/Montag A2: Wartung – Walldorf – Altenpflegezentrum \"Werra Aue\""
+  },
+  {
+    "ts": "2026-10-26T05:56:58.027Z",
+    "name": "Christian Berthold",
+    "text": "Geloescht: KW44/Christian Berthold/Montag A1"
+  },
+  {
     "ts": "2026-10-23T18:00:31.979Z",
     "name": "Holger Krieg",
     "text": "Freitext eingetragen: KW45/Holger Krieg/Montag A2: Rhön Park Hotel Notlicht Haus 24 Akkutausch"
@@ -908,55 +928,5 @@
     "ts": "2026-10-12T11:26:42.957Z",
     "name": "Unbekannt",
     "text": "Geloescht: KW42/Andreas Krieg/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-12T04:59:06.342Z",
-    "name": "Unbekannt",
-    "text": "Freitext eingetragen: KW42/Stephan Übensee/Montag A1: Meiningen"
-  },
-  {
-    "ts": "2026-10-10T07:07:58.428Z",
-    "name": "Unbekannt",
-    "text": "Freitext eingetragen: KW42/Guido Köhler/Donnerstag A1: Wartung AWG Meiningen"
-  },
-  {
-    "ts": "2026-10-10T07:06:26.241Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Guido%20K%C3%B6hler/Donnerstag A1: Wartung – Meiningen – AWG"
-  },
-  {
-    "ts": "2026-10-10T07:05:31.199Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Guido%20K%C3%B6hler/Donnerstag A1: Wartung – Meiningen – AWG"
-  },
-  {
-    "ts": "2026-10-10T07:04:58.883Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Guido%20K%C3%B6hler/Donnerstag A1: Wartung – Meiningen – AWG"
-  },
-  {
-    "ts": "2026-10-10T07:03:37.460Z",
-    "name": "Unbekannt",
-    "text": "Geloescht: KW42/Guido Köhler/Montag A1"
-  },
-  {
-    "ts": "2026-10-10T07:03:31.365Z",
-    "name": "Unbekannt",
-    "text": "Termin-Bestätigung zurückgenommen: schwach-2026-KW42/Guido Köhler/0/0"
-  },
-  {
-    "ts": "2026-10-10T07:03:27.280Z",
-    "name": "Unbekannt",
-    "text": "Termin bestätigt: schwach-2026-KW42/Guido Köhler/0/0"
-  },
-  {
-    "ts": "2026-10-10T07:03:13.732Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW42/Guido%20K%C3%B6hler/Donnerstag A1: Wartung – Meiningen – AWG"
-  },
-  {
-    "ts": "2026-10-10T07:02:56.871Z",
-    "name": "Unbekannt",
-    "text": "Wartung eingetragen: KW42/Guido Köhler/Donnerstag A1"
   }
 ]
