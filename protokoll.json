@@ -1,5 +1,25 @@
 [
   {
+    "ts": "2026-10-27T06:22:41.137Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Meiningen – Bildungszentrum der Thüringer Polizei von KW44/Christian Berthold/Montag A2 → KW44/Christian Berthold/Dienstag A1"
+  },
+  {
+    "ts": "2026-10-27T06:22:24.696Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Vachdorf – Staatliche Grundschule von KW44/Holger Krieg/Montag A3 → KW44/Holger Krieg/Dienstag A2"
+  },
+  {
+    "ts": "2026-10-27T06:22:14.731Z",
+    "name": "Christian Berthold",
+    "text": "Freitext eingetragen: KW44/Stephan Übensee/Donnerstag A1: MGN LRA"
+  },
+  {
+    "ts": "2026-10-27T06:22:02.583Z",
+    "name": "Christian Berthold",
+    "text": "Verschoben: Wartung – Vachdorf – Staatliche Grundschule von KW44/Stephan Übensee/Montag A3 → KW44/Stephan Übensee/Dienstag A2"
+  },
+  {
     "ts": "2026-10-26T06:37:07.520Z",
     "name": "Unbekannt",
     "text": "Kopiert: Wartung – Meiningen – Bildungszentrum der Thüringer Polizei von KW44/Anakin Schäfner/Montag A2 → KW44/Holger Krieg/Montag A2"
@@ -973,55 +993,5 @@
     "ts": "2026-10-13T06:41:54.669Z",
     "name": "Christian Berthold",
     "text": "Verschoben: 11:00 Mgn Drk Henneberger Straße umrüsten Wählgerät von KW43/Allgemein/Mittwoch A1 → KW43/Termine/Mittwoch A1"
-  },
-  {
-    "ts": "2026-10-13T05:29:52.883Z",
-    "name": "Stephan Übensee",
-    "text": "Freitext eingetragen: KW42/Stephan Übensee/Dienstag A1: Meiningen"
-  },
-  {
-    "ts": "2026-10-13T05:29:37.017Z",
-    "name": "Stephan Übensee",
-    "text": "Kopiert: Suhl Kita Waldstörche Meldertausch von KW43/Stephan Übensee/Dienstag A1 → KW43/Guido Köhler/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-13T05:29:34.466Z",
-    "name": "Stephan Übensee",
-    "text": "Eingetragen: KW43/Stephan Übensee/Dienstag A1: Suhl Kita Waldstörche Meldertausch"
-  },
-  {
-    "ts": "2026-10-13T05:29:08.948Z",
-    "name": "Stephan Übensee",
-    "text": "Kopiert: Mgn Ev Gym Meldertausch von KW43/Stephan Übensee/Montag A1 → KW43/Christian Berthold/Montag A1"
-  },
-  {
-    "ts": "2026-10-13T05:29:05.465Z",
-    "name": "Stephan Übensee",
-    "text": "Eingetragen: KW43/Stephan Übensee/Montag A1: Mgn Ev Gym Meldertausch"
-  },
-  {
-    "ts": "2026-10-13T04:54:05.110Z",
-    "name": "Christian Berthold",
-    "text": "Freitext eingetragen: KW42/Christian Berthold/Dienstag A2: 11:00 Mgn Kita Landsberger Straße umrüsten Wählgerät"
-  },
-  {
-    "ts": "2026-10-13T04:53:24.824Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW42/Christian Berthold/Dienstag A2"
-  },
-  {
-    "ts": "2026-10-12T11:26:46.315Z",
-    "name": "Unbekannt",
-    "text": "Geloescht: KW42/Andreas Krieg/Dienstag A2"
-  },
-  {
-    "ts": "2026-10-12T11:26:44.100Z",
-    "name": "Unbekannt",
-    "text": "Termin bestätigt: schwach-2026-KW42/Andreas Krieg/1/1"
-  },
-  {
-    "ts": "2026-10-12T11:26:42.957Z",
-    "name": "Unbekannt",
-    "text": "Geloescht: KW42/Andreas Krieg/Dienstag A1"
   }
 ]
