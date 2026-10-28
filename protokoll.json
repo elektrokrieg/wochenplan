@@ -1,5 +1,25 @@
 [
   {
+    "ts": "2026-10-28T18:00:03.274Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW45/Guido Köhler/Dienstag A1: Wartung – Bad Salzungen – BVA Wohnblock"
+  },
+  {
+    "ts": "2026-10-28T17:59:48.530Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW45/Guido Köhler/Dienstag A1"
+  },
+  {
+    "ts": "2026-10-28T17:59:30.280Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW45/Guido Köhler/Montag A1: Wartung – Schmalkalden – Haus am Tor"
+  },
+  {
+    "ts": "2026-10-28T17:58:52.117Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW45/Guido Köhler/Montag A1"
+  },
+  {
     "ts": "2026-10-27T06:26:34.963Z",
     "name": "Christian Berthold",
     "text": "Eingetragen: KW44/Christian Berthold/Montag A3: Wartung – Walldorf – Staatliche Grundschule \"Landsbergblick\" Sporthalle"
@@ -953,125 +973,5 @@
     "ts": "2026-10-15T20:16:25.333Z",
     "name": "Unbekannt",
     "text": "Wartung eingetragen: KW43/Guido Köhler/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-13T07:21:38.909Z",
-    "name": "Christian Berthold",
-    "text": "Freitext eingetragen: KW42/Christian Berthold/Mittwoch A2: Breitungen Schule Steckdose Beamer"
-  },
-  {
-    "ts": "2026-10-13T07:21:19.121Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW42/Christian Berthold/Mittwoch A3"
-  },
-  {
-    "ts": "2026-10-13T07:21:16.376Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW42/Christian Berthold/Mittwoch A2"
-  },
-  {
-    "ts": "2026-10-13T07:08:05.036Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: Wartung – Meiningen – Multihalle von KW41/Allgemein/Mittwoch A3 → KW41/Allgemein/Montag A3"
-  },
-  {
-    "ts": "2026-10-13T07:08:03.135Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: Wartung – Kaltenwestheim – Mehrzweckhalle Kaltenwestheim von KW41/Allgemein/Mittwoch A2 → KW41/Allgemein/Montag A2"
-  },
-  {
-    "ts": "2026-10-13T07:08:00.977Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: Wartung – Meiningen – Berufsbildungszentrum von KW41/Allgemein/Mittwoch A1 → KW41/Allgemein/Montag A1"
-  },
-  {
-    "ts": "2026-10-13T07:07:34.568Z",
-    "name": "Christian Berthold",
-    "text": "Vortrag übernommen: Allgemein → schwach-2026-KW43 [0,2] = \"Wartung – Meiningen – Multihalle\""
-  },
-  {
-    "ts": "2026-10-13T07:07:33.395Z",
-    "name": "Christian Berthold",
-    "text": "Vortrag übernommen: Allgemein → schwach-2026-KW43 [0,1] = \"Wartung – Kaltenwestheim – Mehrzweckhalle Kaltenwestheim\""
-  },
-  {
-    "ts": "2026-10-13T07:07:32.228Z",
-    "name": "Christian Berthold",
-    "text": "Vortrag übernommen: Allgemein → schwach-2026-KW43 [0,0] = \"Wartung – Meiningen – Berufsbildungszentrum\""
-  },
-  {
-    "ts": "2026-10-13T07:07:31.040Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW43/Allgemein/Mittwoch A3"
-  },
-  {
-    "ts": "2026-10-13T07:07:28.164Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW43/Allgemein/Mittwoch A2"
-  },
-  {
-    "ts": "2026-10-13T07:07:25.745Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW43/Allgemein/Mittwoch A1"
-  },
-  {
-    "ts": "2026-10-13T07:07:12.883Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: Wartung – Meiningen – Multihalle von KW42/Allgemein/Mittwoch A3 → KW42/Allgemein/Montag A3"
-  },
-  {
-    "ts": "2026-10-13T07:07:10.169Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: Wartung – Kaltenwestheim – Mehrzweckhalle Kaltenwestheim von KW42/Allgemein/Mittwoch A2 → KW42/Allgemein/Montag A2"
-  },
-  {
-    "ts": "2026-10-13T07:07:07.834Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: Wartung – Meiningen – Berufsbildungszentrum von KW42/Allgemein/Mittwoch A1 → KW42/Allgemein/Montag A1"
-  },
-  {
-    "ts": "2026-10-13T07:05:29.102Z",
-    "name": "Christian Berthold",
-    "text": "Vortrag übernommen: Allgemein → schwach-2026-KW42 [2,2] = \"Wartung – Meiningen – Multihalle\""
-  },
-  {
-    "ts": "2026-10-13T07:05:27.781Z",
-    "name": "Christian Berthold",
-    "text": "Vortrag übernommen: Allgemein → schwach-2026-KW42 [2,1] = \"Wartung – Kaltenwestheim – Mehrzweckhalle Kaltenwestheim\""
-  },
-  {
-    "ts": "2026-10-13T07:05:26.183Z",
-    "name": "Christian Berthold",
-    "text": "Vortrag übernommen: Allgemein → schwach-2026-KW42 [2,0] = \"Wartung – Meiningen – Berufsbildungszentrum\""
-  },
-  {
-    "ts": "2026-10-13T06:57:03.082Z",
-    "name": "Christian Berthold",
-    "text": "Vortrag übernommen: Allgemein → schwach-2026-KW43 [2,2] = \"Wartung – Meiningen – Multihalle\""
-  },
-  {
-    "ts": "2026-10-13T06:57:02.042Z",
-    "name": "Christian Berthold",
-    "text": "Vortrag übernommen: Allgemein → schwach-2026-KW43 [2,1] = \"Wartung – Kaltenwestheim – Mehrzweckhalle Kaltenwestheim\""
-  },
-  {
-    "ts": "2026-10-13T06:56:59.920Z",
-    "name": "Christian Berthold",
-    "text": "Vortrag übernommen: Allgemein → schwach-2026-KW43 [2,0] = \"Wartung – Meiningen – Berufsbildungszentrum\""
-  },
-  {
-    "ts": "2026-10-13T06:42:17.241Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: Wartung – Bauerbach – Schillermuseum von KW46/Allgemein/Freitag A1 → KW46/Termine/Freitag A1"
-  },
-  {
-    "ts": "2026-10-13T06:41:56.450Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: 14:00 MGN Sarterstift umrüsten Wählgerät von KW43/Allgemein/Mittwoch A2 → KW43/Termine/Mittwoch A2"
-  },
-  {
-    "ts": "2026-10-13T06:41:54.669Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: 11:00 Mgn Drk Henneberger Straße umrüsten Wählgerät von KW43/Allgemein/Mittwoch A1 → KW43/Termine/Mittwoch A1"
   }
 ]
