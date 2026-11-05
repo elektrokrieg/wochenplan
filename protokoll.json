@@ -1,5 +1,65 @@
 [
   {
+    "ts": "2026-11-05T09:07:50.410Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW45/Anakin Schäfner/Dienstag A2: Wartung – Meiningen – Förderschule f. Sprachbehinderte Anne Frank"
+  },
+  {
+    "ts": "2026-11-05T09:07:45.208Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW45/Anakin Schäfner/Dienstag A2"
+  },
+  {
+    "ts": "2026-11-05T09:07:40.097Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW45/Anakin Schäfner/Mittwoch A1: Wartung – Bettenhausen – Sporthalle"
+  },
+  {
+    "ts": "2026-11-05T09:07:32.820Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW45/Anakin Schäfner/Mittwoch A1"
+  },
+  {
+    "ts": "2026-11-05T09:07:28.558Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW45/Anakin Schäfner/Mittwoch A3: Wartung – Bettenhausen – Regelschule"
+  },
+  {
+    "ts": "2026-11-05T09:07:19.382Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW45/Anakin Schäfner/Mittwoch A3"
+  },
+  {
+    "ts": "2026-11-05T09:07:15.612Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW45/Anakin Schäfner/Donnerstag A1: Wartung – Schwallungen – Sporthalle"
+  },
+  {
+    "ts": "2026-11-05T09:07:08.695Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW45/Anakin Schäfner/Donnerstag A1"
+  },
+  {
+    "ts": "2026-11-05T09:07:02.634Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW45/Anakin Schäfner/Donnerstag A2: Wartung – Schwallungen – Berufsschule für Gesundheit und Soziales"
+  },
+  {
+    "ts": "2026-11-05T09:06:52.196Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW45/Anakin Schäfner/Donnerstag A2"
+  },
+  {
+    "ts": "2026-11-05T09:06:08.280Z",
+    "name": "Unbekannt",
+    "text": "Kopiert: Wartung – Schwallungen – Berufsschule für Gesundheit und Soziales von KW45/Anakin Schäfner/Mittwoch A1 → KW45/Anakin Schäfner/Donnerstag A1"
+  },
+  {
+    "ts": "2026-11-05T09:06:04.172Z",
+    "name": "Unbekannt",
+    "text": "Kopiert: Wartung – Schwallungen – Sporthalle von KW45/Anakin Schäfner/Mittwoch A2 → KW45/Anakin Schäfner/Donnerstag A2"
+  },
+  {
     "ts": "2026-11-02T17:58:31.068Z",
     "name": "Unbekannt",
     "text": "Eingetragen: KW45/Guido Köhler/Mittwoch A2: Wartung – Bad Salzungen – BVA Wohnblock"
@@ -688,225 +748,5 @@
     "ts": "2026-10-22T18:49:09.421Z",
     "name": "Unbekannt",
     "text": "Wartung eingetragen: KW44/Guido Köhler/Montag A1"
-  },
-  {
-    "ts": "2026-10-22T05:39:27.275Z",
-    "name": "Holger Krieg",
-    "text": "Freitext eingetragen: KW44/Holger Krieg/Donnerstag A1: MAPAL Meldertausch"
-  },
-  {
-    "ts": "2026-10-22T05:34:45.147Z",
-    "name": "Stephan Übensee",
-    "text": "Freitext eingetragen: KW44/Holger Krieg/Mittwoch A1: Auftrag Sporthalle O-Feld"
-  },
-  {
-    "ts": "2026-10-22T05:34:29.036Z",
-    "name": "Stephan Übensee",
-    "text": "Freitext eingetragen: KW44/Stephan Übensee/Mittwoch A1: Auftrag Sporthalle O-Feld"
-  },
-  {
-    "ts": "2026-10-22T05:34:08.243Z",
-    "name": "Stephan Übensee",
-    "text": "Geloescht: KW44/Holger Krieg/Mittwoch A1"
-  },
-  {
-    "ts": "2026-10-22T05:33:56.648Z",
-    "name": "Stephan Übensee",
-    "text": "Eingetragen: KW44/Holger Krieg/Mittwoch A1: Wartung – Obermaßfeld – Regelschule \"Im Werratal\""
-  },
-  {
-    "ts": "2026-10-22T05:33:38.204Z",
-    "name": "Stephan Übensee",
-    "text": "Wartung eingetragen: KW44/Holger Krieg/Mittwoch A1"
-  },
-  {
-    "ts": "2026-10-22T05:33:33.126Z",
-    "name": "Stephan Übensee",
-    "text": "Eingetragen: KW44/Holger Krieg/Montag A3: Wartung – Vachdorf – Staatliche Grundschule"
-  },
-  {
-    "ts": "2026-10-22T05:33:24.323Z",
-    "name": "Stephan Übensee",
-    "text": "Wartung eingetragen: KW44/Holger Krieg/Montag A3"
-  },
-  {
-    "ts": "2026-10-22T05:33:20.332Z",
-    "name": "Stephan Übensee",
-    "text": "Eingetragen: KW44/Holger Krieg/Dienstag A1: Wartung – Vachdorf – Sport- und Kulturzentrum"
-  },
-  {
-    "ts": "2026-10-22T05:33:05.300Z",
-    "name": "Stephan Übensee",
-    "text": "Wartung eingetragen: KW44/Holger Krieg/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-22T05:32:42.611Z",
-    "name": "Stephan Übensee",
-    "text": "Eingetragen: KW44/Stephan Übensee/Dienstag A1: Wartung – Vachdorf – Sport- und Kulturzentrum"
-  },
-  {
-    "ts": "2026-10-22T05:32:36.185Z",
-    "name": "Stephan Übensee",
-    "text": "Wartung eingetragen: KW44/Stephan Übensee/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-22T05:32:30.907Z",
-    "name": "Stephan Übensee",
-    "text": "Eingetragen: KW44/Stephan Übensee/Montag A3: Wartung – Vachdorf – Staatliche Grundschule"
-  },
-  {
-    "ts": "2026-10-22T05:32:21.465Z",
-    "name": "Stephan Übensee",
-    "text": "Wartung eingetragen: KW44/Stephan Übensee/Montag A3"
-  },
-  {
-    "ts": "2026-10-21T08:40:32.978Z",
-    "name": "Stephan Übensee",
-    "text": "Eingetragen: KW44/Guido Köhler/Montag A2: Wartung – Steinach – Seniorenzentrum"
-  },
-  {
-    "ts": "2026-10-21T08:40:27.071Z",
-    "name": "Stephan Übensee",
-    "text": "Wartung eingetragen: KW44/Guido Köhler/Montag A2"
-  },
-  {
-    "ts": "2026-10-21T08:40:24.201Z",
-    "name": "Stephan Übensee",
-    "text": "Eingetragen: KW44/Guido Köhler/Montag A1: Wartung – Mengersgereuth-Hämmern – Senioren WG  \"An den Mühlwiesen\""
-  },
-  {
-    "ts": "2026-10-21T08:40:17.589Z",
-    "name": "Stephan Übensee",
-    "text": "Wartung eingetragen: KW44/Guido Köhler/Montag A1"
-  },
-  {
-    "ts": "2026-10-21T08:40:13.749Z",
-    "name": "Stephan Übensee",
-    "text": "Eingetragen: KW44/Stephan Übensee/Montag A2: Wartung – Steinach – Seniorenzentrum"
-  },
-  {
-    "ts": "2026-10-21T08:40:05.931Z",
-    "name": "Stephan Übensee",
-    "text": "Wartung eingetragen: KW44/Stephan Übensee/Montag A2"
-  },
-  {
-    "ts": "2026-10-21T08:40:02.281Z",
-    "name": "Stephan Übensee",
-    "text": "Eingetragen: KW44/Stephan Übensee/Montag A1: Wartung – Mengersgereuth-Hämmern – Senioren WG  \"An den Mühlwiesen\""
-  },
-  {
-    "ts": "2026-10-21T08:39:40.828Z",
-    "name": "Stephan Übensee",
-    "text": "Wartung eingetragen: KW44/Stephan Übensee/Montag A1"
-  },
-  {
-    "ts": "2026-10-21T07:39:12.311Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW43/Anakin Schäfner/Mittwoch A1: Wartung – Zella-Mehlis – Staatliche Grundschule Martin Luther"
-  },
-  {
-    "ts": "2026-10-21T07:38:58.055Z",
-    "name": "Unbekannt",
-    "text": "Wartung eingetragen: KW43/Anakin Schäfner/Mittwoch A1"
-  },
-  {
-    "ts": "2026-10-21T07:28:16.375Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW43/Anakin Schäfner/Dienstag A1: Wartung – Meiningen – Ev. Gymnasium"
-  },
-  {
-    "ts": "2026-10-21T07:27:56.108Z",
-    "name": "Unbekannt",
-    "text": "Wartung eingetragen: KW43/Anakin Schäfner/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-20T10:57:15.295Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW43/Guido Köhler/Dienstag A2: Wartung – Zella-Mehlis – Gewerblich-Technisches Berufsbildungszentrum"
-  },
-  {
-    "ts": "2026-10-20T10:57:02.609Z",
-    "name": "Unbekannt",
-    "text": "Wartung eingetragen: KW43/Guido Köhler/Dienstag A2"
-  },
-  {
-    "ts": "2026-10-20T10:56:22.225Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW43/Stephan Übensee/Donnerstag A1: Wartung – Meiningen – Multihalle"
-  },
-  {
-    "ts": "2026-10-20T10:56:04.298Z",
-    "name": "Unbekannt",
-    "text": "Wartung eingetragen: KW43/Stephan Übensee/Donnerstag A1"
-  },
-  {
-    "ts": "2026-10-20T10:55:50.910Z",
-    "name": "Unbekannt",
-    "text": "Freitext eingetragen: KW43/Stephan Übensee/Mittwoch A1: Dreißigacker"
-  },
-  {
-    "ts": "2026-10-20T10:55:31.945Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW43/Stephan Übensee/Dienstag A2: Wartung – Zella-Mehlis – Gewerblich-Technisches Berufsbildungszentrum"
-  },
-  {
-    "ts": "2026-10-20T10:55:18.885Z",
-    "name": "Unbekannt",
-    "text": "Wartung eingetragen: KW43/Stephan Übensee/Dienstag A2"
-  },
-  {
-    "ts": "2026-10-20T06:07:24.688Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW44/Christian Berthold/Mittwoch A3: Kaltensundheim Gymnasium Signalgeber BMA"
-  },
-  {
-    "ts": "2026-10-20T06:06:23.761Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW44/Christian Berthold/Mittwoch A2: Wartung – Kaltensundheim – Thüringisches Rhön Gymnasium"
-  },
-  {
-    "ts": "2026-10-20T06:06:14.537Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW44/Christian Berthold/Mittwoch A2"
-  },
-  {
-    "ts": "2026-10-20T06:06:11.994Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW44/Christian Berthold/Mittwoch A1: Wartung – Kaltenwestheim – Mehrzweckhalle Kaltenwestheim"
-  },
-  {
-    "ts": "2026-10-20T06:06:00.809Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW44/Christian Berthold/Mittwoch A1"
-  },
-  {
-    "ts": "2026-10-20T06:05:41.360Z",
-    "name": "Christian Berthold",
-    "text": "Vortrag übernommen: Allgemein → schwach-2026-KW44 [0,1] = \"Wartung – Kaltenwestheim – Mehrzweckhalle Kaltenwestheim\""
-  },
-  {
-    "ts": "2026-10-20T06:05:31.566Z",
-    "name": "Christian Berthold",
-    "text": "Vortrag übernommen: Allgemein → schwach-2026-KW44 [2,2] = \"Wartung – Meiningen – Multihalle\""
-  },
-  {
-    "ts": "2026-10-20T06:05:28.540Z",
-    "name": "Christian Berthold",
-    "text": "Vortrag übernommen: Allgemein → schwach-2026-KW44 [2,2] = \"Wartung – Meiningen – Multihalle\""
-  },
-  {
-    "ts": "2026-10-20T06:05:10.928Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW43/Allgemein/Montag A3"
-  },
-  {
-    "ts": "2026-10-20T04:55:28.805Z",
-    "name": "Unbekannt",
-    "text": "Kopiert: Mgn Ev Gym Meldertausch von KW43/Anakin Schäfner/Dienstag A1 → KW43/Anakin Schäfner/Montag A1"
-  },
-  {
-    "ts": "2026-10-20T04:55:25.058Z",
-    "name": "Unbekannt",
-    "text": "Verschoben: Mgn Ev Gym Meldertausch von KW43/Anakin Schäfner/Montag A1 → KW43/Anakin Schäfner/Dienstag A1"
   }
 ]
