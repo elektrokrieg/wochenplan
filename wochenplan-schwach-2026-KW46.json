@@ -1,5 +1,4 @@
 {
-  "Termine-4-0": "Wartung – Bauerbach – Schillermuseum",
   "Guido Köhler-1-0": "Wartung – Suhl – Staatliche Grundschule \"Am Himmelreich\"",
   "Guido Köhler-0-0": "Wartung – Würzburg – H+I Würzburg",
   "Holger Krieg-0-0": "Baustelle Walldorf BMA",
@@ -7,5 +6,10 @@
   "Andreas Krieg-4-0": "Wartung – Bauerbach – Schillermuseum",
   "Holger Krieg-1-0": "Wartung – Hausen-Roth – Rhön-Park-Hotel",
   "Christian Berthold-0-0": "MGN Polizei H1 Akkus Sibel",
-  "Christian Berthold-0-1": "Wartung – Meiningen – Bildungszentrum der Thüringer Polizei"
+  "Christian Berthold-0-1": "Wartung – Meiningen – Bildungszentrum der Thüringer Polizei",
+  "Christian Berthold-4-0": "Wartung – Fambach – Grundschule",
+  "Christian Berthold-4-1": "Wartung – Breitungen – Regelschule",
+  "Christian Berthold-1-0": "Metzels Pension Austausch BMA",
+  "Christian Berthold-2-0": "Wartung – Waltershausen – AWO Pflegeheim \"Inselsbergblick\"",
+  "Christian Berthold-2-1": "Wartung – Friedrichroda – AWO Pflegeheim \"Am Körnberg\""
 }
