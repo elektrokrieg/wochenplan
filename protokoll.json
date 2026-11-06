@@ -1,5 +1,35 @@
 [
   {
+    "ts": "2026-11-06T06:03:36.589Z",
+    "name": "Holger Krieg",
+    "text": "Eingetragen: KW46/Holger Krieg/Dienstag A1: Wartung – Hausen-Roth – Rhön-Park-Hotel"
+  },
+  {
+    "ts": "2026-11-06T06:03:25.694Z",
+    "name": "Holger Krieg",
+    "text": "Wartung eingetragen: KW46/Holger Krieg/Dienstag A1"
+  },
+  {
+    "ts": "2026-11-06T06:02:48.529Z",
+    "name": "Holger Krieg",
+    "text": "Eingetragen: KW46/Andreas Krieg/Freitag A1: Wartung – Bauerbach – Schillermuseum"
+  },
+  {
+    "ts": "2026-11-06T06:02:35.532Z",
+    "name": "Holger Krieg",
+    "text": "Wartung eingetragen: KW46/Andreas Krieg/Freitag A1"
+  },
+  {
+    "ts": "2026-11-06T06:01:41.045Z",
+    "name": "Holger Krieg",
+    "text": "Freitext eingetragen: KW46/Andreas Krieg/Montag A1: Baustelle Walldorf EMA"
+  },
+  {
+    "ts": "2026-11-06T06:01:20.643Z",
+    "name": "Holger Krieg",
+    "text": "Freitext eingetragen: KW46/Holger Krieg/Montag A1: Baustelle Walldorf BMA"
+  },
+  {
     "ts": "2026-11-05T22:40:17.470Z",
     "name": "Unbekannt",
     "text": "Eingetragen: KW46/Guido Köhler/Montag A1: Wartung – Würzburg – H+I Würzburg"
@@ -523,120 +553,5 @@
     "ts": "2026-10-23T17:59:35.734Z",
     "name": "Holger Krieg",
     "text": "Wartung eingetragen: KW45/Holger Krieg/Montag A1"
-  },
-  {
-    "ts": "2026-10-23T05:56:15.666Z",
-    "name": "Unbekannt",
-    "text": "Verschoben: Weißkopf Meldertausch von KW44/Anakin Schäfner/Donnerstag A1 → KW44/Andreas Krieg/Donnerstag A1"
-  },
-  {
-    "ts": "2026-10-23T05:56:10.390Z",
-    "name": "Unbekannt",
-    "text": "Kopiert: Weißkopf Meldertausch von KW44/Anakin Schäfner/Mittwoch A1 → KW44/Andreas Krieg/Mittwoch A1"
-  },
-  {
-    "ts": "2026-10-23T05:52:35.061Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Wartung – Meiningen – Bildungszentrum der Thüringer Polizei von KW44/Christian Berthold/Montag A2 → KW44/Christian Berthold/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-23T05:52:32.084Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW44/Christian Berthold/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-23T05:52:25.647Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW44/Christian Berthold/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-23T05:48:31.940Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW44/Christian Berthold/Montag A2: Wartung – Meiningen – Bildungszentrum der Thüringer Polizei"
-  },
-  {
-    "ts": "2026-10-23T05:48:23.995Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW44/Christian Berthold/Montag A2"
-  },
-  {
-    "ts": "2026-10-23T05:48:19.827Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW44/Christian Berthold/Montag A1: MGN Polizei H1 Akkus Sibel"
-  },
-  {
-    "ts": "2026-10-23T05:23:18.758Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW42/Allgemein/Montag A3"
-  },
-  {
-    "ts": "2026-10-23T05:23:17.061Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW42/Allgemein/Montag A2"
-  },
-  {
-    "ts": "2026-10-23T05:19:04.608Z",
-    "name": "Andreas Krieg",
-    "text": "Freitext eingetragen: KW44/Holger Krieg/Donnerstag A3: Weißkopf Meldertausch"
-  },
-  {
-    "ts": "2026-10-23T05:18:56.913Z",
-    "name": "Andreas Krieg",
-    "text": "Freitext eingetragen: KW44/Holger Krieg/Donnerstag A2: Weißkopf Meldertausch"
-  },
-  {
-    "ts": "2026-10-23T05:18:35.166Z",
-    "name": "Andreas Krieg",
-    "text": "Freitext eingetragen: KW44/Holger Krieg/Donnerstag A1: Weißkopf Meldertausch"
-  },
-  {
-    "ts": "2026-10-23T05:17:04.528Z",
-    "name": "Andreas Krieg",
-    "text": "Freitext eingetragen: KW44/Anakin Schäfner/Donnerstag A3: Weißkopf Meldertausch"
-  },
-  {
-    "ts": "2026-10-23T05:15:49.054Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW43/Allgemein/Montag A3"
-  },
-  {
-    "ts": "2026-10-23T05:15:39.081Z",
-    "name": "Andreas Krieg",
-    "text": "Freitext eingetragen: KW44/Anakin Schäfner/Donnerstag A2: Weißkopf Meldertausch"
-  },
-  {
-    "ts": "2026-10-23T05:15:35.045Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW43/Allgemein/Montag A2"
-  },
-  {
-    "ts": "2026-10-23T05:15:30.861Z",
-    "name": "Andreas Krieg",
-    "text": "Freitext eingetragen: KW44/Anakin Schäfner/Donnerstag A1: Weißkopf Meldertausch"
-  },
-  {
-    "ts": "2026-10-23T05:15:24.276Z",
-    "name": "Andreas Krieg",
-    "text": "Freitext eingetragen: KW44/Anakin Schäfner/Mittwoch A3: Weißkopf Meldertausch"
-  },
-  {
-    "ts": "2026-10-23T05:15:15.348Z",
-    "name": "Andreas Krieg",
-    "text": "Freitext eingetragen: KW44/Anakin Schäfner/Mittwoch A2: Weißkopf Meldertausch"
-  },
-  {
-    "ts": "2026-10-23T05:15:08.431Z",
-    "name": "Andreas Krieg",
-    "text": "Freitext eingetragen: KW44/Anakin Schäfner/Mittwoch A1: Weißkopf Meldertausch"
-  },
-  {
-    "ts": "2026-10-23T05:14:31.273Z",
-    "name": "Andreas Krieg",
-    "text": "Freitext eingetragen: KW44/Andreas Krieg/Dienstag A3: DRK Henne Telefonanlage"
-  },
-  {
-    "ts": "2026-10-23T05:14:23.530Z",
-    "name": "Andreas Krieg",
-    "text": "Freitext eingetragen: KW44/Andreas Krieg/Dienstag A2: DRK Henne Telefonanlage"
   }
 ]
