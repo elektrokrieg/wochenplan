@@ -1,5 +1,35 @@
 [
   {
+    "ts": "2026-11-09T06:55:35.463Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW46/Anakin Schäfner/Dienstag A1: Wartung – Geisa – Schlossresidenz"
+  },
+  {
+    "ts": "2026-11-09T06:55:28.413Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW46/Anakin Schäfner/Dienstag A1"
+  },
+  {
+    "ts": "2026-11-09T06:55:24.382Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW46/Anakin Schäfner/Montag A2: Wartung – Schmalkalden – Staatliche Grundschule"
+  },
+  {
+    "ts": "2026-11-09T06:54:34.914Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW46/Anakin Schäfner/Montag A2"
+  },
+  {
+    "ts": "2026-11-09T06:54:30.951Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW46/Anakin Schäfner/Montag A1: Wartung – Schmalkalden – Philipp - Melanchthon - Gymnasium"
+  },
+  {
+    "ts": "2026-11-09T06:54:06.982Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW46/Anakin Schäfner/Montag A1"
+  },
+  {
     "ts": "2026-11-06T10:32:06.062Z",
     "name": "Christian Berthold",
     "text": "Termin bestätigt: schwach-2026-KW46/Christian Berthold/0/1"
@@ -38,6 +68,21 @@
     "ts": "2026-11-06T10:29:50.356Z",
     "name": "Christian Berthold",
     "text": "Eingetragen: KW46/Christian Berthold/Dienstag A1: Metzels Pension Austausch BMA"
+  },
+  {
+    "ts": "2026-11-06T06:33:54.124Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW46/Anakin Schäfner/Montag A2: Wartung – Kaltenwestheim – Mehrzweckhalle Kaltenwestheim"
+  },
+  {
+    "ts": "2026-11-06T06:33:27.788Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW46/Anakin Schäfner/Montag A2"
+  },
+  {
+    "ts": "2026-11-06T06:33:20.729Z",
+    "name": "Unbekannt",
+    "text": "Kopiert: MAPAL Meldertausch von KW45/Anakin Schäfner/Montag A1 → KW45/Anakin Schäfner/Freitag A2"
   },
   {
     "ts": "2026-11-06T06:25:48.796Z",
@@ -528,100 +573,5 @@
     "ts": "2026-10-27T06:22:02.583Z",
     "name": "Christian Berthold",
     "text": "Verschoben: Wartung – Vachdorf – Staatliche Grundschule von KW44/Stephan Übensee/Montag A3 → KW44/Stephan Übensee/Dienstag A2"
-  },
-  {
-    "ts": "2026-10-26T06:37:07.520Z",
-    "name": "Unbekannt",
-    "text": "Kopiert: Wartung – Meiningen – Bildungszentrum der Thüringer Polizei von KW44/Anakin Schäfner/Montag A2 → KW44/Holger Krieg/Montag A2"
-  },
-  {
-    "ts": "2026-10-26T06:36:55.275Z",
-    "name": "Unbekannt",
-    "text": "Geloescht: KW44/Anakin Schäfner/Montag A1"
-  },
-  {
-    "ts": "2026-10-26T06:36:38.562Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW44/Anakin Schäfner/Montag A2: Wartung – Meiningen – Bildungszentrum der Thüringer Polizei"
-  },
-  {
-    "ts": "2026-10-26T06:36:31.277Z",
-    "name": "Unbekannt",
-    "text": "Wartung eingetragen: KW44/Anakin Schäfner/Montag A2"
-  },
-  {
-    "ts": "2026-10-26T06:36:22.366Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW44/Anakin%20Sch%C3%A4fner/Montag A1: Wartung – Meiningen – Bildungszentrum der Thüringer Polizei"
-  },
-  {
-    "ts": "2026-10-26T06:36:13.782Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW44/Anakin%20Sch%C3%A4fner/Montag A1: Wartung – Meiningen – Bildungszentrum der Thüringer Polizei"
-  },
-  {
-    "ts": "2026-10-26T06:35:56.184Z",
-    "name": "Unbekannt",
-    "text": "Wartung eingetragen: KW44/Anakin Schäfner/Montag A1"
-  },
-  {
-    "ts": "2026-10-26T06:11:44.699Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: Wartung – Schmalkalden – Rhön-Rennsteig-Sparkasse von KW44/Christian Berthold/Freitag A1 → KW44/Christian Berthold/Donnerstag A3"
-  },
-  {
-    "ts": "2026-10-26T06:11:43.353Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: Wartung – Schmalkalden – Sporthalle am Walperloh von KW44/Christian Berthold/Donnerstag A3 → KW44/Christian Berthold/Donnerstag A2"
-  },
-  {
-    "ts": "2026-10-26T06:11:41.754Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: Wartung – Schmalkalden – Rhön-Rennsteig-Sparkasse von KW44/Christian Berthold/Donnerstag A2 → KW44/Christian Berthold/Freitag A1"
-  },
-  {
-    "ts": "2026-10-26T06:11:39.372Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW44/Christian Berthold/Donnerstag A3: Wartung – Schmalkalden – Sporthalle am Walperloh"
-  },
-  {
-    "ts": "2026-10-26T06:11:32.396Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW44/Christian Berthold/Donnerstag A3"
-  },
-  {
-    "ts": "2026-10-26T06:11:29.117Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW44/Christian Berthold/Donnerstag A1: Wartung – Asbach – Kita / Grundschule Weidenschule"
-  },
-  {
-    "ts": "2026-10-26T06:11:24.787Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW44/Christian Berthold/Donnerstag A1"
-  },
-  {
-    "ts": "2026-10-26T06:11:21.975Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: Wartung – Schmalkalden – Rhön-Rennsteig-Sparkasse von KW44/Christian Berthold/Donnerstag A1 → KW44/Christian Berthold/Donnerstag A2"
-  },
-  {
-    "ts": "2026-10-26T06:11:18.710Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW44/Christian Berthold/Donnerstag A1: Wartung – Schmalkalden – Rhön-Rennsteig-Sparkasse"
-  },
-  {
-    "ts": "2026-10-26T06:11:04.485Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW44/Christian Berthold/Donnerstag A1"
-  },
-  {
-    "ts": "2026-10-26T06:10:57.017Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW44/Christian Berthold/Montag A3: Wartung – Walldorf – Staatliche Grundschule \"Landsbergblick\" Sporthalle"
-  },
-  {
-    "ts": "2026-10-26T06:10:51.942Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW44/Christian Berthold/Montag A3"
   }
 ]
