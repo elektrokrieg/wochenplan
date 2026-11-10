@@ -1,5 +1,25 @@
 [
   {
+    "ts": "2026-11-10T12:08:08.594Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW46/Anakin Schäfner/Freitag A2: Wartung – Frankenheim – Grundschule"
+  },
+  {
+    "ts": "2026-11-10T12:08:03.222Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW46/Anakin Schäfner/Freitag A2"
+  },
+  {
+    "ts": "2026-11-10T12:07:50.641Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW46/Anakin Schäfner/Freitag A2: Wartung – Frankenheim – Grundschule"
+  },
+  {
+    "ts": "2026-11-10T12:07:40.263Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW46/Anakin Schäfner/Freitag A2"
+  },
+  {
     "ts": "2026-11-09T18:31:13.021Z",
     "name": "Unbekannt",
     "text": "Eingetragen: KW46/Guido Köhler/Mittwoch A1: Wartung – Schönbrunn – AWO Seniorenpflegeheim \"Herbstsonne\""
@@ -533,105 +553,5 @@
     "ts": "2026-10-28T17:58:52.117Z",
     "name": "Unbekannt",
     "text": "Wartung eingetragen: KW45/Guido Köhler/Montag A1"
-  },
-  {
-    "ts": "2026-10-27T06:26:34.963Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW44/Christian Berthold/Montag A3: Wartung – Walldorf – Staatliche Grundschule \"Landsbergblick\" Sporthalle"
-  },
-  {
-    "ts": "2026-10-27T06:26:00.157Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW44/Christian Berthold/Montag A3"
-  },
-  {
-    "ts": "2026-10-27T06:25:55.323Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW44/Christian Berthold/Montag A2: Wartung – Walldorf – Altenpflegezentrum \"Werra Aue\""
-  },
-  {
-    "ts": "2026-10-27T06:25:37.678Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW44/Christian Berthold/Montag A2"
-  },
-  {
-    "ts": "2026-10-27T06:25:26.206Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW45/Christian Berthold/Freitag A1: Wartung – Meiningen – Bildungszentrum der Thüringer Polizei"
-  },
-  {
-    "ts": "2026-10-27T06:25:20.237Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW45/Christian Berthold/Freitag A1"
-  },
-  {
-    "ts": "2026-10-27T06:25:00.339Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Wartung – Apfelstädt – AWO Seniorenresidenz \"Drei Gleichen\" von KW45/Christian Berthold/Mittwoch A1 → KW45/Stephan Übensee/Mittwoch A1"
-  },
-  {
-    "ts": "2026-10-27T06:24:36.806Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW45/Christian Berthold/Mittwoch A1: Wartung – Apfelstädt – AWO Seniorenresidenz \"Drei Gleichen\""
-  },
-  {
-    "ts": "2026-10-27T06:24:27.273Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW45/Christian Berthold/Mittwoch A1"
-  },
-  {
-    "ts": "2026-10-27T06:24:23.393Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Apfelstädt AWO Meldertausch von KW45/Stephan Übensee/Montag A1 → KW45/Stephan Übensee/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-27T06:24:20.966Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Apfelstädt AWO Meldertausch von KW45/Christian Berthold/Montag A1 → KW45/Christian Berthold/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-27T06:24:18.154Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Apfelstädt AWO Meldertausch von KW45/Christian Berthold/Montag A1 → KW45/Stephan Übensee/Montag A1"
-  },
-  {
-    "ts": "2026-10-27T06:24:11.064Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW45/Christian Berthold/Donnerstag A1: MGN Polizei H1 Akkus Sibel"
-  },
-  {
-    "ts": "2026-10-27T06:24:02.639Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW45/Christian Berthold/Montag A1: Apfelstädt AWO Meldertausch"
-  },
-  {
-    "ts": "2026-10-27T06:23:49.548Z",
-    "name": "Unbekannt",
-    "text": "Kopiert: Wartung – Meiningen – Bildungszentrum der Thüringer Polizei von KW44/Anakin Schäfner/Montag A2 → KW44/Anakin Schäfner/Dienstag A2"
-  },
-  {
-    "ts": "2026-10-27T06:23:22.421Z",
-    "name": "Unbekannt",
-    "text": "Kopiert: Wartung – Meiningen – Bildungszentrum der Thüringer Polizei von KW44/Anakin Schäfner/Montag A2 → KW44/Anakin Schäfner/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-27T06:22:41.137Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: Wartung – Meiningen – Bildungszentrum der Thüringer Polizei von KW44/Christian Berthold/Montag A2 → KW44/Christian Berthold/Dienstag A1"
-  },
-  {
-    "ts": "2026-10-27T06:22:24.696Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: Wartung – Vachdorf – Staatliche Grundschule von KW44/Holger Krieg/Montag A3 → KW44/Holger Krieg/Dienstag A2"
-  },
-  {
-    "ts": "2026-10-27T06:22:14.731Z",
-    "name": "Christian Berthold",
-    "text": "Freitext eingetragen: KW44/Stephan Übensee/Donnerstag A1: MGN LRA"
-  },
-  {
-    "ts": "2026-10-27T06:22:02.583Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: Wartung – Vachdorf – Staatliche Grundschule von KW44/Stephan Übensee/Montag A3 → KW44/Stephan Übensee/Dienstag A2"
   }
 ]
