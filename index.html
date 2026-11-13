@@ -402,6 +402,9 @@ body { font-family: Arial, sans-serif; background: var(--gray-100); color: var(-
     <p style="font-size:11px;color:#9AA0A6;margin-bottom:14px;">Fine-grained Token mit <strong>Contents: Read & Write</strong> auf dieses Repo empfohlen.</p>
     <label style="display:block;font-size:12px;font-weight:600;color:#5F6368;margin-bottom:3px;">Dein Name (fuer Protokoll)</label>
     <input id="cfgName" placeholder="z.B. Christian Berthold" style="width:100%;border:1px solid #DADCE0;border-radius:6px;padding:7px 10px;font-size:13px;margin-bottom:14px;box-sizing:border-box;" />
+    <label style="display:block;font-size:12px;font-weight:600;color:#5F6368;margin-bottom:3px;">Wartungsapp Repo (für Vormerkungs-Sync)</label>
+    <input id="cfgWartungsRepo" placeholder="z.B. Wartung (leer = kein Sync)" style="width:100%;border:1px solid #DADCE0;border-radius:6px;padding:7px 10px;font-size:13px;margin-bottom:4px;box-sizing:border-box;" />
+    <p style="font-size:11px;color:#9AA0A6;margin-bottom:14px;">Repo-Name der Wartungsapp im gleichen GitHub-Account. Wenn eingetragen, wird beim Auswählen eines Wartungskunden automatisch dort eingetragen, wer hinfährt.</p>
     <div id="cfgError" style="display:none;background:#FFEBEE;color:#B71C1C;padding:8px 12px;border-radius:6px;font-size:12px;margin-bottom:12px;border-left:3px solid #C62828;"></div>
     <div id="cfgBookmarkBox" style="display:none;background:#E8F5E9;border:1px solid #A5D6A7;border-radius:6px;padding:10px 12px;margin-bottom:12px;">
       <div style="font-size:11px;font-weight:600;color:#2E7D32;margin-bottom:5px;">🔖 Lesezeichen zum Wiederverwenden</div>
@@ -1450,6 +1453,14 @@ function _projEintragen(sel, key, ma, d, s, val) {
     return;
   }
 
+  // Falls vorherige Zelle eine Wartung war → Vormerkung aufheben
+  var _prevVal=(WP_DATA[key]||{})[`${ma}-${d}-${s}`]||'';
+  if(_prevVal&&_prevVal.startsWith('Wartung – ')&&CFG&&CFG.wartungsRepo){
+    var _pp=_prevVal.replace(/^Wartung – /,'').split(' – ');
+    var _po=_pp.length>=2?_pp[0]:'';
+    var _pn=_pp.length>=2?_pp.slice(1).join(' – '):_pp[0];
+    wpVormerkLoeschen(key,ma,_po,_pn).catch(function(){});
+  }
   if (!WP_DATA[key]) WP_DATA[key] = {};
   if (val) WP_DATA[key][`${ma}-${d}-${s}`] = val;
   else { delete WP_DATA[key][`${ma}-${d}-${s}`]; delete WP_DATA[key][`${ma}-${d}-${s}-ok`]; }
@@ -2308,6 +2319,7 @@ function openConfig() {
     document.getElementById('cfgToken').value = CFG.token || '';
   }
   document.getElementById('cfgName').value = BENUTZER_NAME || '';
+  document.getElementById('cfgWartungsRepo').value = (CFG && CFG.wartungsRepo) || '';
   document.getElementById('cfgError').style.display = 'none';
   document.getElementById('settingsModalBack').style.display = 'flex';
 }
@@ -2330,7 +2342,8 @@ function initConfigListeners() {
       return;
     }
     // SOFORT synchron speichern
-    CFG = { user: u, repo: r, token: t };
+    var wr = document.getElementById('cfgWartungsRepo').value.trim();
+    CFG = { user: u, repo: r, token: t, wartungsRepo: wr };
     try { localStorage.setItem('wp_gh_config_v1', JSON.stringify(CFG)); } catch(e) {}
     try { localStorage.setItem('wp_gh_config_v2', JSON.stringify(CFG)); } catch(e) {}
     try { sessionStorage.setItem('wp_gh_config_v1', JSON.stringify(CFG)); } catch(e) {}
@@ -2373,7 +2386,89 @@ if ('serviceWorker' in navigator) {
 }
 
 
-// ── Wartungskunden Popup ─────────────────────────────────────
+// ── Vormerkungs-Sync zur Wartungsapp ─────────────────────────
+function wpSlugify(s){
+  return String(s||'').toLowerCase()
+    .replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss')
+    .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+}
+function wpKwToQi(kw){
+  var k=parseInt(kw,10)||1;
+  return Math.min(3,Math.floor((k-1)/13));
+}
+function wpKeyToYearKw(key){
+  // key = "stark-2026-KW01"
+  var parts=key.split('-');
+  var year=parts[1]||String(new Date().getFullYear());
+  var kw=parseInt((parts[2]||'KW1').replace(/\D/g,''),10)||1;
+  return {year,kw};
+}
+
+var _vormerkSha={};
+async function wpVormerkSetzen(key,maName,ort,name){
+  if(!CFG||!CFG.wartungsRepo||!CFG.user||!CFG.token)return;
+  var slug=wpSlugify(ort)+'-'+wpSlugify(name);
+  var {year,kw}=wpKeyToYearKw(key);
+  var qi=String(wpKwToQi(kw));
+  var branch='main';
+  var apiBase='https://api.github.com/repos/'+CFG.user+'/'+CFG.wartungsRepo+'/contents/';
+  var filePath='wartung/vorgemerkt.json';
+  var url=apiBase+filePath+'?ref='+branch+'&t='+Date.now();
+  // Lesen
+  var existingData={};var sha=null;
+  try{
+    var r=await fetch(url,{headers:{Authorization:'Bearer '+CFG.token,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'}});
+    if(r.ok){
+      var j=await r.json();
+      sha=j.sha;
+      existingData=JSON.parse(decodeURIComponent(escape(atob(j.content.replace(/\n/g,'')))));
+    }
+  }catch(e){}
+  // Schreiben
+  if(!existingData[year])existingData[year]={};
+  if(!existingData[year][qi])existingData[year][qi]={};
+  existingData[year][qi][slug]=maName;
+  var body={message:'Vormerken: '+maName+' → '+name+' (Q'+(+qi+1)+' '+year+')',
+    content:btoa(unescape(encodeURIComponent(JSON.stringify(existingData,null,2)))),
+    branch:branch};
+  if(sha)body.sha=sha;
+  try{
+    await fetch(apiBase+filePath,{method:'PUT',headers:{Authorization:'Bearer '+CFG.token,
+      Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','Content-Type':'application/json'},
+      body:JSON.stringify(body)});
+  }catch(e){}
+}
+
+async function wpVormerkLoeschen(key,maName,ort,name){
+  if(!CFG||!CFG.wartungsRepo||!CFG.user||!CFG.token)return;
+  var slug=wpSlugify(ort)+'-'+wpSlugify(name);
+  var {year,kw}=wpKeyToYearKw(key);
+  var qi=String(wpKwToQi(kw));
+  var branch='main';
+  var apiBase='https://api.github.com/repos/'+CFG.user+'/'+CFG.wartungsRepo+'/contents/';
+  var filePath='wartung/vorgemerkt.json';
+  var url=apiBase+filePath+'?ref='+branch+'&t='+Date.now();
+  var existingData={};var sha=null;
+  try{
+    var r=await fetch(url,{headers:{Authorization:'Bearer '+CFG.token,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'}});
+    if(r.ok){var j=await r.json();sha=j.sha;existingData=JSON.parse(decodeURIComponent(escape(atob(j.content.replace(/\n/g,'')))));}
+  }catch(e){return;}
+  if(!sha)return;
+  // Nur löschen wenn dieser MA eingetragen ist
+  if(existingData[year]&&existingData[year][qi]&&existingData[year][qi][slug]===maName){
+    delete existingData[year][qi][slug];
+    var body={message:'Vormerken aufgehoben: '+maName+' → '+name,
+      content:btoa(unescape(encodeURIComponent(JSON.stringify(existingData,null,2)))),
+      branch:branch,sha:sha};
+    try{
+      await fetch(apiBase+filePath,{method:'PUT',headers:{Authorization:'Bearer '+CFG.token,
+        Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','Content-Type':'application/json'},
+        body:JSON.stringify(body)});
+    }catch(e){}
+  }
+}
+
+// Wartungskunden Popup ─────────────────────────────────────
 var _wpopKey, _wpopMa, _wpopD, _wpopS;
 
 function openWartungsPopup(key, ma, d, s) {
@@ -2456,6 +2551,13 @@ function _waehleWartungskundeEintragen(key, ma, d, s, val) {
   var _twk=['Montag','Dienstag','Mittwoch','Donnerstag','Freitag'];
   var _kwk=key.split('-')[2]||key;
   protEintrag('Eingetragen: '+_kwk+'/'+ma+'/'+_twk[d]+' A'+(+s+1)+': '+val);
+  // Vormerken in Wartungsapp: "Wartung – Ort – Name" → ort+name extrahieren
+  if(val&&val.startsWith('Wartung – ')&&CFG&&CFG.wartungsRepo){
+    var _parts=val.replace(/^Wartung – /,'').split(' – ');
+    var _ort=_parts.length>=2?_parts[0]:'';
+    var _name=_parts.length>=2?_parts.slice(1).join(' – '):_parts[0];
+    wpVormerkSetzen(key,ma,_ort,_name).catch(function(){});
+  }
   showToast('Lokal gespeichert – Upload-Button zum Hochladen', '');
 }
 
