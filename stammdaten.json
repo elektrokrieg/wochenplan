@@ -9,15 +9,15 @@
     "Qudrat Hamidi",
     "Ronald Zöller",
     "Steven Kilian",
+    "Tschechen 1",
+    "Tschechen 2",
     "Michael Zöllner",
     "Lenny Edmondson",
     "SV Tech 1",
     "SV Tech 2",
     "Mario Schäufele",
     "Ralf Schäufele",
-    "Louis Heurich",
-    "Tscheche 1",
-    "Tscheche 2"
+    "Louis Heurich"
   ],
   "maSchwach": [
     "Anakin Schäfner",
@@ -95,10 +95,6 @@
       "bez": "SBBZ Zella Mehlis"
     },
     {
-      "nr": "19",
-      "bez": "SWSZ Zella Mehlis"
-    },
-    {
       "nr": "20",
       "bez": "BMA Kläranlage MGN"
     },
@@ -161,18 +157,6 @@
     {
       "nr": "P2025-103",
       "bez": "SM Gym Tausch Beleuchtung"
-    },
-    {
-      "nr": "Polizei",
-      "bez": "Wallbox AFTP H10"
-    },
-    {
-      "nr": "Polizei H8",
-      "bez": "Polizei H8 LED Panel"
-    },
-    {
-      "nr": "Raum Landwehr",
-      "bez": "Landwehrstraße 1"
     },
     {
       "nr": "Schulung",
