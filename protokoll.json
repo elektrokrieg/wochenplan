@@ -1,5 +1,15 @@
 [
   {
+    "ts": "2026-11-20T10:30:16.699Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW48/Guido Köhler/Donnerstag A1: Wartung – Nürnberg – BG Holz und Metall"
+  },
+  {
+    "ts": "2026-11-20T10:30:07.244Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW48/Guido Köhler/Donnerstag A1"
+  },
+  {
     "ts": "2026-11-20T10:01:06.728Z",
     "name": "Unbekannt",
     "text": "Eingetragen: KW48/Heiko Tittel/Freitag A1: Walldorf Technikgebäude"
@@ -1038,30 +1048,5 @@
     "ts": "2026-11-06T10:32:02.237Z",
     "name": "Christian Berthold",
     "text": "Termin bestätigt: schwach-2026-KW46/Christian Berthold/1/0"
-  },
-  {
-    "ts": "2026-11-06T10:30:17.268Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW46/Christian Berthold/Mittwoch A2: Wartung – Friedrichroda – AWO Pflegeheim \"Am Körnberg\""
-  },
-  {
-    "ts": "2026-11-06T10:30:11.501Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW46/Christian Berthold/Mittwoch A2"
-  },
-  {
-    "ts": "2026-11-06T10:30:09.171Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW46/Christian Berthold/Mittwoch A1: Wartung – Waltershausen – AWO Pflegeheim \"Inselsbergblick\""
-  },
-  {
-    "ts": "2026-11-06T10:29:58.978Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW46/Christian Berthold/Mittwoch A1"
-  },
-  {
-    "ts": "2026-11-06T10:29:50.356Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW46/Christian Berthold/Dienstag A1: Metzels Pension Austausch BMA"
   }
 ]
