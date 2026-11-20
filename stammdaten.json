@@ -325,6 +325,10 @@
     {
       "nr": "933",
       "bez": "Wiemer Messung + PV"
+    },
+    {
+      "nr": "Rep.",
+      "bez": "Reparaturen"
     }
   ],
   "wartungskunden": [
