@@ -321,6 +321,10 @@
     {
       "nr": "Frei",
       "bez": "Arbeitszeitausgleich"
+    },
+    {
+      "nr": "933",
+      "bez": "Wiemer Messung + PV"
     }
   ],
   "wartungskunden": [
