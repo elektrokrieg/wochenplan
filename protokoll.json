@@ -1,5 +1,25 @@
 [
   {
+    "ts": "2026-11-22T11:16:39.178Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW48/Guido Köhler/Montag A2: Wartung – Zella-Mehlis – Heinrich-Ehrhardt-Gymnasium"
+  },
+  {
+    "ts": "2026-11-22T11:16:29.526Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW48/Guido Köhler/Montag A2"
+  },
+  {
+    "ts": "2026-11-22T11:16:07.135Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW48/Guido Köhler/Montag A2: Wartung – Zella-Mehlis – Heinrich-Ehrhardt-Gymnasium"
+  },
+  {
+    "ts": "2026-11-22T11:15:57.246Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW48/Guido Köhler/Montag A2"
+  },
+  {
     "ts": "2026-11-20T10:30:16.699Z",
     "name": "Unbekannt",
     "text": "Eingetragen: KW48/Guido Köhler/Donnerstag A1: Wartung – Nürnberg – BG Holz und Metall"
@@ -1033,20 +1053,5 @@
     "ts": "2026-11-09T06:54:06.982Z",
     "name": "Unbekannt",
     "text": "Wartung eingetragen: KW46/Anakin Schäfner/Montag A1"
-  },
-  {
-    "ts": "2026-11-06T10:32:06.062Z",
-    "name": "Christian Berthold",
-    "text": "Termin bestätigt: schwach-2026-KW46/Christian Berthold/0/1"
-  },
-  {
-    "ts": "2026-11-06T10:32:04.404Z",
-    "name": "Christian Berthold",
-    "text": "Termin bestätigt: schwach-2026-KW46/Christian Berthold/0/0"
-  },
-  {
-    "ts": "2026-11-06T10:32:02.237Z",
-    "name": "Christian Berthold",
-    "text": "Termin bestätigt: schwach-2026-KW46/Christian Berthold/1/0"
   }
 ]
