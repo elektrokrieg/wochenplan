@@ -1,5 +1,20 @@
 [
   {
+    "ts": "2026-11-23T07:51:42.464Z",
+    "name": "Unbekannt",
+    "text": "Geloescht: KW48/Guido Köhler/Montag A2"
+  },
+  {
+    "ts": "2026-11-23T07:51:34.586Z",
+    "name": "Unbekannt",
+    "text": "Termin-Bestätigung zurückgenommen: schwach-2026-KW48/Guido Köhler/0/1"
+  },
+  {
+    "ts": "2026-11-23T07:51:18.680Z",
+    "name": "Unbekannt",
+    "text": "Termin bestätigt: schwach-2026-KW48/Guido Köhler/0/1"
+  },
+  {
     "ts": "2026-11-23T06:33:26.243Z",
     "name": "Unbekannt",
     "text": "Kopiert: Wartung – Meiningen – Integrative Kindertagesstätte von KW48/Holger Krieg/Montag A1 → KW48/Stephan Übensee/Montag A1"
@@ -1018,85 +1033,5 @@
     "ts": "2026-11-09T18:31:00.994Z",
     "name": "Unbekannt",
     "text": "Wartung eingetragen: KW46/Guido Köhler/Mittwoch A1"
-  },
-  {
-    "ts": "2026-11-09T07:02:22.800Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Wartung – Apfelstädt – AWO Seniorenresidenz \"Drei Gleichen\" von KW47/Christian Berthold/Mittwoch A1 → KW47/Stephan Übensee/Mittwoch A1"
-  },
-  {
-    "ts": "2026-11-09T07:02:20.951Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Apfelstädt AWO Meldertausch von KW47/Christian Berthold/Dienstag A1 → KW47/Stephan Übensee/Dienstag A1"
-  },
-  {
-    "ts": "2026-11-09T07:02:19.229Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Apfelstädt AWO Meldertausch von KW47/Christian Berthold/Montag A1 → KW47/Stephan Übensee/Montag A1"
-  },
-  {
-    "ts": "2026-11-09T07:02:15.998Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW47/Christian Berthold/Mittwoch A1: Wartung – Apfelstädt – AWO Seniorenresidenz \"Drei Gleichen\""
-  },
-  {
-    "ts": "2026-11-09T07:02:10.534Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW47/Christian Berthold/Mittwoch A1"
-  },
-  {
-    "ts": "2026-11-09T07:02:06.646Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW47/Christian Berthold/Dienstag A1: Apfelstädt AWO Meldertausch"
-  },
-  {
-    "ts": "2026-11-09T07:01:58.775Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW47/Christian Berthold/Montag A1: Apfelstädt AWO Meldertausch"
-  },
-  {
-    "ts": "2026-11-09T07:00:50.402Z",
-    "name": "Holger Krieg",
-    "text": "Freitext eingetragen: KW50/Holger Krieg/Montag A2: Umbau Wählgerät Am Schloss 11 Uhr"
-  },
-  {
-    "ts": "2026-11-09T07:00:11.805Z",
-    "name": "Holger Krieg",
-    "text": "Eingetragen: KW50/Holger Krieg/Montag A1: Wartung – Schmalkalden – Evangelische Seniorenpflege \" Am Schloß \""
-  },
-  {
-    "ts": "2026-11-09T06:59:44.467Z",
-    "name": "Holger Krieg",
-    "text": "Wartung eingetragen: KW50/Holger Krieg/Montag A1"
-  },
-  {
-    "ts": "2026-11-09T06:55:35.463Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW46/Anakin Schäfner/Dienstag A1: Wartung – Geisa – Schlossresidenz"
-  },
-  {
-    "ts": "2026-11-09T06:55:28.413Z",
-    "name": "Unbekannt",
-    "text": "Wartung eingetragen: KW46/Anakin Schäfner/Dienstag A1"
-  },
-  {
-    "ts": "2026-11-09T06:55:24.382Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW46/Anakin Schäfner/Montag A2: Wartung – Schmalkalden – Staatliche Grundschule"
-  },
-  {
-    "ts": "2026-11-09T06:54:34.914Z",
-    "name": "Unbekannt",
-    "text": "Wartung eingetragen: KW46/Anakin Schäfner/Montag A2"
-  },
-  {
-    "ts": "2026-11-09T06:54:30.951Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW46/Anakin Schäfner/Montag A1: Wartung – Schmalkalden – Philipp - Melanchthon - Gymnasium"
-  },
-  {
-    "ts": "2026-11-09T06:54:06.982Z",
-    "name": "Unbekannt",
-    "text": "Wartung eingetragen: KW46/Anakin Schäfner/Montag A1"
   }
 ]
