@@ -1,5 +1,45 @@
 [
   {
+    "ts": "2026-11-26T06:38:23.376Z",
+    "name": "Stephan Übensee",
+    "text": "Freitext eingetragen: KW49/Stephan Übensee/Donnerstag A1: Bad Langsalza"
+  },
+  {
+    "ts": "2026-11-26T06:38:14.670Z",
+    "name": "Stephan Übensee",
+    "text": "Freitext eingetragen: KW49/Stephan Übensee/Mittwoch A1: Apfelstädt Pflegeheim"
+  },
+  {
+    "ts": "2026-11-26T06:37:54.159Z",
+    "name": "Stephan Übensee",
+    "text": "Eingetragen: KW49/Holger Krieg/Dienstag A1: Wartung – Zwenkau – Alloheim Senioren-Residenz \"Zwenkau\""
+  },
+  {
+    "ts": "2026-11-26T06:37:49.341Z",
+    "name": "Stephan Übensee",
+    "text": "Wartung eingetragen: KW49/Holger Krieg/Dienstag A1"
+  },
+  {
+    "ts": "2026-11-26T06:37:44.617Z",
+    "name": "Stephan Übensee",
+    "text": "Eingetragen: KW49/Anakin Schäfner/Dienstag A1: Wartung – Zwenkau – Alloheim Senioren-Residenz \"Zwenkau\""
+  },
+  {
+    "ts": "2026-11-26T06:37:32.853Z",
+    "name": "Stephan Übensee",
+    "text": "Wartung eingetragen: KW49/Anakin Schäfner/Dienstag A1"
+  },
+  {
+    "ts": "2026-11-26T06:37:18.070Z",
+    "name": "Stephan Übensee",
+    "text": "Eingetragen: KW49/Stephan Übensee/Dienstag A1: Wartung – Zwenkau – Alloheim Senioren-Residenz \"Zwenkau\""
+  },
+  {
+    "ts": "2026-11-26T06:37:06.707Z",
+    "name": "Stephan Übensee",
+    "text": "Wartung eingetragen: KW49/Stephan Übensee/Dienstag A1"
+  },
+  {
     "ts": "2026-11-23T13:42:30.513Z",
     "name": "Unbekannt",
     "text": "Eingetragen: KW48/Guido Köhler/Dienstag A1: Wartung – Hildburghausen – Gesundheitszentrum"
@@ -928,165 +968,5 @@
     "ts": "2026-11-12T13:59:27.455Z",
     "name": "Unbekannt",
     "text": "Wartung eingetragen: KW47/Guido Köhler/Montag A1"
-  },
-  {
-    "ts": "2026-11-11T08:38:58.123Z",
-    "name": "Holger Krieg",
-    "text": "Kopiert: Wartung – Hausen-Roth – Rhön-Park-Hotel von KW46/Holger Krieg/Dienstag A1 → KW46/Holger Krieg/Mittwoch A1"
-  },
-  {
-    "ts": "2026-11-11T08:38:44.971Z",
-    "name": "Holger Krieg",
-    "text": "Geloescht: KW46/Holger Krieg/Mittwoch A1"
-  },
-  {
-    "ts": "2026-11-11T08:38:37.420Z",
-    "name": "Holger Krieg",
-    "text": "Termin-Bestätigung zurückgenommen: schwach-2026-KW46/Holger Krieg/2/0"
-  },
-  {
-    "ts": "2026-11-11T08:38:29.852Z",
-    "name": "Holger Krieg",
-    "text": "Termin bestätigt: schwach-2026-KW46/Holger Krieg/2/0"
-  },
-  {
-    "ts": "2026-11-11T08:38:27.534Z",
-    "name": "Holger Krieg",
-    "text": "Kopiert: Wartung – Heldburg – Regelschule von KW46/Holger Krieg/Mittwoch A1 → KW46/Holger Krieg/Mittwoch A3"
-  },
-  {
-    "ts": "2026-11-11T08:37:35.977Z",
-    "name": "Holger Krieg",
-    "text": "Eingetragen: KW46/Holger Krieg/Mittwoch A1: Wartung – Heldburg – Regelschule"
-  },
-  {
-    "ts": "2026-11-11T08:37:22.517Z",
-    "name": "Holger Krieg",
-    "text": "Wartung eingetragen: KW46/Holger Krieg/Mittwoch A1"
-  },
-  {
-    "ts": "2026-11-11T06:28:25.344Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Wartung – Ohrdruf – AWO Seniorenpark \"an den drei Teichen\" HWG von KW47/Anakin Schäfner/Donnerstag A2 → KW47/Christian Berthold/Donnerstag A2"
-  },
-  {
-    "ts": "2026-11-11T06:28:23.305Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Wartung – Ohrdruf – AWO Seniorenpark \"an den drei Teichen\" APH von KW47/Anakin Schäfner/Donnerstag A1 → KW47/Christian Berthold/Donnerstag A1"
-  },
-  {
-    "ts": "2026-11-11T06:28:20.478Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW47/Anakin Schäfner/Donnerstag A2: Wartung – Ohrdruf – AWO Seniorenpark \"an den drei Teichen\" HWG"
-  },
-  {
-    "ts": "2026-11-11T06:28:13.953Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW47/Anakin Schäfner/Donnerstag A2"
-  },
-  {
-    "ts": "2026-11-11T06:28:10.884Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW47/Anakin Schäfner/Donnerstag A1: Wartung – Ohrdruf – AWO Seniorenpark \"an den drei Teichen\" APH"
-  },
-  {
-    "ts": "2026-11-11T06:28:04.762Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW47/Anakin Schäfner/Donnerstag A1"
-  },
-  {
-    "ts": "2026-11-11T06:26:56.178Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW46/Anakin Schäfner/Donnerstag A2: Wartung – Bad Sulza – PflegeheiDRK Seniorenpflegeheim"
-  },
-  {
-    "ts": "2026-11-11T06:26:43.987Z",
-    "name": "Unbekannt",
-    "text": "Wartung eingetragen: KW46/Anakin Schäfner/Donnerstag A2"
-  },
-  {
-    "ts": "2026-11-11T06:14:09.855Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Metzels Pension Austausch BMA von KW46/Christian Berthold/Dienstag A1 → KW46/Christian Berthold/Mittwoch A1"
-  },
-  {
-    "ts": "2026-11-11T06:14:06.484Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: Wartung – Waltershausen – AWO Pflegeheim \"Inselsbergblick\" von KW46/Christian Berthold/Mittwoch A1 → KW46/Christian Berthold/Mittwoch A2"
-  },
-  {
-    "ts": "2026-11-11T06:14:04.023Z",
-    "name": "Christian Berthold",
-    "text": "Verschoben: Wartung – Friedrichroda – AWO Pflegeheim \"Am Körnberg\" von KW46/Christian Berthold/Mittwoch A2 → KW46/Christian Berthold/Mittwoch A3"
-  },
-  {
-    "ts": "2026-11-11T06:06:24.476Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW47/Christian Berthold/Mittwoch A2: Wartung – Oldisleben – AWO Betreutes Wohnen"
-  },
-  {
-    "ts": "2026-11-11T06:06:17.647Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW47/Christian Berthold/Mittwoch A2"
-  },
-  {
-    "ts": "2026-11-11T06:06:10.851Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW47/Stephan Übensee/Mittwoch A1"
-  },
-  {
-    "ts": "2026-11-11T06:05:54.954Z",
-    "name": "Christian Berthold",
-    "text": "Kopiert: Wartung – Queinfeld – Deko Messezentrum von KW47/Anakin Schäfner/Mittwoch A1 → KW47/Holger Krieg/Mittwoch A1"
-  },
-  {
-    "ts": "2026-11-10T12:18:20.875Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW47/Anakin Schäfner/Mittwoch A1: Wartung – Queinfeld – Deko Messezentrum"
-  },
-  {
-    "ts": "2026-11-10T12:18:15.852Z",
-    "name": "Unbekannt",
-    "text": "Wartung eingetragen: KW47/Anakin Schäfner/Mittwoch A1"
-  },
-  {
-    "ts": "2026-11-10T12:11:37.776Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW47/Anakin Schäfner/Mittwoch A1: Wartung – Queinfeld – Deko Messezentrum"
-  },
-  {
-    "ts": "2026-11-10T12:11:30.618Z",
-    "name": "Unbekannt",
-    "text": "Wartung eingetragen: KW47/Anakin Schäfner/Mittwoch A1"
-  },
-  {
-    "ts": "2026-11-10T12:08:08.594Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW46/Anakin Schäfner/Freitag A2: Wartung – Frankenheim – Grundschule"
-  },
-  {
-    "ts": "2026-11-10T12:08:03.222Z",
-    "name": "Unbekannt",
-    "text": "Wartung eingetragen: KW46/Anakin Schäfner/Freitag A2"
-  },
-  {
-    "ts": "2026-11-10T12:07:50.641Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW46/Anakin Schäfner/Freitag A2: Wartung – Frankenheim – Grundschule"
-  },
-  {
-    "ts": "2026-11-10T12:07:40.263Z",
-    "name": "Unbekannt",
-    "text": "Wartung eingetragen: KW46/Anakin Schäfner/Freitag A2"
-  },
-  {
-    "ts": "2026-11-09T18:31:13.021Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW46/Guido Köhler/Mittwoch A1: Wartung – Schönbrunn – AWO Seniorenpflegeheim \"Herbstsonne\""
-  },
-  {
-    "ts": "2026-11-09T18:31:00.994Z",
-    "name": "Unbekannt",
-    "text": "Wartung eingetragen: KW46/Guido Köhler/Mittwoch A1"
   }
 ]
