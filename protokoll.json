@@ -1,5 +1,15 @@
 [
   {
+    "ts": "2026-11-27T09:15:31.785Z",
+    "name": "Unbekannt",
+    "text": "Eingetragen: KW49/Guido Köhler/Montag A1: Wartung – Kleinschmalkalden – Service-Wohnen \"Alte Schule\""
+  },
+  {
+    "ts": "2026-11-27T09:15:24.047Z",
+    "name": "Unbekannt",
+    "text": "Wartung eingetragen: KW49/Guido Köhler/Montag A1"
+  },
+  {
     "ts": "2026-11-26T07:10:23.325Z",
     "name": "Unbekannt",
     "text": "Eingetragen: KW49/Ralf Schäufele/Freitag A1: Blutlabor"
@@ -1018,40 +1028,5 @@
     "ts": "2026-11-16T06:15:22.668Z",
     "name": "Unbekannt",
     "text": "Geloescht: KW47/Anakin Schäfner/Donnerstag A2"
-  },
-  {
-    "ts": "2026-11-13T08:08:22.035Z",
-    "name": "Christian Berthold",
-    "text": "Eingetragen: KW46/Christian Berthold/Freitag A2: Wartung – Breitungen – Regelschule"
-  },
-  {
-    "ts": "2026-11-13T08:08:15.568Z",
-    "name": "Christian Berthold",
-    "text": "Wartung eingetragen: KW46/Christian Berthold/Freitag A2"
-  },
-  {
-    "ts": "2026-11-13T08:08:06.074Z",
-    "name": "Christian Berthold",
-    "text": "Geloescht: KW46/Christian Berthold/Freitag A2"
-  },
-  {
-    "ts": "2026-11-12T14:00:48.565Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW47/Guido Köhler/Dienstag A1: Wartung – Zella-Mehlis – Mehrzweckhalle an der Schillerschule"
-  },
-  {
-    "ts": "2026-11-12T14:00:22.658Z",
-    "name": "Unbekannt",
-    "text": "Wartung eingetragen: KW47/Guido Köhler/Dienstag A1"
-  },
-  {
-    "ts": "2026-11-12T13:59:38.157Z",
-    "name": "Unbekannt",
-    "text": "Eingetragen: KW47/Guido Köhler/Montag A1: Wartung – Steinbach Hallenberg – Haseltalhalle"
-  },
-  {
-    "ts": "2026-11-12T13:59:27.455Z",
-    "name": "Unbekannt",
-    "text": "Wartung eingetragen: KW47/Guido Köhler/Montag A1"
   }
 ]
